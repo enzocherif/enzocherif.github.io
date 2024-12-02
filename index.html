@@ -128,6 +128,75 @@
                 </li>
             </ul>
         </section>
+        <section id="stage-thailande">
+            <h2>Stage en Thaïlande - TFII, Bangkok</h2>
+            <p>
+                Lors de mon stage au Thai-French Innovation Institute (TFII), j'ai travaillé sur la gestion énergétique de véhicules électriques solaires. 
+                Voici un aperçu de mes travaux :
+            </p>
+            <div class="accordion">
+                <button class="accordion-button">Rapport de stage (Français et Anglais)</button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="rapport_stage_fr.pdf" target="_blank" download>Rapport en Français</a></li>
+                        <li><a href="rapport_stage_en.pdf" target="_blank" download>Rapport en Anglais</a></li>
+                    </ul>
+                </div>
+        
+                <button class="accordion-button">Travaux Pratiques (TP) - en Anglais</button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="TP1.pdf" target="_blank" download>TP 1 : Introduction au transducteur</a></li>
+                        <li><a href="TP2.pdf" target="_blank" download>TP 2 : Mesure avec transducteurs</a></li>
+                        <li><a href="TP3.pdf" target="_blank" download>TP 3 : Boost Converters</a></li>
+                        <!-- Ajoutez tous les TP ici -->
+                        <li><a href="TP11.pdf" target="_blank" download>TP 11 : Résumé des expériences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .accordion-button {
+                background-color: #0078d7;
+                color: white;
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 16px;
+                transition: 0.4s;
+                width: 100%;
+            }
+            .accordion-button:hover {
+                background-color: #005bb5;
+            }
+            .accordion-content {
+                display: none;
+                padding: 10px 20px;
+                border: 1px solid #ccc;
+                background-color: #f4f4f9;
+            }
+            .accordion-content ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .accordion-content ul li {
+                margin-bottom: 10px;
+            }
+        </style>
+        
+        <script>
+            const buttons = document.querySelectorAll(".accordion-button");
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const content = button.nextElementSibling;
+                    content.style.display = content.style.display === "block" ? "none" : "block";
+                });
+            });
+        </script>
+
         <section id="competences">
             <h2>Compétences</h2>
             <ul>
