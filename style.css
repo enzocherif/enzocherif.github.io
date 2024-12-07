@@ -274,6 +274,127 @@
         }
     }
 
+	/* Section Timeline */
+	#timeline {
+		margin: 40px auto;
+		padding: 20px;
+		max-width: 100%; /* S'étend sur toute la largeur disponible */
+		background-color: #f9f9f9;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s, color 0.3s;
+	}
+
+	#timeline h2 {
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 24px;
+		color: #0078d7;
+	}
+
+	.timeline-container {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+
+	.timeline-item {
+		margin: 20px 0;
+		padding: 15px 80px 15px 40px; /* Padding ajusté pour inclure les logos */
+		position: relative;
+		background-color: white;
+		border-radius: 5px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		border-left: 4px solid #0078d7; /* Ligne bleue à gauche */
+		transition: background-color 0.3s, transform 0.3s;
+	}
+
+	.timeline-item:hover {
+		transform: scale(1.02); /* Légère mise en avant au survol */
+		background-color: #e6f3ff; /* Fond légèrement bleu */
+	}
+
+	
+
+	.timeline-item:last-child::before {
+		bottom: 50%; /* Garde une bonne proportion pour le dernier élément */
+	}
+
+	.timeline-content {
+		text-align: left;
+	}
+
+	.timeline-content h3 {
+		font-size: 18px;
+		margin-bottom: 5px;
+		color: #333;
+	}
+
+	.timeline-content p {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.6;
+		color: #555;
+	}
+
+	.timeline-date {
+		display: block;
+		margin-top: 10px;
+		font-size: 12px;
+		color: #777;
+		font-style: italic;
+	}
+
+	/* Logos */
+	.timeline-logo {
+		position: absolute;
+		right: 15px; /* Aligne à droite */
+		top: 50%;
+		transform: translateY(-50%);
+		width: 50px; /* Taille compacte */
+		height: 50px;
+		border-radius: 5px;
+		object-fit: contain; /* Garde les proportions */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Mode sombre */
+	.dark-mode #timeline {
+		background-color: #222;
+		color: white;
+	}
+
+	.dark-mode .timeline-item {
+		background-color: #333;
+		color: white;
+	}
+
+	.dark-mode .timeline-item:hover {
+		background-color: #444; /* Fond plus clair au survol */
+	}
+
+	.dark-mode .timeline-item::before {
+		background-color: #4da6ff;
+	}
+
+	.dark-mode .timeline-logo {
+		box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+	}
+
+	.dark-mode .timeline-content h3 {
+		color: #4da6ff;
+	}
+
+	.dark-mode .timeline-content p {
+		color: #ddd;
+	}
+
+	.dark-mode .timeline-date {
+		color: #aaaaaa;
+	}
+
+
+
     /* Media Queries */
     @media (max-width: 768px) {
         .about-container {
