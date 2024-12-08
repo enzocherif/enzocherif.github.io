@@ -393,6 +393,161 @@
 		color: #aaaaaa;
 	}
 
+	/* Section Compétences */
+	#competences {
+		margin: 40px auto;
+		padding: 20px;
+		max-width: 900px;
+	}
+
+	#competences h2 {
+		font-size: 24px;
+		color: #0078d7;
+		margin-bottom: 20px;
+		text-align: left;
+	}
+
+	/* Terminal Styles */
+	/* Section terminal */
+	.terminal {
+		background-color: #121212;
+		color: #33ff33;
+		font-family: "Courier New", Courier, monospace;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+		overflow: hidden;
+		width: 100%; /* Prend toute la largeur du conteneur */
+		max-width: 900px; /* Limite la largeur maximale */
+		margin: 0 auto; /* Centre le terminal */
+		box-sizing: border-box; /* Inclut le padding dans la largeur */
+	}
+
+	/* Header du terminal avec les boutons colorés */
+	.terminal-header {
+		background-color: #333;
+		padding: 10px;
+		display: flex;
+		gap: 8px;
+	}
+
+	.terminal-dot {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		display: inline-block;
+	}
+
+	.terminal-dot.red {
+		background-color: #ff5c5c;
+	}
+
+	.terminal-dot.yellow {
+		background-color: #ffbd4c;
+	}
+
+	.terminal-dot.green {
+		background-color: #29cc52;
+	}
+
+	/* Corps du terminal */
+	.terminal-body {
+		padding: 20px;
+		min-height: 200px; /* Assure une hauteur minimale pour éviter les changements de taille */
+		max-height: 300px; /* Limite la hauteur pour un affichage propre */
+		overflow-y: auto; /* Ajoute un défilement vertical si le contenu dépasse */
+	}
+	.terminal-body pre#terminal-content {
+		white-space: pre-wrap; /* Permet les retours à la ligne automatiques */
+		word-wrap: break-word; /* Coupe les mots si nécessaire */
+		text-align: left; /* Texte aligné à gauche */
+		margin: 0; /* Supprime les marges par défaut */
+		padding: 10px; /* Espace intérieur */
+		font-family: 'Courier New', Courier, monospace; /* Apparence terminal */
+		line-height: 1.5; /* Espacement entre les lignes */
+		font-size: 16px;
+		color: #33ff33; /* Texte vert */
+	}
+
+
+	/* Mode sombre */
+	.dark-mode .terminal {
+		background-color: #222;
+		color: #4da6ff;
+	}
+
+	.dark-mode .terminal-header {
+		background-color: #444;
+	}
+
+	.dark-mode .terminal-dot.red {
+		background-color: #ff7f7f;
+	}
+
+	.dark-mode .terminal-dot.yellow {
+		background-color: #ffd74c;
+	}
+
+	.dark-mode .terminal-dot.green {
+		background-color: #4ee54e;
+	}
+
+	.cards-container {
+		display: grid; /* Utilisation de CSS Grid */
+		display: grid; /* Utilisation de CSS Grid */
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Définit le nombre de colonnes en fonction de l'espace disponible */
+		gap: 20px; /* Espacement entre les cartes */
+		justify-items: center; /* Centre les cartes dans leur colonne */
+	}
+
+	.card {
+		background-color: #f9f9f9;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		text-align: center;
+		width: 220px;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.card:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.card i {
+		font-size: 40px;
+		margin-bottom: 10px;
+		color: #0078d7;
+	}
+	.tool-logo {
+    width: 80px; /* Ajustez la taille pour un affichage optimal */
+    height: auto;
+    margin-bottom: 10px; /* Ajoute un peu d'espace entre l'image et le texte */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	}
+	
+	/* Mode sombre */
+	.dark-mode .card {
+		background-color: #333;
+		color: white;
+		box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+	}
+
+	.dark-mode .card i {
+		color: #4da6ff;
+	}
+
+	.dark-mode .card p {
+		color: #ccc;
+	}
+
+
+
+
+
+
 
 
     /* Media Queries */

@@ -201,13 +201,122 @@
 
 
         <section id="competences">
-            <h2>Compétences</h2>
-            <ul>
-                <li><i class="fas fa-code"></i> Programmation : Python, C++, MATLAB, Java, SQL, HTML.</li>
-                <li><i class="fas fa-tools"></i> Outils : MATLAB Simulink, Git, LaTeX.</li>
-                <li><i class="fas fa-robot"></i> Domaines : Robotique, mécatronique, systèmes embarqués.</li>
-            </ul>
-        </section>
+			<h2>Compétences</h2>
+			<div class="terminal">
+				<div class="terminal-header">
+					<span class="terminal-dot red"></span>
+					<span class="terminal-dot yellow"></span>
+					<span class="terminal-dot green"></span>
+				</div>
+				<div class="terminal-body">
+					<pre id="terminal-content">.</pre>
+				</div>
+			</div>
+		</section>
+
+		<section id="tools">
+			<h2>Outils</h2>
+			<div class="cards-container">
+				<!-- MATLAB Simulink -->
+				<div class="card">
+					<img src="images/Simulink_Logo.png" alt="MATLAB Simulink Logo" class="tool-logo">
+					<h3>MATLAB Simulink</h3>
+					<p>Modélisation et simulation avancées</p>
+				</div>
+				<!-- Git -->
+				<div class="card">
+					<i class="fas fa-code-branch"></i>
+					<h3>Git</h3>
+					<p>Gestion de version pour projets collaboratifs</p>
+				</div>
+				<!-- LaTeX -->
+				<div class="card">
+					<i class="fas fa-file-alt"></i>
+					<h3>LaTeX</h3>
+					<p>Création de documents techniques professionnels</p>
+				</div>
+				<!-- Linux -->
+				<div class="card">
+					<i class="fab fa-linux"></i>
+					<h3>Linux</h3>
+					<p>Administration système et environnement de développement</p>
+				</div>
+				<!-- SolidWorks -->
+				<div class="card">
+					<i class="fas fa-cube"></i>
+					<h3>SolidWorks</h3>
+					<p>Modélisation 3D et simulation pour le design produit</p>
+				</div>
+				<!-- Catia -->
+				<div class="card">
+					<img src="images/catia-logo.png" alt="Catia Logo" class="tool-logo">
+					<h3>Catia</h3>
+					<p>Conception et modélisation de systèmes mécaniques</p>
+				</div>
+				<!-- LabVIEW -->
+				<div class="card">
+					<i class="fas fa-vial"></i>
+					<h3>LabVIEW</h3>
+					<p>Conception d'applications de mesure et d'automatisation</p>
+				</div>
+				<!-- Python -->
+				<div class="card">
+					<i class="fab fa-python"></i>
+					<h3>Python</h3>
+					<p>Programmation pour l'analyse de données et les algorithmes</p>
+				</div>
+				<!-- C/C++ -->
+				<div class="card">
+					<i class="fas fa-code"></i>
+					<h3>C/C++</h3>
+					<p>Programmation embarquée et développement de logiciels</p>
+				</div>
+				<!-- Excel -->
+				<div class="card">
+					<i class="fas fa-table"></i>
+					<h3>Excel</h3>
+					<p>Analyse de données et automatisation de tableaux</p>
+				</div>
+				<!-- ROS -->
+				<div class="card">
+					<i class="fas fa-robot"></i>
+					<h3>ROS (Robot Operating System)</h3>
+					<p>Contrôle et coordination de robots</p>
+				</div>
+				<!-- Qualisys -->
+				<div class="card">
+					<i class="fas fa-project-diagram"></i>
+					<h3>Qualisys</h3>
+					<p>Analyse de mouvements pour systèmes mécatroniques</p>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="domains">
+			<h2>Domaines</h2>
+			<div class="cards-container">
+				<div class="card">
+					<i class="fas fa-robot"></i>
+					<h3>Robotique</h3>
+					<p>Systèmes autonomes et contrôle</p>
+				</div>
+				<div class="card">
+					<i class="fas fa-cogs"></i>
+					<h3>Mécatronique</h3>
+					<p>Intégration mécanique et électronique</p>
+				</div>
+				<div class="card">
+					<i class="fas fa-microchip"></i>
+					<h3>Systèmes embarqués</h3>
+					<p>Conception matérielle et logicielle</p>
+				</div>
+			</div>
+		</section>
+
+
+
+
         <section id="contact">
             <h2>Contact</h2>
             <p><i class="fas fa-envelope"></i> Email : enzocherife@gmail.com</p>
@@ -238,6 +347,45 @@
                 // Ouvre le client mail
                 window.location.href = mailtoLink;
             }
+				document.addEventListener("DOMContentLoaded", () => {
+				const terminalContent = document.getElementById("terminal-content");
+				const commands = [
+					"..................Compétences en Programmation..................",
+					"Python - Langage polyvalent utilisé dans divers domaine data, mathématique",
+					"MATLAB - Simulation et modélisation avancées",
+					"C - Pour des applications sur carte électronique",
+					"C# - Pour faire des interfaces graphique : IHM",
+					"C++ - Pour des applications système performantes",
+					"Java - Développement backend et mobile",
+					"SQL - Gestion de bases de données relationnelles",
+					"HTML - Structuration des pages web"
+				];
+
+				let commandIndex = 0;
+				let charIndex = 0;
+
+				const typeLetter = () => {
+					if (commandIndex < commands.length) {
+						const currentCommand = commands[commandIndex];
+						if (charIndex < currentCommand.length) {
+							terminalContent.textContent += currentCommand[charIndex]; // Ajoute une lettre
+							charIndex++;
+							setTimeout(typeLetter, 50); // Délai entre chaque lettre
+						} else {
+							terminalContent.textContent += "\n"; // Ajoute un saut de ligne
+							charIndex = 0;
+							commandIndex++;
+							setTimeout(typeLetter, 500); // Pause avant la commande suivante
+						}
+					}
+				};
+
+				setTimeout(typeLetter, 1000);
+			});
+
+
+
+
         </script>        
     </main>
     <footer>
