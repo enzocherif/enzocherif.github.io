@@ -546,6 +546,111 @@
 
 
 
+    /* Styles pour la section Contact */
+
+    #contact {
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        text-align: center;
+    }
+
+    #contact h2 {
+        font-size: 28px;
+        color: #0078d7;
+        margin-bottom: 20px;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .contact-info {
+        flex: 1;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    .contact-info p {
+        margin-bottom: 10px;
+    }
+
+    .contact-info a {
+        color: #0078d7;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    .contact-action {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mailto-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #0078d7;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .mailto-button:hover {
+        background-color: #005bb5;
+        transform: scale(1.05);
+    }
+	/* Mode sombre */
+    .dark-mode #contact {
+        background-color: #222;
+        color: white;
+    }
+
+    .dark-mode #contact h2 {
+        color: #4da6ff;
+    }
+
+    .dark-mode .contact-info a {
+        color: #4da6ff;
+    }
+
+    .dark-mode .mailto-button {
+        background-color: #4da6ff;
+        color: black;
+    }
+
+    .dark-mode .mailto-button:hover {
+        background-color: #0078d7;
+        color: white;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+    }
+
 
 
 
