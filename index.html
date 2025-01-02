@@ -10,16 +10,23 @@
 
 <body>
     <header>
-        <h1>Portfolio - Enzo CHERIF</h1>
-        <p>Bienvenue sur mon portfolio. Découvrez mes projets et expériences.</p>
-    </header>
+		<h1 id="header-title">Portfolio - Enzo CHERIF</h1>
+		<p id="header-subtitle">Bienvenue sur mon portfolio. Découvrez mes projets et expériences.</p>
+		<div class="language-switcher">
+			<button id="lang-fr" class="lang-btn active">Français</button>
+			<button id="lang-en" class="lang-btn">English</button>
+		</div>
+	</header>
+
     <nav>
-        <a href="#projets">Projets</a>
-		<a href="#stage-thailande">Stages</a>
-        <a href="#competences">Compétences</a>
-        <a href="#contact">Contact</a>
-    </nav>
+		<a href="#projets" id="nav-projects">Projets</a>
+		<a href="#stage-thailande" id="nav-stages">Stages</a>
+		<a href="#competences" id="nav-skills">Compétences</a>
+		<a href="#contact" id="nav-contact">Contact</a>
+	</nav>
     <button id="toggle-theme">Mode sombre</button>
+	
+
     <main>
 		<section id="about-me">
 			<h2>À propos de moi</h2>
@@ -414,6 +421,69 @@
 				setTimeout(typeLetter, 1000);
 			});
 
+
+
+			document.addEventListener("DOMContentLoaded", () => {
+				const translations = {
+					fr: {
+						"header-title": "Portfolio - Enzo CHERIF",
+						"header-subtitle": "Bienvenue sur mon portfolio. Découvrez mes projets et expériences.",
+						"nav-projects": "Projets",
+						"nav-stages": "Stages",
+						"nav-skills": "Compétences",
+						"nav-contact": "Contact",
+						"about-title": "À propos de moi",
+						"about-description": `Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>. Ce site est une vitrine de mes projets et compétences.`,
+						"projects-title": "Projets",
+						"project-1-title": `<strong>Dynamique des Véhicules :</strong> Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé.`,
+						"project-1-description": `Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS et EBD.`,
+						"contact-title": "Contact",
+						"contact-email": `Email : <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>`,
+						"contact-linkedin": `LinkedIn : <a href="https://linkedin.com/in/enzocherif" target="_blank">linkedin.com/in/enzocherif</a>`,
+						"contact-button": "Envoyer un email"
+					},
+					en: {
+						"header-title": "Portfolio - Enzo CHERIF",
+						"header-subtitle": "Welcome to my portfolio. Explore my projects and experiences.",
+						"nav-projects": "Projects",
+						"nav-stages": "Internships",
+						"nav-skills": "Skills",
+						"nav-contact": "Contact",
+						"about-title": "About Me",
+						"about-description": `Hello, I am <strong>Enzo CHERIF</strong>, an engineering student specializing in <strong>robotics</strong>, <strong>mechatronics</strong>, and <strong>embedded systems</strong>. This site showcases my projects and skills.`,
+						"projects-title": "Projects",
+						"project-1-title": `<strong>Vehicle Dynamics:</strong> Modeling and Simulation in Matlab/Simulink of an Advanced Braking System.`,
+						"project-1-description": `This project explores the modeling of a braking system, focusing on ABS and EBD technologies.`,
+						"contact-title": "Contact",
+						"contact-email": `Email : <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>`,
+						"contact-linkedin": `LinkedIn : <a href="https://linkedin.com/in/enzocherif" target="_blank">linkedin.com/in/enzocherif</a>`,
+						"contact-button": "Send an email"
+					}
+				};
+
+				const langBtns = document.querySelectorAll(".lang-btn");
+
+				const translate = (lang) => {
+					Object.keys(translations[lang]).forEach((id) => {
+						const element = document.getElementById(id);
+						if (element) {
+							element.innerHTML = translations[lang][id];
+						}
+					});
+				};
+
+				langBtns.forEach((btn) => {
+					btn.addEventListener("click", () => {
+						const lang = btn.id === "lang-fr" ? "fr" : "en";
+						translate(lang);
+						langBtns.forEach((b) => b.classList.remove("active"));
+						btn.classList.add("active");
+					});
+				});
+
+				// Traduire par défaut en français
+				translate("fr");
+			});
 
 
 

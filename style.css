@@ -93,6 +93,38 @@
         background-color: #005bb5;
         transform: scale(1.05);
     }
+	
+	
+	/* Selection de la lanque */
+	.language-switcher {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 10px;
+		gap: 10px;
+	}
+
+	.lang-btn {
+		background-color: #0078d7;
+		color: white;
+		border: none;
+		padding: 5px 10px;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 14px;
+		transition: background-color 0.3s ease;
+	}
+
+	.lang-btn:hover {
+		background-color: #005bb5;
+	}
+
+	.lang-btn.active {
+		font-weight: bold;
+		background-color: #005bb5;
+	}
+
+
+	
 
     /* Links */
     /* Conteneur pour centrer les boutons */
