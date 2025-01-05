@@ -29,13 +29,13 @@
 
     <main>
 		<section id="about-me">
-			<h2>À propos de moi</h2>
+			<h2 id="about-title">À propos de moi</h2>
 			<div class="about-container">
 				<div class="about-photo">
 					<img src="images/Portrait.jpeg" alt="Enzo CHERIF">
 				</div>
 				<div class="about-text">
-					<p>
+					<p id="about-description">
 						Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie en <strong>double diplôme</strong> à mon école d'ingénieur, <em>SeaTech INP Toulon</em> 
 						et à l'<em>Université de Toulon</em>, où je prépare un Master <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
 						Spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>, j'ai mené des projets 
@@ -43,39 +43,36 @@
 						mon parcours et mes compétences. N'hésitez pas à explorer et à me contacter !
 					</p>
 				</div>
-
 			</div>
 		</section>
 		
 
         <section id="projets">
-            <h2>Projets</h2>
-            <ul>
-                <li>
-                    <strong>Dynamique des Véhicules :</strong> Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé : ABS et EBD
-                    <p>Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS (anti-blocage des roues) et EBD (répartition électronique de freinage). À travers des simulations et analyses détaillées, il vise à améliorer la sécurité et l'efficacité du freinage dans divers scénarios, tout en intégrant des solutions innovantes pour optimiser la stabilité et réduire la distance d'arrêt.</p>
-                    <img src="images/Vue_globale_ebd.png" alt="Dynamique des Véhicules">
+			<h2 id="projects-title">Projets</h2>
+			<ul>
+				<li>
+					<strong id="project1-title">Dynamique des Véhicules :</strong> Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé : ABS et EBD
+					<p id="project1-description">Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS (anti-blocage des roues) et EBD (répartition électronique de freinage). À travers des simulations et analyses détaillées, il vise à améliorer la sécurité et l'efficacité du freinage dans divers scénarios, tout en intégrant des solutions innovantes pour optimiser la stabilité et réduire la distance d'arrêt.</p>
+					<img src="images/Vue_globale_ebd.png" alt="Dynamique des Véhicules">
 					<div class="download-container">
 						<a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf" class="download-link" target="_blank" download>
 							<i class="fas fa-download"></i> Télécharger le rapport
 						</a>
 					</div>
-                </li>
-                <li>
-                    <strong>Dynamique des Véhicules :</strong> Développement d'un simulateur MATLAB pour étudier la stabilité et le comportement dynamique des véhicules terrestres.
-                    <p>Ce projet comprend la modélisation cinématique et dynamique de véhicules tels qu'un quad MF400H et une Mercedes Classe S, l'étude de leur stabilité, et la création d'une interface graphique interactive pour la simulation.</p>
-                    <img src="images/app.png" alt="Dynamique des Véhicules">
-                    <div class="download-container">
+				</li>
+				<li>
+					<strong id="project2-title">Dynamique des Véhicules :</strong> Développement d'un simulateur MATLAB pour étudier la stabilité et le comportement dynamique des véhicules terrestres.
+					<p id="project2-description">Ce projet comprend la modélisation cinématique et dynamique de véhicules tels qu'un quad MF400H et une Mercedes Classe S, l'étude de leur stabilité, et la création d'une interface graphique interactive pour la simulation.</p>
+					<img src="images/app.png" alt="Dynamique des Véhicules">
+					<div class="download-container">
 						<a href="rapports/CR_BERTA_CHERIF (7).pdf" class="download-link" target="_blank" download>
 							<i class="fas fa-download"></i> Télécharger le rapport
 						</a>
 					</div>
-                </li>
+				</li>
 				<li>
-					<strong>Traitement d'Image :</strong> Analyse en niveau de gris pour l'identification d'objets.
-					<p>
-						Ce projet illustre l'utilisation d'algorithmes de traitement d'image pour analyser et segmenter des objets à partir d'images en niveaux de gris. L'objectif était d'automatiser l'identification et le comptage d'objets grâce à des outils tels que Python et OpenCV.
-					</p>
+					<strong id="project3-title">Traitement d'Image :</strong> Analyse en niveau de gris pour l'identification d'objets.
+					<p id="project3-description">Ce projet illustre l'utilisation d'algorithmes de traitement d'image pour analyser et segmenter des objets à partir d'images en niveaux de gris. L'objectif était d'automatiser l'identification et le comptage d'objets grâce à des outils tels que Python et OpenCV.</p>
 					<img src="images/Image_en_niveau_de_gris (1).png" alt="Traitement d'Image">
 					<div class="download-container">
 						<a href="rapports/CR_CAVIC (4).pdf" class="download-link" target="_blank" download>
@@ -83,38 +80,39 @@
 						</a>
 					</div>
 				</li>
-                <li>
-                    <strong>Programmation sous ROS :</strong> Développement d'un robot mobile autonome avec détection d'obstacles.
-                    <p>Ce projet inclut la programmation d'un TurtleBot sous l'environnement ROS, permettant une navigation autonome et une détection avancée des obstacles.</p>
-                    <img src="images/Turtle_bot.jpg" alt="Robot sous ROS">
+				<li>
+					<strong id="project4-title">Programmation sous ROS :</strong> Développement d'un robot mobile autonome avec détection d'obstacles.
+					<p id="project4-description">Ce projet inclut la programmation d'un TurtleBot sous l'environnement ROS, permettant une navigation autonome et une détection avancée des obstacles.</p>
+					<img src="images/Turtle_bot.jpg" alt="Robot sous ROS">
 					<div class="download-container">
 						<a href="rapports/CR_ROS.pdf" class="download-link" target="_blank" download>
 							<i class="fas fa-download"></i> Télécharger le rapport
 						</a>
 					</div>
-                </li>
-                <li>
-                    <strong>Systèmes embarqués :</strong> Développement d'un système de pilotage et supervision d'un robot mobile en C#.
-                    <p> Ce projet explore la conception et l’implémentation d’un système complet de supervision et pilotage d’un robot mobile, combinant programmation orientée objet en C#, communication série UART, et protocoles de communication embarqués. À travers une interface graphique intuitive et des tests sur microcontrôleurs, il met en avant des solutions robustes pour les systèmes embarqués.</p>
-                    <img src="images/page_garde.png" alt="Projet Systèmes Embarqués">
+				</li>
+				<li>
+					<strong id="project5-title">Systèmes embarqués :</strong> Développement d'un système de pilotage et supervision d'un robot mobile en C#.
+					<p id="project5-description">Ce projet explore la conception et l’implémentation d’un système complet de supervision et pilotage d’un robot mobile, combinant programmation orientée objet en C#, communication série UART, et protocoles de communication embarqués. À travers une interface graphique intuitive et des tests sur microcontrôleurs, il met en avant des solutions robustes pour les systèmes embarqués.</p>
+					<img src="images/page_garde.png" alt="Projet Systèmes Embarqués">
 					<div class="download-container">
 						<a href="rapports/CR_elec (1).pdf" class="download-link" target="_blank" download>
 							<i class="fas fa-download"></i> Télécharger le rapport
 						</a>
 					</div>
-                </li>
-                <li>
-                    <strong>Cartographie Marine :</strong> Cartographie des fonds marins au Domaine du Rayol.
-                    <p>Ce projet, réalisé en collaboration avec Seatech, a permis de cartographier la posidonie grâce à l'imagerie satellite et aux données bathymétriques. Il met en avant des méthodes innovantes pour la conservation des écosystèmes marins et leur suivi à long terme.</p>
-                    <img src="images/dinamis.png" alt="Cartographie marine au Domaine du Rayol">
+				</li>
+				<li>
+					<strong id="project6-title">Cartographie Marine :</strong> Cartographie des fonds marins au Domaine du Rayol.
+					<p id="project6-description">Ce projet, réalisé en collaboration avec Seatech, a permis de cartographier la posidonie grâce à l'imagerie satellite et aux données bathymétriques. Il met en avant des méthodes innovantes pour la conservation des écosystèmes marins et leur suivi à long terme.</p>
+					<img src="images/dinamis.png" alt="Cartographie marine au Domaine du Rayol">
 					<div class="download-container">
 						<a href="rapports/CR_PROJET (4).pdf" class="download-link" target="_blank" download>
 							<i class="fas fa-download"></i> Télécharger le rapport
 						</a>
 					</div>
-                </li>
-            </ul>
-        </section>
+				</li>
+			</ul>
+		</section>
+
         <section id="stage-thailande">
 			<h2>Stage en Thaïlande - TFII, Bangkok</h2>
 			<div class="stage-container">
@@ -156,7 +154,7 @@
 								<li><a href="rapports/LAB4_English (2).pdf" target="_blank" download>Lab 8: Practical Experimentation with Boost Converters</a></li>
 								<li><a href="rapports/LAB9_English (5).pdf" target="_blank" download>Lab 9: Practical Experimentation with Buck Converters</a></li>
 								<li><a href="rapports/LAB10_English (2)).pdf" target="_blank" download>Lab 10: Practical Experimentation with Boost Converters</a></li>
-								<li><a href="rapports/LAB11_English (2).pdf" target="_blank" download>Lab 10: Practical Experimentation with Buck Converters</a></li>
+								<li><a href="rapports/LAB11_English (2).pdf" target="_blank" download>Lab 11: Practical Experimentation with Buck Converters</a></li>
 								<!-- Ajoutez d'autres TP ici -->
 							</ul>
 						</div>
@@ -433,10 +431,40 @@
 						"nav-skills": "Compétences",
 						"nav-contact": "Contact",
 						"about-title": "À propos de moi",
-						"about-description": `Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>. Ce site est une vitrine de mes projets et compétences.`,
+						"about-description": `
+							Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie en <strong>double diplôme</strong> à mon école d'ingénieur, <em>SeaTech INP Toulon</em> 
+							et à l'<em>Université de Toulon</em>, où je prépare un Master <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
+							Spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>, j'ai mené des projets 
+							variés autour des systèmes ADAS, de la gestion énergétique pour véhicules électriques et de la simulation automobile. Ce site présente 
+							mon parcours et mes compétences. N'hésitez pas à explorer et à me contacter !
+						`,
 						"projects-title": "Projets",
-						"project-1-title": `<strong>Dynamique des Véhicules :</strong> Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé.`,
-						"project-1-description": `Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS et EBD.`,
+						"project1-title": "Dynamique des Véhicules :",
+						"project1-description": `Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé : ABS et EBD. 
+												  Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS (anti-blocage des roues) 
+												  et EBD (répartition électronique de freinage). À travers des simulations et analyses détaillées, il vise à améliorer la sécurité 
+												  et l'efficacité du freinage dans divers scénarios, tout en intégrant des solutions innovantes pour optimiser la stabilité et réduire la distance d'arrêt.`,
+						"project2-title": "Dynamique des Véhicules :",
+						"project2-description": `Développement d'un simulateur MATLAB pour étudier la stabilité et le comportement dynamique des véhicules terrestres. 
+												  Ce projet comprend la modélisation cinématique et dynamique de véhicules tels qu'un quad MF400H et une Mercedes Classe S, 
+												  l'étude de leur stabilité, et la création d'une interface graphique interactive pour la simulation.`,
+						"project3-title": "Traitement d'Image :",
+						"project3-description": `Analyse en niveau de gris pour l'identification d'objets. 
+												  Ce projet illustre l'utilisation d'algorithmes de traitement d'image pour analyser et segmenter des objets à partir d'images en niveaux de gris. 
+												  L'objectif était d'automatiser l'identification et le comptage d'objets grâce à des outils tels que Python et OpenCV.`,
+						"project4-title": "Programmation sous ROS :",
+						"project4-description": `Développement d'un robot mobile autonome avec détection d'obstacles. 
+												  Ce projet inclut la programmation d'un TurtleBot sous l'environnement ROS, permettant une navigation autonome et une détection avancée des obstacles.`,
+						"project5-title": "Systèmes embarqués :",
+						"project5-description": `Développement d'un système de pilotage et supervision d'un robot mobile en C#. 
+												  Ce projet explore la conception et l’implémentation d’un système complet de supervision et pilotage d’un robot mobile, 
+												  combinant programmation orientée objet en C#, communication série UART, et protocoles de communication embarqués. 
+												  À travers une interface graphique intuitive et des tests sur microcontrôleurs, il met en avant des solutions robustes pour les systèmes embarqués.`,
+						"project6-title": "Cartographie Marine :",
+						"project6-description": `Cartographie des fonds marins au Domaine du Rayol. 
+												  Ce projet, réalisé en collaboration avec Seatech, a permis de cartographier la posidonie grâce à l'imagerie satellite et aux données bathymétriques. 
+												  Il met en avant des méthodes innovantes pour la conservation des écosystèmes marins et leur suivi à long terme.`,
+
 						"contact-title": "Contact",
 						"contact-email": `Email : <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>`,
 						"contact-linkedin": `LinkedIn : <a href="https://linkedin.com/in/enzocherif" target="_blank">linkedin.com/in/enzocherif</a>`,
@@ -450,10 +478,40 @@
 						"nav-skills": "Skills",
 						"nav-contact": "Contact",
 						"about-title": "About Me",
-						"about-description": `Hello, I am <strong>Enzo CHERIF</strong>, an engineering student specializing in <strong>robotics</strong>, <strong>mechatronics</strong>, and <strong>embedded systems</strong>. This site showcases my projects and skills.`,
+						"about-description": `
+							Hello, I am <strong>Enzo CHERIF</strong>, an engineering student pursuing a <strong>dual degree</strong> at my engineering school, <em>SeaTech INP Toulon</em> 
+							and <em>Université de Toulon</em>, where I am preparing a Master’s in <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
+							Specialized in <strong>robotics</strong>, <strong>mechatronics</strong>, and <strong>embedded systems</strong>, I have led various projects 
+							focused on ADAS systems, energy management for electric vehicles, and automotive simulation. This site showcases my journey and skills. 
+							Feel free to explore and contact me!
+						`,
 						"projects-title": "Projects",
-						"project-1-title": `<strong>Vehicle Dynamics:</strong> Modeling and Simulation in Matlab/Simulink of an Advanced Braking System.`,
-						"project-1-description": `This project explores the modeling of a braking system, focusing on ABS and EBD technologies.`,
+						"project1-title": "Vehicle Dynamics:",
+						"project1-description": `Modeling and Simulation in Matlab/Simulink of an Advanced Braking System: ABS and EBD. 
+												  This project explores the modeling of an automotive braking system, focusing on ABS (anti-lock braking system) 
+												  and EBD (electronic brake distribution). Through detailed simulations and analyses, it aims to improve braking safety 
+												  and efficiency across various scenarios, while integrating innovative solutions to optimize stability and reduce stopping distance.`,
+						"project2-title": "Vehicle Dynamics:",
+						"project2-description": `Development of a MATLAB simulator to study the stability and dynamic behavior of land vehicles. 
+												  This project involves kinematic and dynamic modeling of vehicles such as a MF400H quad and a Mercedes S-Class, 
+												  studying their stability, and creating an interactive graphical interface for simulation.`,
+						"project3-title": "Image Processing:",
+						"project3-description": `Grayscale analysis for object identification. 
+												  This project illustrates the use of image processing algorithms to analyze and segment objects from grayscale images. 
+												  The objective was to automate object identification and counting using tools like Python and OpenCV.`,
+						"project4-title": "Programming with ROS:",
+						"project4-description": `Development of an autonomous mobile robot with obstacle detection. 
+												  This project includes programming a TurtleBot in the ROS environment, enabling autonomous navigation and advanced obstacle detection.`,
+						"project5-title": "Embedded Systems:",
+						"project5-description": `Development of a control and supervision system for a mobile robot in C#. 
+												  This project explores the design and implementation of a complete supervision and control system for a mobile robot, 
+												  combining object-oriented programming in C#, UART serial communication, and embedded communication protocols. 
+												  Through an intuitive graphical interface and tests on microcontrollers, it highlights robust solutions for embedded systems.`,
+						"project6-title": "Marine Mapping:",
+						"project6-description": `Mapping of seabeds at Domaine du Rayol. 
+												  This project, carried out in collaboration with Seatech, involved mapping Posidonia seagrass using satellite imagery and bathymetric data. 
+												  It highlights innovative methods for the conservation and long-term monitoring of marine ecosystems.`,
+					  
 						"contact-title": "Contact",
 						"contact-email": `Email : <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>`,
 						"contact-linkedin": `LinkedIn : <a href="https://linkedin.com/in/enzocherif" target="_blank">linkedin.com/in/enzocherif</a>`,
