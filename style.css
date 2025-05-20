@@ -9,7 +9,7 @@
     /* Base styles */
     body {
 		margin: 0; /* Supprime toute marge autour du corps */
-        font-family: Arial, sans-serif;
+		font-family: 'Poppins', sans-serif;
         background-color: #f4f4f9;
         color: #333;
         transition: background-color 0.3s, color 0.3s;
