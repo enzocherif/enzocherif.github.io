@@ -18,12 +18,16 @@
 		</div>
 	</header>
 
+
     <nav>
+		<a href="#post-actuel" id="nav-current">Poste actuel</a>
 		<a href="#projets" id="nav-projects">Projets</a>
 		<a href="#stage-thailande" id="nav-stages">Stages</a>
+		<a href="#certifications" id="nav-certifications">Certifications</a>
 		<a href="#competences" id="nav-skills">Compétences</a>
 		<a href="#contact" id="nav-contact">Contact</a>
 	</nav>
+
     <button id="toggle-theme">Mode sombre</button>
 	
 
@@ -36,17 +40,35 @@
 				</div>
 				<div class="about-text">
 					<p id="about-description">
-						Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie en <strong>double diplôme</strong> à mon école d'ingénieur, <em>SeaTech INP Toulon</em> 
-						et à l'<em>Université de Toulon</em>, où je prépare un Master <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
-						Spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>, j'ai mené des projets 
-						variés autour des systèmes ADAS, de la gestion énergétique pour véhicules électriques et de la simulation automobile. Ce site présente 
-						mon parcours et mes compétences. N'hésitez pas à explorer et à me contacter !
+						Je suis <strong>Enzo CHERIF</strong>, ingénieur en <strong>double diplôme</strong> à l’<strong>INP de Toulon</strong> (Institut National Polytechnique) et à l’<strong>Université de Toulon</strong>, spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong> et <strong>systèmes embarqués</strong>.<br><br>
+						Je travaille sur des projets variés mêlant <strong>Python</strong>, <strong>intelligence artificielle</strong>, <strong>traitement de données</strong>, <strong>ADAS</strong>, <strong>simulation sous MATLAB/Simulink</strong>, <strong>robotique mobile</strong>, et bien d’autres projets que je vous laisse découvrir sur mon site.<br><br>
+						<strong>Polyvalent, rigoureux et passionné</strong>, je cherche à allier <strong>innovation</strong> et <strong>impact concret</strong> dans chaque défi technique.
 					</p>
 				</div>
 			</div>
 		</section>
 		
+		
+		<section id="post-actuel" class="highlighted-section">
+			<h2 id="post-title">Poste Actuel</h2>
+			<p id="post-role"><strong>Stagiaire Développeur Outils d’Automatisation</strong><br>
+			Renault Group – Ampere Software Technology</p>
 
+			<img src="images/renault-trafic-estafette-goelette-2025-trio-av-mk_2.jpg" alt="Renault véhicules SDV" class="stage-image">
+
+			<ul id="post-tasks">
+				<li>Réduction du temps de traitement de 1–2 semaines à 30 secondes, avec un taux d’erreur estimé à 1 %, grâce à l’automatisation de fichiers Excel complexes (Python, Pandas, NumPy, VBA).</li>
+				<li>Création d’interfaces utilisateurs (Tkinter) adaptées aux ingénieurs, avec génération automatique de livrables (Word, PowerPoint) et envoi automatique par mail.</li>
+				<li>Participation au projet <strong>Software-Defined Vehicle (SDV)</strong>, unité « Power Distribution & Activation » :</li>
+				<ul>
+					<li>Développement d’écrans XML pour le diagnostic de pannes via DDT2000.</li>
+					<li>Tests fonctionnels sur banc et sur PIE (Plateforme d’intégration et d’essai) avec CANoe.</li>
+				</ul>
+				<li><em>Note : les livrables réalisés sont confidentiels et ne peuvent pas être montrés publiquement. Un rapport du stage sera prochainement communiqué.</em></li>
+			</ul>
+		</section>
+
+		
         <section id="projets">
 			<h2 id="projects-title">Projets</h2>
 			<ul>
@@ -180,6 +202,23 @@
             });
         </script>
 		
+		<section id="certifications">
+			<h2 id="certifications-title">Certifications</h2>
+			<div class="certifications-container">
+				<div class="certification-card">
+					<h3 id="certif-title">Machine Learning with Python</h3>
+					<p id="certif-org">FreeCodeCamp</p>
+					<a href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7" target="_blank" id="certif-link" class="download-link">Voir la certification</a>
+					<ul class="certification-links">
+						<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank" id="certif-proj1">Book Recommendation Engine</a></li>
+						<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" id="certif-proj2">Rock Paper Scissors</a></li>
+						<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" id="certif-proj3">SMS Classifier</a></li>
+						<li><a href="fcc_predict_health_costs_with_regression.ipynb" target="_blank" id="certif-proj4">Health Cost Regression Notebook</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
 
 
 
@@ -373,7 +412,6 @@
 		</section>
 
 
-
         
         <script>
             function sendEmail(event) {
@@ -485,11 +523,21 @@
 						"nav-contact": "Contact",
 						"about-title": "À propos de moi",
 						"about-description": `
-							Bonjour, je suis <strong>Enzo CHERIF</strong>, étudiant en ingénierie en <strong>double diplôme</strong> à mon école d'ingénieur, <em>SeaTech INP Toulon</em> 
-							et à l'<em>Université de Toulon</em>, où je prépare un Master <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
-							Spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong>, et <strong>systèmes embarqués</strong>, j'ai mené des projets 
-							variés autour des systèmes ADAS, de la gestion énergétique pour véhicules électriques et de la simulation automobile. Ce site présente 
-							mon parcours et mes compétences. N'hésitez pas à explorer et à me contacter !
+							Je suis <strong>Enzo CHERIF</strong>, ingénieur en <strong>double diplôme</strong> à l’<strong>INP de Toulon</strong> (Institut National Polytechnique) et à l’<strong>Université de Toulon</strong>, spécialisé en <strong>robotique</strong>, <strong>mécatronique</strong> et <strong>systèmes embarqués</strong>.<br>
+						Je travaille sur des projets variés mêlant <strong>Python</strong>, <strong>intelligence artificielle</strong>, <strong>traitement de données</strong>, <strong>ADAS</strong>, <strong>simulation sous MATLAB/Simulink</strong>, <strong>robotique mobile</strong>, et bien d’autres projets que je vous laisse découvrir sur mon site.<br>
+						<strong>Polyvalent, rigoureux et passionné</strong>, je cherche à allier <strong>innovation</strong> et <strong>impact concret</strong> dans chaque défi technique.
+						`,
+						"post-title": "Poste Actuel",
+						"post-role": "Stagiaire Développeur Outils d’Automatisation<br>Renault Group – Ampere Software Technology",
+						"post-tasks": `
+							<li>Réduction du temps de traitement de 1–2 semaines à 30 secondes, avec un taux d’erreur estimé à 1 %, grâce à l’automatisation de fichiers Excel complexes (Python, Pandas, NumPy, VBA).</li>
+							<li>Création d’interfaces utilisateurs (Tkinter) adaptées aux ingénieurs, avec génération automatique de livrables (Word, PowerPoint) et envoi automatique par mail.</li>
+							<li>Participation au projet <strong>Software-Defined Vehicle (SDV)</strong>, unité « Power Distribution & Activation » :</li>
+							<ul>
+								<li>Développement d’écrans XML pour le diagnostic de pannes via DDT2000.</li>
+								<li>Tests fonctionnels sur banc et sur PIE (Plateforme d’intégration et d’essai) avec CANoe.</li>
+							</ul>
+							<li><em>Note : les livrables réalisés sont confidentiels et ne peuvent pas être montrés publiquement. Un rapport du stage sera prochainement communiqué.</em></li>
 						`,
 						"projects-title": "Projets",
 						"project1-title": "Dynamique des Véhicules :",
@@ -532,6 +580,14 @@
 						"report-french": "Rapport en Français",
 						"report-english": "Rapport en Anglais",
 						"labs-button": "Travaux Pratiques (TP) - en Anglais",
+						"certifications-title": "Certifications",
+						"certif-title": "Machine Learning avec Python",
+						"certif-org": "FreeCodeCamp",
+						"certif-link": "Voir la certification",
+						"certif-proj1": "Book Recommendation Engine",
+						"certif-proj2": "Rock Paper Scissors",
+						"certif-proj3": "SMS Classifier",
+						"certif-proj4": "Health Cost Regression Notebook",
 						"tools-title": "Outils",
 						"tool-matlab-simulink-title": "MATLAB Simulink",
 						"tool-matlab-simulink-description": "Modélisation et simulation avancées",
@@ -598,11 +654,21 @@
 						"nav-contact": "Contact",
 						"about-title": "About Me",
 						"about-description": `
-							Hello, I am <strong>Enzo CHERIF</strong>, an engineering student pursuing a <strong>dual degree</strong> at my engineering school, <em>SeaTech INP Toulon</em> 
-							and <em>Université de Toulon</em>, where I am preparing a Master’s in <strong>RISE</strong> (<em>Robotics and Intelligent Systems Engineering</em>). 
-							Specialized in <strong>robotics</strong>, <strong>mechatronics</strong>, and <strong>embedded systems</strong>, I have led various projects 
-							focused on ADAS systems, energy management for electric vehicles, and automotive simulation. This site showcases my journey and skills. 
-							Feel free to explore and contact me!
+							I am <strong>Enzo CHERIF</strong>, an engineer pursuing a <strong>dual degree</strong> at <strong>INP Toulon</strong> (Institut National Polytechnique) and the <strong>University of Toulon</strong>, specialized in <strong>robotics</strong>, <strong>mechatronics</strong>, and <strong>embedded systems</strong>.<br>
+							I work on a wide range of projects involving <strong>Python</strong>, <strong>artificial intelligence</strong>, <strong>data processing</strong>, <strong>ADAS</strong>, <strong>MATLAB/Simulink simulation</strong>, <strong>mobile robotics</strong>, and many other topics you can explore on this website.<br>
+							<strong>Versatile, rigorous, and passionate</strong>, I strive to combine <strong>innovation</strong> with <strong>real-world impact</strong> in every technical challenge.
+						`,
+						"post-title": "Current Position",
+						"post-role": "Intern – Automation Tools Developer<br>Renault Group – Ampere Software Technology",
+						"post-tasks": `
+							<li>Reduced processing time from 1–2 weeks to 30 seconds with an estimated error rate of 1%, through automation of complex Excel files (Python, Pandas, NumPy, VBA).</li>
+							<li>Developed user interfaces (Tkinter) tailored for engineers, with automatic generation of deliverables (Word, PowerPoint) and automatic email sending.</li>
+							<li>Contributed to the <strong>Software-Defined Vehicle (SDV)</strong> project, in the “Power Distribution & Activation” unit:</li>
+							<ul>
+								<li>Developed XML diagnostic screens for fault detection using DDT2000.</li>
+								<li>Conducted functional testing on bench and on the PIE (Integration and Testing Platform) with CANoe.</li>
+							</ul>
+							<li><em>Note: The deliverables are confidential and cannot be publicly displayed. An internship report will be shared shortly.</em></li>
 						`,
 						"projects-title": "Projects",
 						"project1-title": "Vehicle Dynamics:",
@@ -645,6 +711,14 @@
 						"report-french": "Report in French",
 						"report-english": "Report in English",
 						"labs-button": "Lab Tutorials - in English",
+						"certifications-title": "Certifications",
+						"certif-title": "Machine Learning with Python",
+						"certif-org": "FreeCodeCamp",
+						"certif-link": "View Certification",
+						"certif-proj1": "Book Recommendation Engine",
+						"certif-proj2": "Rock Paper Scissors",
+						"certif-proj3": "SMS Classifier",
+						"certif-proj4": "Health Cost Regression Notebook",
 						"tools-title": "Tools",
 						"tool-matlab-simulink-title": "MATLAB Simulink",
 						"tool-matlab-simulink-description": "Advanced modeling and simulation",
@@ -728,12 +802,20 @@
 				translate("fr");
 			});
 
+			document.addEventListener("scroll", () => {
+				const nav = document.querySelector("nav");
+				if (window.scrollY > 50) {
+					nav.classList.add("scrolled");
+				} else {
+					nav.classList.remove("scrolled");
+				}
+			});
 
 
         </script>        
     </main>
     <footer>
-        &copy; 2024 Enzo CHERIF - Tous droits réservés.
+        &copy; 2025 Enzo CHERIF - Tous droits réservés.
     </footer>
     <script>
         const button = document.getElementById('toggle-theme');
@@ -741,6 +823,7 @@
             document.body.classList.toggle('dark-mode');
         });
     </script>
+
 </body>
 </html>
 
