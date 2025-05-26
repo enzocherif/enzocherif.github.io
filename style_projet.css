@@ -1,0 +1,375 @@
+/* ============================
+   STYLE PROJET INDIVIDUEL + FILTRES ACCORDÉON
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+  --bg-color: #080808;
+  --text-color: #fff;
+  --main-color: #00ffee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  padding: 4rem 6%;
+  overflow-x: hidden;
+}
+
+/* style_projet.css */
+:root {
+  --bg-color: #080808;
+  --text-color: #fff;
+  --main-color: #00ffee;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+  z-index: -1;
+}
+
+/* Bouton Retour fixe en haut à gauche */
+.btn-back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--main-color);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 6px var(--main-color), 0 0 12px var(--main-color);
+  z-index: 1000;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn-back:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Adaptation mobile */
+@media (max-width: 480px) {
+  .btn-back {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease;
+}
+
+.project-header h1 {
+  font-size: 3.4rem;
+  color: var(--main-color);
+  text-shadow: 0 0 15px var(--main-color);
+}
+
+.project-header p {
+  font-size: 1.6rem;
+  color: #ccc;
+  margin-top: 0.8rem;
+}
+
+/* =============================
+   Accordéon de filtre stylisé
+   ============================= */
+.filter-accordion {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.filter-toggle {
+  background: transparent;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  padding: 0.8rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 12px var(--main-color);
+  backdrop-filter: blur(4px);
+}
+
+.filter-toggle:hover {
+  background: var(--main-color);
+  color: #000;
+}
+
+.filter-toggle .arrow {
+  margin-left: 1rem;
+  transition: transform 0.3s;
+}
+
+.filter-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+
+.filter-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.filter-panel.open {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.2rem 2rem;
+  border-radius: 5rem;
+  box-shadow: 0 0 14px rgba(0, 255, 238, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.filter-btn {
+  background: transparent;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  padding: 0.6rem 1.8rem;
+  font-size: 1.35rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover {
+  background: var(--main-color);
+  color: #000;
+  box-shadow: 0 0 18px var(--main-color);
+}
+
+.filter-btn.active {
+  background: var(--main-color);
+  color: #000;
+  box-shadow: 0 0 24px var(--main-color);
+  transform: scale(1.05);
+}
+
+/* =============================
+   Grille de projets
+   ============================= */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Pousser le bouton tout en bas */
+.project-card .btn-glow-outline {
+  margin-top: auto;
+  /* facultatif : align-self: flex-end; pour que le bouton soit collé à droite */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 28px var(--main-color);
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 1rem;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.project-card h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+  text-shadow: 0 0 10px var(--main-color);
+  font-weight: 600;
+}
+
+.project-card p {
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.btn-glow,
+.btn-glow-outline {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: 4rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 2px solid var(--main-color);
+  margin-top: 1rem;
+}
+
+.btn-glow {
+  background: var(--main-color);
+  color: black;
+  box-shadow: 0 0 18px var(--main-color);
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--main-color);
+}
+
+.btn-glow-outline {
+  background: transparent;
+  color: var(--main-color);
+  box-shadow: 0 0 18px var(--main-color);
+}
+
+.btn-glow-outline:hover {
+  background: var(--main-color);
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--main-color);
+}
+
+footer {
+  text-align: center;
+  margin-top: 6rem;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+footer a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 2rem 4%;
+  }
+  .project-card img {
+    max-width: 100%;
+  }
+  .project-header h1 {
+    font-size: 2.5rem;
+  }
+  .project-card h2 {
+    font-size: 1.6rem;
+  }
+  .project-card p {
+    font-size: 1.3rem;
+  }
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Texte qui bouge pour les projets*/
+.typewriter-subline {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  color: var(--main-color);
+  font-weight: 600;
+  text-shadow: 0 0 6px var(--main-color), 0 0 18px var(--main-color);
+  display: inline-block;
+}
+.cursor {
+  display: inline-block;
+  color: var(--main-color);
+  animation: blink 0.8s infinite;
+  font-weight: bold;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Adaptation mobile renforcée pour le bouton Retour */
+@media (max-width: 480px) {
+  .btn-back {
+    top: 0.5rem;       /* rapproche du bord haut */
+    left: 0.5rem;      /* rapproche du bord gauche */
+    padding: 0.4rem 0.8rem;  /* réduit légèrement le padding */
+    font-size: 0.9rem; /* texte plus petit */
+    border-radius: 0.4rem;
+    box-shadow: 0 0 4px var(--main-color), 0 0 10px var(--main-color);
+  }
+}
+
+/* Responsive : tablettes et mobiles */
+@media (max-width: 768px) {
+  main p {
+    font-size: 1.2rem;
+    margin: 0 1.5rem;
+  }
+  .typewriter-subline {
+    font-size: 1.2rem;
+    text-shadow: 0 0 4px var(--main-color), 0 0 12px var(--main-color);
+  }
+}
+@media (max-width: 480px) {
+  main p {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+  .typewriter-subline {
+    font-size: 1rem;
+    text-shadow: 0 0 3px var(--main-color), 0 0 8px var(--main-color);
+  }
+  .cursor {
+    font-size: 0.9rem;
+  }
+}

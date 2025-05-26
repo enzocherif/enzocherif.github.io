@@ -1,36 +1,70 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Enzo CHERIF</title>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Inclusion du fichier CSS -->
+	<!-- Font Awesome 6 Free -->
+	<!-- Font Awesome 6 Free (chargement garanti) -->
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+		  referrerpolicy="no-referrer">
 </head>
 
 <body>
-    <header>
-		<h1 id="header-title">Portfolio - Enzo CHERIF</h1>
-		<p id="header-subtitle">Bienvenue sur mon portfolio. Découvrez mes projets et expériences.</p>
-		<div class="language-switcher">
-			<button id="lang-fr" class="lang-btn active">Français</button>
-			<button id="lang-en" class="lang-btn">English</button>
-		</div>
-	</header>
 
-
-    <nav>
-		<a href="#post-actuel" id="nav-current">Poste actuel</a>
-		<a href="#projets" id="nav-projects">Projets</a>
-		<a href="#stage-thailande" id="nav-stages">Stages</a>
-		<a href="#certifications" id="nav-certifications">Certifications</a>
-		<a href="#competences" id="nav-skills">Compétences</a>
-		<a href="#contact" id="nav-contact">Contact</a>
+  <header class="animated-header" id="fullscreen-header">
+	<div id="particles-js"></div>
+    <!-- ===== MAIN NAVIGATION ===== -->
+	<nav class="header-nav glass-nav">
+	  <ul>
+		<li><a href="#about-me">About</a></li>
+		<li><a href="#post-actuel">Current Role</a></li>
+		<li><a href="#projets">Projects</a></li>
+		<li><a href="#stage-thailande">Thailand Internship</a></li>
+		<li><a href="#certifications">Certifications</a></li>
+		<li><a href="#competences">Skills</a></li>
+		<li><a href="#tools">Tools</a></li>
+		<li><a href="#domains">Domains</a></li>
+		<li><a href="#references">References</a></li>
+		<li><a href="#contact">Contact</a></li>
+	  </ul>
 	</nav>
-
-    <button id="toggle-theme">Mode sombre</button>
 	
+	<!-- bouton burger (visible mobile uniquement) -->
+	<button id="burger" aria-label="Menu mobile">
+	  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+	</button>
 
+
+    <div class="header-left-block">
+      <h1 class="big-intro">Hi, it's <span class="name-glow">Enzo CHERIF</span></h1>
+      <h2 class="typing-subline">
+        I'm a <span class="typed-text"></span><span class="cursor">|</span>
+      </h2>
+
+      <div class="social-icons">
+        <a href="https://linkedin.com/in/enzocherif" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/enzocherif" target="_blank"><i class='bx bxl-github'></i></a>
+      </div>
+
+      <!-- Boutons + flèche (nouvelle structure) -->
+	<div class="header-buttons">
+	  <a href="rapports/CV Enzo CHERIF.pdf" class="btn-glow" target="_blank">📄 My Resume</a>
+	  <a href="#contact" class="btn-glow-outline">✉️ My Contact</a>
+
+	  <!-- ↓ flèche placée à droite -->
+	  <a href="#about-me" class="scroll-down">↓</a>
+	</div>
+
+
+  </header>
+
+	
     <main>
 		<section id="about-me">
 			<h2 id="about-title">À propos de moi</h2>
@@ -49,14 +83,24 @@
 		</section>
 		
 		
-		<section id="post-actuel" class="highlighted-section">
-			<h2 id="post-title">Poste Actuel</h2>
-			<p id="post-role"><strong>Stagiaire Développeur Outils d’Automatisation</strong><br>
-			Renault Group – Ampere Software Technology</p>
+		<section id="post-actuel" data-aos="fade-up">
+		  <div class="post-wrapper">
 
-			<img src="images/renault-trafic-estafette-goelette-2025-trio-av-mk_2.jpg" alt="Renault véhicules SDV" class="stage-image">
+			<!-- PHOTO ----------------------------------------------------- -->
+			<figure class="stage-photo">
+			  <img src="images/renault-trafic-estafette-goelette-2025-trio-av-mk_2.jpg"
+				   alt="Renault SDV" class="stage-image">
+			</figure>
 
-			<ul id="post-tasks">
+			<!-- CONTENU TEXTE --------------------------------------------- -->
+			<div class="stage-text">
+			  <h2 id="post-title">Poste Actuel</h2>
+			  <p id="post-role">
+				<strong>Stagiaire Développeur<br>Outils d’Automatisation</strong><br>
+				Renault Group – Ampere Software Technology
+			  </p>
+
+			  <ul id="post-tasks">
 				<li>Réduction du temps de traitement de 1–2 semaines à 30 secondes, avec un taux d’erreur estimé à 1 %, grâce à l’automatisation de fichiers Excel complexes (Python, Pandas, NumPy, VBA).</li>
 				<li>Création d’interfaces utilisateurs (Tkinter) adaptées aux ingénieurs, avec génération automatique de livrables (Word, PowerPoint) et envoi automatique par mail.</li>
 				<li>Participation au projet <strong>Software-Defined Vehicle (SDV)</strong>, unité « Power Distribution & Activation » :</li>
@@ -66,247 +110,337 @@
 				</ul>
 				<li><em>Note : les livrables réalisés sont confidentiels et ne peuvent pas être montrés publiquement. Un rapport du stage sera prochainement communiqué.</em></li>
 			</ul>
+		  </div>
 		</section>
 
 		
-        <section id="projets">
-			<h2 id="projects-title">Projets</h2>
-			<ul>
-				<li>
-					<strong id="project1-title">Dynamique des Véhicules :</strong> Modélisation et Simulation en Matlab/Simulink d'un Système de Freinage Avancé : ABS et EBD
-					<p id="project1-description">Ce projet explore la modélisation d'un système de freinage automobile, en mettant l'accent sur les systèmes ABS (anti-blocage des roues) et EBD (répartition électronique de freinage). À travers des simulations et analyses détaillées, il vise à améliorer la sécurité et l'efficacité du freinage dans divers scénarios, tout en intégrant des solutions innovantes pour optimiser la stabilité et réduire la distance d'arrêt.</p>
-					<img src="images/Vue_globale_ebd.png" alt="Dynamique des Véhicules">
-					<div class="download-container">
-						<a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf" class="download-link" target="_blank" download id="project1-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-				<li>
-					<strong id="project2-title">Dynamique des Véhicules :</strong> Développement d'un simulateur MATLAB pour étudier la stabilité et le comportement dynamique des véhicules terrestres.
-					<p id="project2-description">Ce projet comprend la modélisation cinématique et dynamique de véhicules tels qu'un quad MF400H et une Mercedes Classe S, l'étude de leur stabilité, et la création d'une interface graphique interactive pour la simulation.</p>
-					<img src="images/app.png" alt="Dynamique des Véhicules">
-					<div class="download-container">
-						<a href="rapports/CR_BERTA_CHERIF (7).pdf" class="download-link" target="_blank" download id="project2-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-				<li>
-					<strong id="project3-title">Traitement d'Image :</strong> Analyse en niveau de gris pour l'identification d'objets.
-					<p id="project3-description">Ce projet illustre l'utilisation d'algorithmes de traitement d'image pour analyser et segmenter des objets à partir d'images en niveaux de gris. L'objectif était d'automatiser l'identification et le comptage d'objets grâce à des outils tels que Python et OpenCV.</p>
-					<img src="images/Image_en_niveau_de_gris (1).png" alt="Traitement d'Image">
-					<div class="download-container">
-						<a href="rapports/CR_CAVIC (4).pdf" class="download-link" target="_blank" download id="project3-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-				<li>
-					<strong id="project4-title">Programmation sous ROS :</strong> Développement d'un robot mobile autonome avec détection d'obstacles.
-					<p id="project4-description">Ce projet inclut la programmation d'un TurtleBot sous l'environnement ROS, permettant une navigation autonome et une détection avancée des obstacles.</p>
-					<img src="images/Turtle_bot.jpg" alt="Robot sous ROS">
-					<div class="download-container">
-						<a href="rapports/CR_ROS.pdf" class="download-link" target="_blank" download id="project4-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-				<li>
-					<strong id="project5-title">Systèmes embarqués :</strong> Développement d'un système de pilotage et supervision d'un robot mobile en C#.
-					<p id="project5-description">Ce projet explore la conception et l’implémentation d’un système complet de supervision et pilotage d’un robot mobile, combinant programmation orientée objet en C#, communication série UART, et protocoles de communication embarqués. À travers une interface graphique intuitive et des tests sur microcontrôleurs, il met en avant des solutions robustes pour les systèmes embarqués.</p>
-					<img src="images/page_garde.png" alt="Projet Systèmes Embarqués">
-					<div class="download-container">
-						<a href="rapports/CR_elec (1).pdf" class="download-link" target="_blank" download id="project5-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-				<li>
-					<strong id="project6-title">Cartographie Marine :</strong> Cartographie des fonds marins au Domaine du Rayol.
-					<p id="project6-description">Ce projet, réalisé en collaboration avec Seatech, a permis de cartographier la posidonie grâce à l'imagerie satellite et aux données bathymétriques. Il met en avant des méthodes innovantes pour la conservation des écosystèmes marins et leur suivi à long terme.</p>
-					<img src="images/dinamis.png" alt="Cartographie marine au Domaine du Rayol">
-					<div class="download-container">
-						<a href="rapports/CR_PROJET (4).pdf" class="download-link" target="_blank" download id="project6-download">
-							<i class="fas fa-download"></i> Télécharger le rapport
-						</a>
-					</div>
-				</li>
-			</ul>
-		</section>
-		
-		<section id="stage-thailande">
-			<h2 id="internship-title">Stage en Thaïlande - TFII, Bangkok</h2>
-			<div class="stage-container">
-				<!-- Photo et Description -->
-				<div class="photo-description">
-					<div class="stage-photo">
-						<img src="images/Photo_TFII_certificat_Enzo_CHERIF.jpeg" alt="Stage au TFII en Thaïlande">
-					</div>
-					<div class="stage-description">
-						<p id="internship-description">
-							Lors de mon stage au <strong>Thai-French Innovation Institute (TFII)</strong>, j'ai travaillé sur la <strong>gestion énergétique de véhicules électriques solaires</strong>. 
-							Mon projet principal consistait à développer un système de contrôle pour optimiser l'utilisation et le stockage de l'énergie produite par des panneaux solaires, 
-							tout en assurant la stabilité énergétique du véhicule. J'ai également utilisé des cartes <strong>Texas Instruments</strong> comme la TMS320F28335 pour concevoir 
-							et tester des algorithmes de gestion d'énergie. Ce stage m'a permis d'acquérir une expertise en électronique et en gestion d'énergie dans un environnement multiculturel enrichissant.
-						</p>
-					</div>
-				</div>
-				<!-- Menus déroulants -->
-				<div class="accordion">
-					<button class="accordion-button" id="reports-button">Rapports de stage (Français et Anglais)</button>
-					<div class="accordion-content">
-						<div class="pdf-frame">
-							<ul>
-								<li><a href="rapports/Rapport_De_Stage_CHERIF_Enzo (3).pdf" target="_blank" download id="report-french">Rapport en Français</a></li>
-								<li><a href="rapports/Internship_Report_CHERIF_Enzo (1).pdf" target="_blank" download id="report-english">Rapport en Anglais</a></li>
-							</ul>
-						</div>
-					</div>
+        <!-- =============================================================== -->
+		<!--  SECTION : PROJETS  (photos alternées + apparition smooth)      -->
+		<!-- =============================================================== -->
+		<section id="projets">
+		  <h2 id="projects-title">Projets</h2>
 
-					<button class="accordion-button" id="labs-button">Travaux Pratiques (TP) - en Anglais</button>
-					<div class="accordion-content">
-						<div class="pdf-frame">
-							<ul>
-								<li><a href="rapports/LAB1_English (1).pdf" target="_blank" download id="lab1">LAB 1 : Exploration and Use of the TI 28335 Board</a></li>
-								<li><a href="rapports/LAB2_English (3).pdf" target="_blank" download id="lab2">LAB 2: Installation Guide for Controlling the TI F28335</a></li>
-								<li><a href="rapports/LAB3_English (3).pdf" target="_blank" download id="lab3">LAB 3 : PWM Control with the TI F28335</a></li>
-								<li><a href="rapports/LAB4_English (2).pdf" target="_blank" download id="lab4">Lab 4: Control of Duty Cycle via PWM on the TI F28335</a></li>
-								<li><a href="rapports/LAB5_English (6).pdf" target="_blank" download id="lab5">LAB 5 : Voltage and Current Measurement with LV 25-P and LA 55-P Transducers</a></li>
-								<li><a href="rapports/LAB6_English (3).pdf" target="_blank" download id="lab6">LAB 6 : Precision of Voltage Measurements with the LV 25-P Transducer</a></li>
-								<li><a href="rapports/LAB7_English (3).pdf" target="_blank" download id="lab7">Lab 7: Exploring DC-DC Converters: Boost and Buck</a></li>
-								<li><a href="rapports/LAB4_English (2).pdf" target="_blank" download id="lab8">Lab 8: Practical Experimentation with Boost Converters</a></li>
-								<li><a href="rapports/LAB9_English (5).pdf" target="_blank" download id="lab9">Lab 9: Practical Experimentation with Buck Converters</a></li>
-								<li><a href="rapports/LAB10_English (2)).pdf" target="_blank" download id="lab10">Lab 10: Practical Experimentation with Boost Converters</a></li>
-								<li><a href="rapports/LAB11_English (2).pdf" target="_blank" download id="lab11">Lab 11: Practical Experimentation with Buck Converters</a></li>
-								<!-- Ajoutez d'autres TP ici -->
-							</ul>
-						</div>
-					</div>
-				</div>
+		  <ul class="projects-list">
+
+			<!-- === PROJET 1  (image gauche) ============================== -->
+			<li class="project-item" data-aos="fade-right">
+			  <img src="images/Vue_globale_ebd.png" alt="Système ABS-EBD – Vue Matlab/Simulink">
+			  <div class="proj-text">
+				<h3>Dynamique des Véhicules : ABS &amp; EBD</h3>
+				<p>Modélisation et simulation d’un système de freinage avancé sous
+				   Matlab/Simulink, intégrant ABS et EBD pour optimiser stabilité et
+				   distance d’arrêt.</p>
+				<a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+
+			<!-- === PROJET 2  (image droite) ============================== -->
+			<li class="project-item" data-aos="fade-left">
+			  <img src="images/app.png" alt="Interface du simulateur dynamique">
+			  <div class="proj-text">
+				<h3>Simulateur dynamique MATLAB</h3>
+				<p>Interface interactive pour étudier la stabilité d’un quad MF400H
+				   et d’une Mercedes Classe S : modélisation cinématique &amp; dynamique,
+				   indicateurs de sécurité en temps réel.</p>
+				<a href="rapports/CR_BERTA_CHERIF (7).pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+			
+			<!-- Projet Simulateur dynamique MATLAB -->
+			<article class="project-card matlab simulation">
+			  <img src="images/app.png" alt="Interface du simulateur dynamique" />
+			  <h2>Simulateur dynamique MATLAB</h2>
+			  <p>Interface interactive pour étudier la stabilité d’un quad MF400H et d’une Mercedes Classe S : modélisation cinématique & dynamique, indicateurs de sécurité en temps réel.</p>
+			  <p><strong>Notion :</strong> Modélisation dynamique, simulation</p>
+			  <p><strong>Langage :</strong> MATLAB</p>
+			  <a href="rapports/CR_BERTA_CHERIF (7).pdf" class="btn-glow-outline" target="_blank">📄 Rapport complet</a>
+			</article>
+
+			<!-- === PROJET 3  (image gauche) ============================== -->
+			<li class="project-item" data-aos="fade-right">
+			  <img src="images/Image_en_niveau_de_gris (1).png" alt="Segmentation niveaux de gris">
+			  <div class="proj-text">
+				<h3>Traitement d’Image : segmentation &amp; comptage</h3>
+				<p>Pipeline Python / OpenCV pour identifier et compter des objets
+				   depuis des images en niveaux de gris : seuillage adaptatif,
+				   morphologie, labellisation.</p>
+				<a href="rapports/CR_CAVIC (4).pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+
+			<!-- === PROJET 4  (image droite) ============================== -->
+			<li class="project-item" data-aos="fade-left">
+			  <img src="images/Turtle_bot.jpg" alt="TurtleBot autonome sous ROS">
+			  <div class="proj-text">
+				<h3>Programmation ROS : TurtleBot autonome</h3>
+				<p>Navigation, cartographie et évitement d’obstacles en temps réel
+				   sous ROS 1 : gestion des topics, nodes C++ / Python, intégration
+				   capteurs LiDAR et caméra RGB-D.</p>
+				<a href="rapports/CR_ROS.pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+
+			<!-- === PROJET 5  (image gauche) ============================== -->
+			<li class="project-item" data-aos="fade-right">
+			  <img src="images/page_garde.png" alt="Interface C# de supervision robot">
+			  <div class="proj-text">
+				<h3>Systèmes embarqués : pilotage robot mobile</h3>
+				<p>Suite logicielle en C# (UART) pour superviser un robot mobile :
+				   commandes temps réel, télémétrie, ergonomie UI &amp; tests
+				   microcontrôleur.</p>
+				<a href="rapports/CR_elec (1).pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+
+			<!-- === PROJET 6  (image droite) ============================== -->
+			<li class="project-item" data-aos="fade-left">
+			  <img src="images/dinamis.png" alt="Cartographie posidonie Domaine du Rayol">
+			  <div class="proj-text">
+				<h3>Cartographie marine : posidonie au Domaine du Rayol</h3>
+				<p>Fusion d’imagerie satellite et de données bathymétriques pour
+				   cartographier les herbiers : classification supervisée, traitement
+				   QGIS, recommandations de suivi écologique.</p>
+				<a href="rapports/CR_PROJET (4).pdf"
+				   class="btn-download" target="_blank">📄 Rapport complet</a>
+			  </div>
+			</li>
+
+		  </ul>
+		    <!-- après la liste de <ul class="projects-list">…</ul> -->
+		    <!-- ↓ À l’intérieur de <section id="projets"> juste avant </section> -->
+		  <div class="projects-footer">
+			<div class="neon-buddy">
+			  <img src="images/neon_buddy.png" alt="Petit personnage néon">
 			</div>
+			<a href="tous-projets.html" class="btn-view-all">Voir tous mes projets</a>
+		  </div>
 		</section>
 
-
-
-
-        
-        
-        <script>
-            const buttons = document.querySelectorAll(".accordion-button");
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const content = button.nextElementSibling;
-                    content.style.display = content.style.display === "block" ? "none" : "block";
-                });
-            });
-        </script>
 		
-		<section id="certifications">
+		<!-- =============================================================== -->
+		<!--  STAGE EN THAÏLANDE – TFII, Bangkok                              -->
+		<!-- =============================================================== -->
+		<section id="stage-thailande" data-aos="fade-right">
+		  <div class="stage-wrapper">
+
+			<!-- ---------- PHOTO + DESCRIPTION ---------------------------- -->
+			<div class="stage-flex">
+			  <img src="images/Photo_TFII_certificat_Enzo_CHERIF.jpeg"
+				   alt="Stage TFII Bangkok – Certificat"
+				   class="stage-img">
+
+			  <div class="stage-text">
+				<h2>Stage en Thaïlande — TFII, Bangkok</h2>
+
+				<p>
+				  Lors de mon stage au <strong>Thai-French Innovation Institute (TFII)</strong>,
+				  j’ai travaillé sur la <strong>gestion énergétique de véhicules
+				  électriques solaires</strong>. Mon objectif : développer un système
+				  de contrôle optimisant l’utilisation et le stockage de l’énergie
+				  solaire tout en garantissant la stabilité du véhicule.<br><br>
+				  Les algorithmes ont été conçus et testés sur la carte
+				  <strong>Texas Instruments TMS320F28335</strong>, ce qui m’a permis
+				  d’approfondir mes compétences en électronique de puissance dans un
+				  environnement multiculturel passionnant.
+				</p>
+			  </div>
+			</div>
+
+			<!-- ---------- ACCORDION (rapports et TP) ---------------------- -->
+			<div class="accordion">
+
+			  <!-- Rapports de stage -->
+			  <button class="accordion-btn">📑 Rapports de stage (Fr / En)</button>
+			  <div class="accordion-panel">
+				<ul class="doc-list">
+				  <li>
+					<a href="rapports/Rapport_De_Stage_CHERIF_Enzo (3).pdf"
+					   target="_blank">Rapport en français</a>
+				  </li>
+				  <li>
+					<a href="rapports/Internship_Report_CHERIF_Enzo (1).pdf"
+					   target="_blank">Internship report (English)</a>
+				  </li>
+				</ul>
+			  </div>
+
+			  <!-- Travaux pratiques -->
+			  <button class="accordion-btn">🔧 Travaux pratiques (TP)</button>
+			  <div class="accordion-panel">
+				<ul class="doc-list">
+				  <li><a href="rapports/LAB1_English (1).pdf" target="_blank">
+					  LAB 1 : Getting started with TI 28335</a></li>
+				  <li><a href="rapports/LAB2_English (3).pdf" target="_blank">
+					  LAB 2 : Installation &amp; control setup</a></li>
+				  <li><a href="rapports/LAB3_English (3).pdf" target="_blank">
+					  LAB 3 : PWM control on TI F28335</a></li>
+				  <li><a href="rapports/LAB4_English (2).pdf" target="_blank">
+					  LAB 4 : Duty-cycle regulation</a></li>
+				  <li><a href="rapports/LAB5_English (6).pdf" target="_blank">
+					  LAB 5 : Voltage &amp; current measurement</a></li>
+				  <li><a href="rapports/LAB6_English (3).pdf" target="_blank">
+					  LAB 6 : Precision of voltage measurements</a></li>
+				  <li><a href="rapports/LAB7_English (3).pdf" target="_blank">
+					  LAB 7 : Exploring boost &amp; buck converters</a></li>
+				  <li><a href="rapports/LAB8_English (2).pdf" target="_blank">
+					  LAB 8 : Practical boost converter tests</a></li>
+				  <li><a href="rapports/LAB9_English (5).pdf" target="_blank">
+					  LAB 9 : Practical buck converter tests</a></li>
+				  <li><a href="rapports/LAB10_English (2).pdf" target="_blank">
+					  LAB 10 : Boost converter optimisation</a></li>
+				  <li><a href="rapports/LAB11_English (2).pdf" target="_blank">
+					  LAB 11 : Buck converter optimisation</a></li>
+				</ul>
+			  </div>
+
+			</div><!-- /.accordion -->
+
+		  </div><!-- /.stage-wrapper -->
+		</section>
+
+		
+		<!-- =============================================================== -->
+		<!--  CERTIFICATIONS  —  glass-card + liens projets                  -->
+		<!-- =============================================================== -->
+		<section id="certifications" data-aos="fade-left">
+		  <div class="certif-wrapper glass-card">
+
 			<h2 id="certifications-title">Certifications</h2>
-			<div class="certifications-container">
-				<div class="certification-card">
-					<h3 id="certif-title">Machine Learning with Python</h3>
-					<p id="certif-org">FreeCodeCamp</p>
-					<a href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7" target="_blank" id="certif-link" class="download-link">Voir la certification</a>
-					<ul class="certification-links">
-						<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank" id="certif-proj1">Book Recommendation Engine</a></li>
-						<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" id="certif-proj2">Rock Paper Scissors</a></li>
-						<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" id="certif-proj3">SMS Classifier</a></li>
-						<li><a href="fcc_predict_health_costs_with_regression.ipynb" target="_blank" id="certif-proj4">Health Cost Regression Notebook</a></li>
-					</ul>
-				</div>
-			</div>
+
+			<!-- ===== CARTE freeCodeCamp =================================== -->
+			<article class="certif-card">
+			  <h3 class="certif-title">
+				Machine Learning with Python
+				<span class="issuer">— freeCodeCamp</span>
+			  </h3>
+
+			  <a href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7"
+				 target="_blank" class="btn-certif">
+				🎓 Voir la certification
+			  </a>
+
+			  <ul class="certif-links">
+				<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank">
+					📚 Book-Recommendation Engine</a></li>
+				<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank">
+					✊✋✌️ Rock-Paper-Scissors</a></li>
+				<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank">
+					🔤 SMS Classifier (NN)</a></li>
+				<li><a href="fcc_predict_health_costs_with_regression.ipynb" target="_blank">
+					💰 Health-Cost Regression notebook</a></li>
+			  </ul>
+			</article>
+
+			<!-- === Ajoute ici d’autres cartes si tu obtiens de nouvelles certifs === -->
+
+		  </div><!-- /.certif-wrapper -->
 		</section>
 
 
 
 
-        <section id="competences">
-			<h2>Compétences</h2>
+
+        <!-- =============================================================== -->
+		<!--  COMPÉTENCES  –  terminal animé                                 -->
+		<!-- =============================================================== -->
+		<section id="competences" data-aos="fade-left">
+		  <div class="terminal-wrapper glass-card">
+
+			<h2 class="section-title">Compétences</h2>
+
 			<div class="terminal">
-				<div class="terminal-header">
-					<span class="terminal-dot red"></span>
-					<span class="terminal-dot yellow"></span>
-					<span class="terminal-dot green"></span>
-				</div>
-				<div class="terminal-body">
-					<pre id="terminal-content">.</pre>
-				</div>
+			  <div class="terminal-header">
+				<span class="terminal-dot red"></span>
+				<span class="terminal-dot yellow"></span>
+				<span class="terminal-dot green"></span>
+			  </div>
+
+			  <div class="terminal-body">
+				<pre id="terminal-content"></pre>
+			  </div>
 			</div>
+
+		  </div><!-- /.terminal-wrapper -->
 		</section>
+
+
 
 		<section id="tools">
 			<h2 id="tools-title">Outils</h2>
 			<div class="cards-container">
 				<!-- MATLAB Simulink -->
-				<div class="card">
+				<div class="card" data-aos="fade-right" data-aos-delay="0">
 					<img src="images/Simulink_Logo.png" alt="MATLAB Simulink Logo" class="tool-logo">
 					<h3 id="tool-matlab-simulink-title">MATLAB Simulink</h3>
 					<p id="tool-matlab-simulink-description">Modélisation et simulation avancées</p>
 				</div>
 				<!-- MATLAB App Designer -->
-				<div class="card">
+				<div class="card" data-aos="fade-left" data-aos-delay="150">
 					<img src="images/Matlab_Logo.png" alt="MATLAB Logo" class="tool-logo">
 					<h3 id="tool-matlab-app-title">MATLAB App Designer</h3>
 					<p id="tool-matlab-app-description">Création d'applications interactives pour la modélisation</p>
 				</div>
 				<!-- LabVIEW -->
-				<div class="card">
+				<div class="card" data-aos="fade-up" data-aos-delay="300">
 					<img src="images/labview_logo.png" alt="Labview Logo" class="tool-logo">
 					<h3 id="tool-labview-title">LabVIEW</h3>
 					<p id="tool-labview-description">Conception d'applications de mesure et d'automatisation</p>
 				</div>
 				<!-- ROS -->
-				<div class="card">
+				<div class="card" data-aos="fade-right" data-aos-delay="450">
 					<img src="images/Ros_logo.png" alt="ROS Logo" class="tool-logo">
 					<h3 id="tool-ros-title">ROS (Robot Operating System)</h3>
 					<p id="tool-ros-description">Contrôle et coordination de robots</p>
 				</div>
 				<!-- Linux -->
-				<div class="card">
+				<div class="card" data-aos="fade-left" data-aos-delay="600">
 					<img src="images/linux_logo.png" alt="Linux Logo" class="tool-logo">
 					<h3 id="tool-linux-title">Linux</h3>
 					<p id="tool-linux-description">Administration et développement sur systèmes Unix</p>
 				</div>
 				<!-- Git -->
-				<div class="card">
+				<div class="card" data-aos="fade-up" data-aos-delay="750">
 					<img src="images/git.png" alt="Git Logo" class="tool-logo">
 					<h3 id="tool-git-title">Git</h3>
 					<p id="tool-git-description">Gestion de version pour projets collaboratifs</p>
 				</div>
 				<!-- LaTeX -->
-				<div class="card">
+				<div class="card" data-aos="fade-right" data-aos-delay="950">
 					<img src="images/Latex_Logo.png" alt="Latex Logo" class="tool-logo">
 					<h3 id="tool-latex-title">LaTeX</h3>
 					<p id="tool-latex-description">Administration et développement sur systèmes Unix</p>
 				</div>
 				<!-- SolidWorks -->
-				<div class="card">
+				<div class="card" data-aos="fade-left" data-aos-delay="1100">
 					<img src="images/solidworks.png" alt="Solidworks Logo" class="tool-logo">
 					<h3 id="tool-solidworks-title">SolidWorks</h3>
 					<p id="tool-solidworks-description">Modélisation 3D et simulation pour le design produit</p>
 				</div>
 				<!-- Catia -->
-				<div class="card">
+				<div class="card" data-aos="fade-up" data-aos-delay="1250">
 					<img src="images/catia-logo.png" alt="Catia Logo" class="tool-logo">
 					<h3 id="tool-catia-title">Catia</h3>
 					<p id="tool-catia-description">Conception et modélisation de systèmes mécaniques</p>
 				</div>
 				<!-- Windows -->
-				<div class="card">
+				<div class="card" data-aos="fade-right" data-aos-delay="1500">
 					<img src="images/Window_logo.png" alt="Windows Logo" class="tool-logo">
 					<h3 id="tool-windows-title">Windows</h3>
 					<p id="tool-windows-description">Systèmes d'exploitation pour l'utilisation quotidienne</p>
 				</div>
 				<!-- Excel -->
-				<div class="card">
+				<div class="card" data-aos="fade-left" data-aos-delay="1650">
 					<img src="images/excel_logo.png" alt="Excel Logo" class="tool-logo">
 					<h3 id="tool-excel-title">Excel</h3>
 					<p id="tool-excel-description">Analyse de données et automatisation de tableaux</p>
 				</div>
 				<!-- Microsoft Office Suite -->
-				<div class="card">
+				<div class="card" data-aos="fade-up" data-aos-delay="1800">
 					<img src="images/microsoft_suite_logo.png" alt="Microsoft Suite Logo" class="tool-logo">
 					<h3 id="tool-office-suite-title">Microsoft Office Suite</h3>
 					<p id="tool-office-suite-description">Gestion documentaire et présentations professionnelles</p>
@@ -314,115 +448,235 @@
 			</div>
 		</section>
 
+		<!-- =============================================================== -->
+		<!--  DOMAINES  –  cartes néon                                       -->
+		<!-- =============================================================== -->
+		<section id="domains" data-aos="fade-left">
+		  <h2 id="domains-title">Domaines</h2>
 
+		  <div class="cards-container">
 
-		<section id="domains">
-			<h2 id="domains-title">Domaines</h2>
-			<div class="cards-container">
-				<div class="card">
-					<i class="fas fa-robot"></i>
-					<h3 id="robotics-title">Robotique</h3>
-					<p id="robotics-description">Systèmes autonomes et contrôle</p>
-				</div>
-				<div class="card">
-					<i class="fas fa-cogs"></i>
-					<h3 id="mechatronics-title">Mécatronique</h3>
-					<p id="mechatronics-description">Intégration mécanique et électronique</p>
-				</div>
-				<div class="card">
-					<i class="fas fa-microchip"></i>
-					<h3 id="embedded-systems-title">Systèmes embarqués</h3>
-					<p id="embedded-systems-description">Conception matérielle et logicielle</p>
-				</div>
+			<!-- Robotique -------------------------------------------------- -->
+			<div class="card" data-aos="fade-right" data-aos-delay="0">
+			  <i class="fa-solid fa-robot"></i>
+			  <h3>Robotique</h3>
+			  <p>Systèmes autonomes et contrôle</p>
 			</div>
+
+			<!-- Mécatronique ---------------------------------------------- -->
+			<div class="card" data-aos="fade-left" data-aos-delay="150">
+			  <i class="fas fa-cogs"></i>
+			  <h3>Mécatronique</h3>
+			  <p>Intégration mécanique &amp; électronique</p>
+			</div>
+
+			<!-- Systèmes embarqués ----------------------------------------- -->
+			<div class="card" data-aos="fade-up" data-aos-delay="300">
+			  <i class="fas fa-microchip"></i>
+			  <h3>Systèmes embarqués</h3>
+			  <p>Conception matérielle &amp; logicielle</p>
+			</div>
+
+			<!-- IA & ML ---------------------------------------------------- -->
+			<div class="card" data-aos="fade-right" data-aos-delay="450">
+			  <i class="fas fa-brain"></i>
+			  <h3>Intelligence artificielle<br>&amp; Machine learning</h3>
+			  <p>Modèles prédictifs &amp; optimisation</p>
+			</div>
+
+			<!-- Vision par ordinateur ------------------------------------- -->
+			<div class="card" data-aos="fade-left" data-aos-delay="600">
+			  <i class="fas fa-eye"></i>
+			  <h3>Vision par ordinateur</h3>
+			  <p>Traitement et analyse d’images</p>
+			</div>
+
+			<!-- IoT -------------------------------------------------------- -->
+			<div class="card" data-aos="fade-up" data-aos-delay="750">
+			  <i class="fas fa-network-wired"></i>
+			  <h3>Internet des objets&nbsp;(IoT)</h3>
+			  <p>Objets connectés &amp; protocole MQTT</p>
+			</div>
+
+			<!-- Data / Excel + Python ------------------------------------- -->
+			<div class="card" data-aos="fade-right" data-aos-delay="950">
+			  <i class="fas fa-file-excel"></i>
+			  <h3>Data&nbsp;: Excel + Python</h3>
+			  <p>Nettoyage, analyse &amp; automatisation</p>
+			</div>
+
+			<!-- Micro / nano-électronique ---------------------------------- -->
+			<div class="card" data-aos="fade-left" data-aos-delay="1100">
+			  <i class="fas fa-bolt"></i>
+			  <h3>Micro-/nano-électronique</h3>
+			  <p>Composants &amp; procédés de fabrication</p>
+			</div>
+
+			<!-- Drones & véhicules autonomes ------------------------------ -->
+			<div class="card" data-aos="fade-up" data-aos-delay="1250">
+			  <i class="fas fa-car"></i>
+			  <h3>Drones &amp; véhicules autonomes</h3>
+			  <p>Navigation, contrôle &amp; sécurité</p>
+			</div>
+
+		  </div><!-- /.cards-container -->
 		</section>
 
 		
-		<section id="references">
-			<h2 id="references-title">Références</h2>
-			<div class="reference-container">
-				<div class="reference-card">
-					<p class="reference-text" id="reference1-text">"Enzo a montré une rigueur exemplaire et un excellent esprit d'équipe. Il a toujours su apporter des solutions pertinentes aux problèmes techniques."</p>
-					<p class="reference-author" id="reference1-author">- M. ..., Professeur des Universités SeaTech</p>
-				</div>
-				<div class="reference-card">
-					<p class="reference-text" id="reference2-text">"Son stage au TFII a été une réussite. Enzo a su s'adapter à une culture différente tout en produisant un travail de haute qualité."</p>
-					<p class="reference-author" id="reference2-author">- M. Burin Yodwong, Tuteur de stage</p>
-				</div>
-				<div class="reference-card">
-					<p class="reference-text" id="reference3-text">"Sa capacité à comprendre des systèmes complexes et à les modéliser est impressionnante. Enzo est un élément moteur dans une équipe."</p>
-					<p class="reference-author" id="reference3-author">- Mme ..., Chef de projet</p>
-				</div>
-			</div>
-		</section>
+		<!-- =============================================================== -->
+		<!--  RÉFÉRENCES  –  carrousel néon                                   -->
+		<!-- =============================================================== -->
+		<section id="references" data-aos="fade-right">
+		  <h2 id="references-title">Références</h2>
 
+		  <div class="swiper-container ref-wrapper">
+			<div class="swiper-wrapper">
 
-		<section class="timeline">
-			<h2 id="timeline-title">Mon parcours</h2> <!-- Titre de la frise -->
-			<div class="timeline-item">
-				<img src="images/lyce_parc_des_loges_logo-Photoroom.png" alt="Lycée" class="timeline-logo">
-				<div class="timeline-content">
-					<h3 id="timeline-bac-title">Bac S - Option SI</h3>
-					<p id="timeline-bac-description">Lycée Parc des Loges</p>
-					<span class="timeline-date" id="timeline-bac-date">2019</span>
-				</div>
-			</div>
-			<div class="timeline-item">
-				<img src="images/logo-parc-de-vilgenis-fond-transparent.png" alt="Classe préparatoire" class="timeline-logo">
-				<div class="timeline-content">
-					<h3 id="timeline-prepa-title">Classe Préparatoire PTSI/PT</h3>
-					<p id="timeline-prepa-description">Lycée Parc de Vilgénis</p>
-					<span class="timeline-date" id="timeline-prepa-date">2019 - 2022</span>
-				</div>
-			</div>
-			<div class="timeline-item">
-				<img src="images/seatech.png" alt="SeaTech INP Toulon" class="timeline-logo">
-				<div class="timeline-content">
-					<h3 id="timeline-seatech-title">SeaTech - INP Toulon</h3>
-					<p id="timeline-seatech-description">Ingénierie en mécatronique et robotique</p>
-					<span class="timeline-date" id="timeline-seatech-date">2022 - 2025</span>
-				</div>
-			</div>
-			<div class="timeline-item">
-				<img src="images/logo-utln.png" alt="Université de Toulon" class="timeline-logo">
-				<div class="timeline-content">
-					<h3 id="timeline-rise-title">Master RISE</h3>
-					<p id="timeline-rise-description">Université de Toulon</p>
-					<span class="timeline-date" id="timeline-rise-date">2024 - 2025</span>
-				</div>
-			</div>
+			  <div class="swiper-slide reference-card">
+				<blockquote>
+				  « Enzo a montré une rigueur exemplaire et un excellent esprit
+				  d'équipe. Il a toujours su apporter des solutions pertinentes
+				  aux problèmes techniques. »
+				</blockquote>
+				<cite>— M. …, Professeur des Universités, SeaTech</cite>
+			  </div>
+
+			  <div class="swiper-slide reference-card">
+				<blockquote>
+				  « Son stage au TFII a été une réussite. Enzo a su s'adapter à
+				  une culture différente tout en produisant un travail de haute
+				  qualité. »
+				</blockquote>
+				<cite>— M. Burin Yodwong, Tuteur de stage</cite>
+			  </div>
+
+			  <div class="swiper-slide reference-card">
+				<blockquote>
+				  « Sa capacité à comprendre des systèmes complexes et à les
+				  modéliser est impressionnante. Enzo est un élément moteur
+				  dans une équipe. »
+				</blockquote>
+				<cite>— Mme …, Cheffe de projet</cite>
+			  </div>
+
+			</div><!-- /.swiper-wrapper -->
+
+			<!-- flèches de navigation -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<!-- pagination (points) -->
+			<div class="swiper-pagination"></div>
+		  </div><!-- /.swiper-container -->
 		</section>
 
 
 
-        <section id="contact">
-			<h2>Contact</h2>
-			<div class="contact-container">
-				<div class="contact-info">
-					<p><i class="fas fa-envelope"></i> <strong>Email :</strong> <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a></p>
-					<p><i class="fab fa-linkedin"></i> <strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/" target="_blank">linkedin.com/in/enzocherif</a></p>
-					<p><i class="fas fa-download"></i> <a href="rapports/CV Enzo CHERIF (1) (1).pdf" target="_blank" download>Télécharger mon CV</a></p>
-				</div>
-				<div class="contact-action">
-					<a href="mailto:enzocherife@gmail.com?subject=Message%20depuis%20le%20site&body=Bonjour%20Enzo,%20%0A%0AVotre%20message%20ici..." class="mailto-button">
-						Envoyer un email
-					</a>
-				</div>
+		<!-- =============================================================== -->
+		<!--  MON PARCOURS – Timeline néon                                   -->
+		<!-- =============================================================== -->
+		<section id="timeline" data-aos="fade-up">
+		  <h2 id="timeline-title">Mon parcours</h2>
+
+		  <div class="timeline">
+
+			<div class="tl-item" data-aos="fade-right">
+			  <div class="tl-content">
+				<img src="images/lyce_parc_des_loges_logo-Photoroom.png" alt="Lycée" />
+				<h3>Bac S – Option SI</h3>
+				<p>Lycée Parc des Loges</p>
+				<span class="tl-date">2019</span>
+			  </div>
 			</div>
+
+			<div class="tl-item" data-aos="fade-left">
+			  <div class="tl-content">
+				<img src="images/logo-parc-de-vilgenis-fond-transparent.png" alt="Prépa" />
+				<h3>Classe Préparatoire PTSI / PT</h3>
+				<p>Lycée Parc de Vilgénis</p>
+				<span class="tl-date">2019 – 2022</span>
+			  </div>
+			</div>
+
+			<div class="tl-item" data-aos="fade-right">
+			  <div class="tl-content">
+				<img src="images/seatech.png" alt="SeaTech" />
+				<h3>SeaTech – INP Toulon</h3>
+				<p>Ingénierie mécatronique &amp; robotique</p>
+				<span class="tl-date">2022 – 2025</span>
+			  </div>
+			</div>
+
+			<div class="tl-item" data-aos="fade-left">
+			  <div class="tl-content">
+				<img src="images/logo-utln.png" alt="UTLN" />
+				<h3>Master RISE</h3>
+				<p>Université de Toulon</p>
+				<span class="tl-date">2024 – 2025</span>
+			  </div>
+			</div>
+
+		  </div><!-- /.timeline -->
 		</section>
 
-        <script src="script.js"></script> 
+
+
+
+        <!-- =============================================================== -->
+		<!--  CONTACT  –  carte glass + bouton néon                           -->
+		<!-- =============================================================== -->
+		<section id="contact" data-aos="fade-left">
+		  <div class="contact-wrapper glass-card tilt">
+
+			<h2 class="contact-title">Contact</h2>
+
+			<ul class="contact-info">
+			  <li>
+				<i class="fa-solid fa-envelope"></i>
+				<span><strong>Email&nbsp;:</strong>
+				  <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>
+				</span>
+			  </li>
+			  <li>
+				<i class="fa-brands fa-linkedin"></i>
+				<span><strong>LinkedIn&nbsp;:</strong>
+				  <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/"
+					 target="_blank">linkedin.com/in/enzocherif</a>
+				</span>
+			  </li>
+			  <li>
+				<i class="fa-solid fa-file-arrow-down"></i>
+				<a href="rapports/CV Enzo CHERIF (1) (1).pdf" target="_blank" download>
+				  Télécharger mon&nbsp;CV
+				</a>
+			  </li>
+			</ul>
+
+			<a href="mailto:enzocherife@gmail.com?subject=Message%20depuis%20le%20site&body=Bonjour%20Enzo,%0A%0AVotre%20message%20ici..."
+			   class="mailto-btn neon-btn">Envoyer un email</a>
+
+		  </div><!-- /.contact-wrapper -->
+		</section>
+
 		
     </main>
-    <footer>
-        &copy; 2025 Enzo CHERIF - Tous droits réservés.
-    </footer>
-    <script>
-        const button = document.getElementById('toggle-theme');
-        button.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init({
+		duration: 1000,   // Durée de l'animation
+		once: true        // L'animation ne se joue qu'une fois
+	  });
+	</script>
+	<!-- Swiper 9 -->
+	<link rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+	<script defer
+			src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+	<!-- Librairie d'abord -->
+	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	
+	<!-- Ton code ensuite -->
+	<script src="script.js"></script>
 
 </body>
 </html>
