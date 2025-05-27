@@ -719,12 +719,13 @@
 /*  PROJETS – bouton “Voir tous mes projets” + Neon Buddy              */
 /* =================================================================== */
 .projects-footer {
-  position: relative;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin: 3rem auto 0;
 }
+
 
 .neon-buddy {
   width: 60px; 
