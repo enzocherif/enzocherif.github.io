@@ -373,3 +373,14 @@ footer a:hover {
     font-size: 0.9rem;
   }
 }
+/* === Amélioration du filtre sur mobile === */
+@media (max-width: 600px) {
+  /* Autoriser le scroll vertical dans le panneau et lever la limite de hauteur */
+  .filter-panel {
+    overflow-y: auto;
+  }
+  .filter-panel.open {
+    /* ou une hauteur « calc » si tu veux préserver un peu de marge : */
+    max-height: 80vh !important;
+  }
+}

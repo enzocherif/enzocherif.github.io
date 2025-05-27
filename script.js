@@ -33,13 +33,14 @@ const navObs = new IntersectionObserver(entries=>{
 sections.forEach(sec=> sec && navObs.observe(sec));
 
 /* ---------- Burger toggle mobile ---------------------------------- */
-const burger   = document.getElementById('burger');
-const navList  = document.querySelector('.glass-nav ul');
+const burger  = document.getElementById('burger');
+const navList = document.querySelector('.glass-nav ul');
 
-burger.addEventListener('click', ()=>{
+burger.addEventListener('click', () => {
   burger.classList.toggle('open');
   navList.classList.toggle('open');
 });
+
 
 /* ferme le menu après clic sur un lien */
 navList.querySelectorAll('a').forEach(a=>{
@@ -135,18 +136,19 @@ navList.querySelectorAll('a').forEach(a=>{
   /* ------------------------------------------------------------------ */
   const header        = document.getElementById('fullscreen-header');
   let   lastScrollTop = 0;
-  const SHOW_OFFSET   = 150;               // px à remonter pour réafficher
+  window.addEventListener('scroll', ()=> {
+	  const st = window.scrollY || document.documentElement.scrollTop;
 
-  window.addEventListener('scroll', ()=>{
-    const st = window.scrollY || document.documentElement.scrollTop;
+	  if (st > lastScrollTop) {
+		// on descend → on cache
+		header.classList.add('hide');
+	  } else if (st === 0) {
+		// uniquement quand on est tout en haut de la page
+		header.classList.remove('hide');
+	  }
+	  lastScrollTop = st <= 0 ? 0 : st;
+	});
 
-    if(st > lastScrollTop){                // on descend
-      header.classList.add('hide');
-    }else if(lastScrollTop - st > SHOW_OFFSET || st === 0){
-      header.classList.remove('hide');     // on remonte assez / en haut
-    }
-    lastScrollTop = st <= 0 ? 0 : st;      // iOS / Safari fix
-  });
   AOS.init({
 	  duration: 800,      // ms
 	  once: true,         // ne rejoue pas quand on remonte

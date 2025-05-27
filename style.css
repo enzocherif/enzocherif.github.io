@@ -181,13 +181,42 @@
 	#burger.open .bar:nth-child(2){ opacity:0; }
 	#burger.open .bar:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 	/* patch mobile ≤ 640 px ------------------------------------------------ */
-	@media(max-width:640px){
-	  #burger{
-		top:1rem;           /* colle au bord (ajuste ↕ si besoin)          */
-		right:1rem;         /* colle au bord droit                          */
-	  }
-	}
-
+	/* ========= MENU BURGER MOBILE ========= */
+@media (max-width: 640px) {
+  /* on cache la nav horizontale */
+  .glass-nav ul {
+    position: fixed;
+    top: 0; bottom: 0; right: 0; left: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    transform: translateX(100%);  /* caché à droite */
+    transition: transform 0.4s ease;
+    gap: 2.4rem;
+  }
+  /* état ouvert */
+  .glass-nav ul.open {
+    transform: translateX(0);
+  }
+  /* on affiche les liens en plus gros pour mobile */
+  .glass-nav ul a {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+  }
+  /* on affiche le burger */
+  #burger {
+    display: block;
+  }
+  /* on retire le fond/translucide de la barre */
+  .glass-nav {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
 
 	/* === NAV mobile ===================================================== */
 	@media(max-width:640px){
@@ -1887,4 +1916,37 @@ html,body{ max-width:100%; overflow-x:hidden; }
     line-height: 1.5 !important;
   }
 }
+
+/* ===== Recentre Stage Thaïlande, Certifications & Compétences ===== */
+.stage-wrapper,
+.certif-wrapper,
+#tools .cards-container,
+#domains .cards-container,
+#references .ref-wrapper,
+#contact .contact-wrapper,
+.terminal-wrapper {
+  /* Remplace le « margin-left:auto; margin-right:6%; » */
+  margin: 0 auto !important;
+}
+/* Centre la section Mon parcours */
+#timeline-title {
+  /* remplace margin: 0 6% 5rem auto; */
+  margin: 0 auto 5rem auto !important;
+}
+
+.timeline {
+  /* remplace margin-left:auto; margin-right:6%; */
+  margin: 0 auto !important;
+}
+
+/* ===== TITRES DE SECTION À GAUCHE ===== */
+/* Aligne à gauche les titres de section Outils, Domaines & Références */
+#tools h2,
+#domains h2,
+#references h2 {
+  margin: 0 auto 3rem !important;   /* top 0, left/right auto, bottom 3rem */
+  text-align: center !important;
+}
+
+
 
