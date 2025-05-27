@@ -181,18 +181,19 @@ navList.querySelectorAll('a').forEach(a=>{
 /* ------------------ Terminal “Compétences” ------------------------- */
   const terminal  = document.getElementById('terminal-content');
   const linesFr = [
-    "....................Compétences en Programmation....................",
-    "-> Python  - Analyse de données, IA, scripts",
-    "-> MATLAB  - Simulation & modélisation avancées",
-    "-> C / C++ - Systèmes embarqués, logiciels bas niveau",
-    "-> C#      - Interfaces graphiques (IHM)",
-    "-> Java    - Développement backend / mobile",
-    "-> SQL     - Bases de données relationnelles",
-    "-> HTML    - Structure des pages web",
-    "-> CSS     - Stylisation et mise en forme",
-    "-> JavaScript - Dynamisme des interfaces web",
-    "-> Bash    - Automatisation via scripts shell"
-  ];
+	  "....................Programming Skills....................",
+	  "-> Python      - Data analysis, AI, scripting",
+	  "-> MATLAB      - Advanced simulation & modeling",
+	  "-> C / C++     - Embedded systems, low-level software",
+	  "-> C#          - Graphical user interfaces (GUIs)",
+	  "-> Java        - Backend & mobile development",
+	  "-> SQL         - Relational databases",
+	  "-> HTML        - Web page structure",
+	  "-> CSS         - Styling & layout",
+	  "-> JavaScript  - Dynamic web interfaces",
+	  "-> Bash        - Automation via shell scripts"
+	];
+
 
   let line = 0, char = 0;
 
