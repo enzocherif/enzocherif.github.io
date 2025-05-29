@@ -148,6 +148,16 @@ navList.querySelectorAll('a').forEach(a=>{
 	  }
 	  lastScrollTop = st <= 0 ? 0 : st;
 	});
+  const stickyNav = document.querySelector('.sticky-nav');
+
+	window.addEventListener('scroll', () => {
+	  if (window.scrollY > 100) {
+		stickyNav.classList.add('show');
+	  } else {
+		stickyNav.classList.remove('show');
+	  }
+	});
+
 
   AOS.init({
 	  duration: 800,      // ms
@@ -223,7 +233,7 @@ navList.querySelectorAll('a').forEach(a=>{
     navigation:{ nextEl:'.swiper-button-next',
                  prevEl:'.swiper-button-prev' }
   });
-  
+
 /* ---------- active dots on scroll -------------------------------- */
   const items = document.querySelectorAll('.tl-item');
 
