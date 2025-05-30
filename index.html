@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Enzo CHERIF</title>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Inclusion du fichier CSS -->
-	<!-- Font Awesome 6 Free -->
-	<!-- Font Awesome 6 Free (chargement garanti) -->
-	<link rel="stylesheet"
+  <!-- 🔍 SEO Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Enzo CHERIF – Robotics, Mechatronics and AI Engineer. Discover his automation, embedded systems and data projects. Based in France, open to international opportunities.">
+  <meta name="author" content="Enzo CHERIF">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="Enzo CHERIF, robotics engineer, mechatronics, AI, embedded systems, automation, Python, MATLAB, SeaTech INP, Toulon, engineering portfolio">
+
+  <!-- 🌐 Language declaration (for search engines) -->
+  <meta http-equiv="Content-Language" content="en">
+
+  <!-- 📘 Open Graph Meta Tags (for LinkedIn, Facebook previews) -->
+  <meta property="og:title" content="Enzo CHERIF – Robotics & AI Engineer">
+  <meta property="og:description" content="Explore the portfolio of Enzo CHERIF, an engineer specialized in robotics, mechatronics, and embedded systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://enzocherif.github.io/">
+  <meta property="og:image" content="https://enzocherif.github.io/images/og-preview.svg">
+
+  <!-- 🐦 Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enzo CHERIF – Robotics & AI Engineer">
+  <meta name="twitter:description" content="Explore the portfolio of Enzo CHERIF, specialized in robotics, embedded systems, and data intelligence.">
+  <meta name="twitter:image" content="https://enzocherif.github.io/images/og-preview.svg">
+
+  <!-- 🔗 Styles and Icons -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- 🧠 Title -->
+  <title>Enzo CHERIF – Portfolio | Robotics & AI Engineer</title>
+
+  <!-- 📱 Fonts & other visual resources -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		  referrerpolicy="no-referrer">
 </head>
@@ -32,6 +59,7 @@
 	  </ul>
 	</nav>
 
+
 	
   <header class="animated-header" id="fullscreen-header">
 	<div id="particles-js"></div>
@@ -51,11 +79,19 @@
 	  </ul>
 	</nav>
 	<!-- bouton burger (visible mobile uniquement) -->
-	<button id="burger" aria-label="Menu mobile">
+	<button id="burger" aria-label="Toggle navigation">
 	  <span class="bar"></span>
 	  <span class="bar"></span>
 	  <span class="bar"></span>
 	</button>
+
+	<nav class="mobile-nav" id="mobile-nav">
+	  <a href="#about-me">About</a>
+	  <a href="#skills">Skills</a>
+	  <a href="#projects">Projects</a>
+	  <a href="#references">References</a>
+	  <a href="#contact">Contact</a>
+	</nav>
 
 
 
@@ -89,7 +125,7 @@
 		  <h2 id="about-title">About Me</h2>
 		  <div class="about-container">
 			<div class="about-photo">
-			  <img src="images/Portrait.jpeg" alt="Enzo CHERIF">
+			  <img src="images/Portrait.webp" alt="Enzo CHERIF">
 			</div>
 			<div class="about-text">
 			  <p id="about-description">
@@ -109,7 +145,7 @@
 
 			<!-- PHOTO ----------------------------------------------------- -->
 			<figure class="stage-photo">
-			  <img src="images/renault-trafic-estafette-goelette-2025-trio-av-mk_2.jpg"
+			  <img src="images/renault-trafic-estafette-goelette-2025-trio-av-mk_2.webp"
 				   alt="Renault SDV" class="stage-image">
 			</figure>
 
@@ -145,7 +181,7 @@
 
 			<!-- === PROJECT 1 (image left) ============================== -->
 			<li class="project-item" data-aos="fade-right">
-			  <img src="images/Vue_globale_ebd.png" alt="ABS-EBD System – Matlab/Simulink View">
+			  <img src="images/Vue_globale_ebd.webp" alt="ABS-EBD System – Matlab/Simulink View">
 			  <div class="proj-text">
 				<h3>Vehicle Dynamics: ABS &amp; EBD</h3>
 				<p>Modeling and simulation of an advanced braking system in Matlab/Simulink, integrating ABS and EBD to optimize stability and stopping distance.</p>
@@ -155,7 +191,7 @@
 
 			<!-- === PROJECT 2 (image right) ============================== -->
 			<li class="project-item" data-aos="fade-left">
-			  <img src="images/app.png" alt="Dynamic Simulator Interface">
+			  <img src="images/app.webp" alt="Dynamic Simulator Interface">
 			  <div class="proj-text">
 				<h3>MATLAB Dynamic Simulator</h3>
 				<p>Interactive interface to study the stability of an MF400H quad and a Mercedes S-Class: kinematic &amp; dynamic modeling, real-time safety indicators.</p>
@@ -165,7 +201,7 @@
 
 			<!-- === PROJECT 3 (image left) ============================== -->
 			<li class="project-item" data-aos="fade-right">
-			  <img src="images/Image_en_niveau_de_gris (1).png" alt="Grayscale Segmentation">
+			  <img src="images/Image_en_niveau_de_gris (1).webp" alt="Grayscale Segmentation">
 			  <div class="proj-text">
 				<h3>Image Processing: Segmentation &amp; Counting</h3>
 				<p>Python/OpenCV pipeline to identify and count objects from grayscale images: adaptive thresholding, morphology, labeling.</p>
@@ -175,7 +211,7 @@
 
 			<!-- === PROJECT 4 (image right) ============================== -->
 			<li class="project-item" data-aos="fade-left">
-			  <img src="images/Turtle_bot.jpg" alt="Autonomous TurtleBot under ROS">
+			  <img src="images/Turtle_bot.webp" alt="Autonomous TurtleBot under ROS">
 			  <div class="proj-text">
 				<h3>ROS Programming: Autonomous TurtleBot</h3>
 				<p>Real-time navigation, mapping, and obstacle avoidance under ROS 1: handling topics, C++/Python nodes, integrating LiDAR and RGB-D camera sensors.</p>
@@ -185,7 +221,7 @@
 
 			<!-- === PROJECT 5 (image left) ============================== -->
 			<li class="project-item" data-aos="fade-right">
-			  <img src="images/page_garde.png" alt="C# Robot Supervision Interface">
+			  <img src="images/page_garde.webp" alt="C# Robot Supervision Interface">
 			  <div class="proj-text">
 				<h3>Embedded Systems: Mobile Robot Control</h3>
 				<p>C# software suite (UART) to monitor a mobile robot: real-time commands, telemetry, UI ergonomics &amp; microcontroller testing.</p>
@@ -195,7 +231,7 @@
 
 			<!-- === PROJECT 6 (image right) ============================== -->
 			<li class="project-item" data-aos="fade-left">
-			  <img src="images/dinamis.png" alt="Posidonia Mapping at Domaine du Rayol">
+			  <img src="images/dinamis.webp" alt="Posidonia Mapping at Domaine du Rayol">
 			  <div class="proj-text">
 				<h3>Marine Mapping: Posidonia at Domaine du Rayol</h3>
 				<p>Fusion of satellite imagery and bathymetric data to map seagrass beds: supervised classification, QGIS processing, ecological monitoring recommendations.</p>
@@ -208,7 +244,7 @@
 		  <!-- inside <section id="projects"> just before </section> -->
 		  <div class="projects-footer">
 			<div class="neon-buddy">
-			  <img src="images/neon_buddy.png" alt="Petit personnage néon">
+			  <img src="images/neon_buddy.webp" alt="Petit personnage néon">
 			</div>
 			<a href="tous-projets.html" class="btn-view-all">See all my projects</a>
 		  </div>
@@ -224,7 +260,7 @@
 
 			<!-- PHOTO + DESCRIPTION --------------------------------------- -->
 			<div class="stage-flex">
-			  <img src="images/Photo_TFII_certificat_Enzo_CHERIF.jpeg"
+			  <img src="images/Photo_TFII_certificat_Enzo_CHERIF.webp"
 				   alt="TFII Bangkok Internship Certificate"
 				   class="stage-img">
 
@@ -360,73 +396,73 @@
 		  <div class="cards-container">
 			<!-- MATLAB Simulink -->
 			<div class="card" data-aos="fade-right" data-aos-delay="0">
-			  <img src="images/Simulink_Logo.png" alt="MATLAB Simulink Logo" class="tool-logo">
+			  <img src="images/Simulink_Logo.webp" alt="MATLAB Simulink Logo" class="tool-logo">
 			  <h3 id="tool-matlab-simulink-title">MATLAB Simulink</h3>
 			  <p id="tool-matlab-simulink-description">Advanced modeling and simulation</p>
 			</div>
 			<!-- MATLAB App Designer -->
 			<div class="card" data-aos="fade-left" data-aos-delay="150">
-			  <img src="images/Matlab_Logo.png" alt="MATLAB Logo" class="tool-logo">
+			  <img src="images/Matlab_Logo.webp" alt="MATLAB Logo" class="tool-logo">
 			  <h3 id="tool-matlab-app-title">MATLAB App Designer</h3>
 			  <p id="tool-matlab-app-description">Creating interactive applications for modeling</p>
 			</div>
 			<!-- LabVIEW -->
 			<div class="card" data-aos="fade-up" data-aos-delay="300">
-			  <img src="images/labview_logo.png" alt="LabVIEW Logo" class="tool-logo">
+			  <img src="images/labview_logo.webp" alt="LabVIEW Logo" class="tool-logo">
 			  <h3 id="tool-labview-title">LabVIEW</h3>
 			  <p id="tool-labview-description">Design of measurement and automation applications</p>
 			</div>
 			<!-- ROS -->
 			<div class="card" data-aos="fade-right" data-aos-delay="450">
-			  <img src="images/Ros_logo.png" alt="ROS Logo" class="tool-logo">
+			  <img src="images/Ros_logo.webp" alt="ROS Logo" class="tool-logo">
 			  <h3 id="tool-ros-title">ROS (Robot Operating System)</h3>
 			  <p id="tool-ros-description">Robot control and coordination</p>
 			</div>
 			<!-- Linux -->
 			<div class="card" data-aos="fade-left" data-aos-delay="600">
-			  <img src="images/linux_logo.png" alt="Linux Logo" class="tool-logo">
+			  <img src="images/linux_logo.webp" alt="Linux Logo" class="tool-logo">
 			  <h3 id="tool-linux-title">Linux</h3>
 			  <p id="tool-linux-description">Administration and development on Unix systems</p>
 			</div>
 			<!-- Git -->
 			<div class="card" data-aos="fade-up" data-aos-delay="750">
-			  <img src="images/git.png" alt="Git Logo" class="tool-logo">
+			  <img src="images/git.webp" alt="Git Logo" class="tool-logo">
 			  <h3 id="tool-git-title">Git</h3>
 			  <p id="tool-git-description">Version control for collaborative projects</p>
 			</div>
 			<!-- LaTeX -->
 			<div class="card" data-aos="fade-right" data-aos-delay="950">
-			  <img src="images/Latex_Logo.png" alt="LaTeX Logo" class="tool-logo">
+			  <img src="images/Latex_Logo.webp" alt="LaTeX Logo" class="tool-logo">
 			  <h3 id="tool-latex-title">LaTeX</h3>
 			  <p id="tool-latex-description">Administration and development on Unix systems</p>
 			</div>
 			<!-- SolidWorks -->
 			<div class="card" data-aos="fade-left" data-aos-delay="1100">
-			  <img src="images/solidworks.png" alt="SolidWorks Logo" class="tool-logo">
+			  <img src="images/solidworks.webp" alt="SolidWorks Logo" class="tool-logo">
 			  <h3 id="tool-solidworks-title">SolidWorks</h3>
 			  <p id="tool-solidworks-description">3D modeling and simulation for product design</p>
 			</div>
 			<!-- Catia -->
 			<div class="card" data-aos="fade-up" data-aos-delay="1250">
-			  <img src="images/catia-logo.png" alt="CATIA Logo" class="tool-logo">
+			  <img src="images/catia-logo.webp" alt="CATIA Logo" class="tool-logo">
 			  <h3 id="tool-catia-title">CATIA</h3>
 			  <p id="tool-catia-description">Design and modeling of mechanical systems</p>
 			</div>
 			<!-- Windows -->
 			<div class="card" data-aos="fade-right" data-aos-delay="1500">
-			  <img src="images/Window_logo.png" alt="Windows Logo" class="tool-logo">
+			  <img src="images/Window_logo.webp" alt="Windows Logo" class="tool-logo">
 			  <h3 id="tool-windows-title">Windows</h3>
 			  <p id="tool-windows-description">Operating systems for everyday use</p>
 			</div>
 			<!-- Excel -->
 			<div class="card" data-aos="fade-left" data-aos-delay="1650">
-			  <img src="images/excel_logo.png" alt="Excel Logo" class="tool-logo">
+			  <img src="images/excel_logo.webp" alt="Excel Logo" class="tool-logo">
 			  <h3 id="tool-excel-title">Excel</h3>
 			  <p id="tool-excel-description">Data analysis and spreadsheet automation</p>
 			</div>
 			<!-- Microsoft Office Suite -->
 			<div class="card" data-aos="fade-up" data-aos-delay="1800">
-			  <img src="images/microsoft_suite_logo.png" alt="Microsoft Office Suite Logo" class="tool-logo">
+			  <img src="images/microsoft_suite_logo.webp" alt="Microsoft Office Suite Logo" class="tool-logo">
 			  <h3 id="tool-office-suite-title">Microsoft Office Suite</h3>
 			  <p id="tool-office-suite-description">Document management and professional presentations</p>
 			</div>
@@ -565,7 +601,7 @@
 
 			<div class="tl-item" data-aos="fade-right">
 			  <div class="tl-content">
-				<img src="images/lyce_parc_des_loges_logo-Photoroom.png" alt="Lycée" />
+				<img src="images/lyce_parc_des_loges_logo-Photoroom.webp" alt="Lycée" />
 				<h3>Bac S – Option SI</h3>
 				<p>Lycée Parc des Loges</p>
 				<span class="tl-date">2019</span>
@@ -574,7 +610,7 @@
 
 			<div class="tl-item" data-aos="fade-left">
 			  <div class="tl-content">
-				<img src="images/logo-parc-de-vilgenis-fond-transparent.png" alt="Prépa" />
+				<img src="images/logo-parc-de-vilgenis-fond-transparent.webp" alt="Prépa" />
 				<h3>Classe Préparatoire PTSI / PT</h3>
 				<p>Lycée Parc de Vilgénis</p>
 				<span class="tl-date">2019 – 2022</span>
@@ -583,7 +619,7 @@
 
 			<div class="tl-item" data-aos="fade-right">
 			  <div class="tl-content">
-				<img src="images/seatech.png" alt="SeaTech" />
+				<img src="images/seatech.webp" alt="SeaTech" />
 				<h3>SeaTech – INP Toulon</h3>
 				<p>Ingénierie mécatronique &amp; robotique</p>
 				<span class="tl-date">2022 – 2025</span>
@@ -592,7 +628,7 @@
 
 			<div class="tl-item" data-aos="fade-left">
 			  <div class="tl-content">
-				<img src="images/logo-utln.png" alt="UTLN" />
+				<img src="images/logo-utln.webp" alt="UTLN" />
 				<h3>Master RISE</h3>
 				<p>Université de Toulon</p>
 				<span class="tl-date">2024 – 2025</span>
@@ -661,6 +697,10 @@
 	
 	<!-- Ton code ensuite -->
 	<script src="script.js"></script>
+	
+	<a href="#top" id="back-to-top" aria-label="Back to top">
+	  ↑
+	</a>
 
 </body>
 </html>

@@ -33,22 +33,15 @@ const navObs = new IntersectionObserver(entries=>{
 sections.forEach(sec=> sec && navObs.observe(sec));
 
 /* ---------- Burger toggle mobile ---------------------------------- */
-const burger  = document.getElementById('burger');
-const navList = document.querySelector('.glass-nav ul');
+const burger = document.getElementById("burger");
+const mobileNav = document.getElementById("mobile-nav");
 
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navList.classList.toggle('open');
+burger.addEventListener("click", () => {
+  burger.classList.toggle("open");
+  mobileNav.classList.toggle("open");
 });
 
 
-/* ferme le menu après clic sur un lien */
-navList.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click', ()=>{
-    burger.classList.remove('open');
-    navList.classList.remove('open');
-  });
-});
 
 
   /* ------------------------------------------------------------------ */
@@ -263,6 +256,16 @@ navList.querySelectorAll('a').forEach(a=>{
       tiltEl.style.transform = 'none';
     });
   }
+	const backToTop = document.getElementById("back-to-top");
+
+	window.addEventListener("scroll", () => {
+	  if (window.scrollY > 300) {
+		backToTop.classList.add("visible");
+	  } else {
+		backToTop.classList.remove("visible");
+	  }
+	});
+
 });
 
 
