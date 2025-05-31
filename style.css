@@ -2075,23 +2075,24 @@ html,body{ max-width:100%; overflow-x:hidden; }
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ----------- MOBILE NAV ----------- */
+/* ----------- MOBILE NAV (transparent + néon) ----------- */
 .mobile-nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: radial-gradient(ellipse at top, #0f0f0f 0%, #000000 100%);
   width: 100vw;
   height: 100vh;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
   z-index: 1000;
   transition: all 0.4s ease-in-out;
   opacity: 0;
   transform: translateX(100%);
+  background-color: transparent; /* fond transparent */
+  backdrop-filter: none; /* pas de blur */
 }
 
 .mobile-nav.open {
@@ -2102,13 +2103,15 @@ html,body{ max-width:100%; overflow-x:hidden; }
 
 .mobile-nav a {
   color: #00f0ff;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
-  font-weight: 700;
   position: relative;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   transition: transform 0.3s, color 0.3s;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00ffaa; /* effet néon */
 }
 
 .mobile-nav a::after {
@@ -2120,6 +2123,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
   left: 50%;
   background-color: #00f0ff;
   transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 6px #00f0ff;
 }
 
 .mobile-nav a:hover::after {

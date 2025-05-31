@@ -37,11 +37,18 @@ const burger = document.getElementById("burger");
 const mobileNav = document.getElementById("mobile-nav");
 
 burger.addEventListener("click", () => {
-  burger.classList.toggle("open");
-  mobileNav.classList.toggle("open");
+  const isOpen = burger.classList.contains("open");
+  burger.classList.toggle("open", !isOpen);
+  mobileNav.classList.toggle("open", !isOpen);
 });
 
-
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('#mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  });
+});
 
 
   /* ------------------------------------------------------------------ */
