@@ -93,10 +93,11 @@ document.querySelectorAll('#mobile-nav a').forEach(link => {
   const typedText = document.querySelector('.typed-text');
   if(typedText){
     const words = [
-      'Mechatronics Engineer',
+	  'AI Explorer',
+      'Automation Engineer',
       'Python Developer',
       'Robotics Enthusiast',
-      'AI Explorer'
+      'Mechatronics Engineer'
     ];
     let idx = 0, char = 0, erase = false;
     const speed = () => (erase ? 50 : 100);
