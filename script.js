@@ -96,6 +96,7 @@ document.querySelectorAll('#mobile-nav a').forEach(link => {
 	  'AI Explorer',
       'Automation Engineer',
       'Python Developer',
+	  'Embedded Software',
       'Robotics Enthusiast',
       'Mechatronics Engineer'
     ];
