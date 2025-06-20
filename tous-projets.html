@@ -33,19 +33,25 @@
 	  <button class="filter-toggle">Filtrer par catégorie <span class="arrow">▼</span></button>
 	  <div class="filter-panel">
 		<div class="filter-buttons">
-          <button class="filter-btn active" data-filter="all">Tous</button>
-          <button class="filter-btn" data-filter="python">Python</button>
-          <button class="filter-btn" data-filter="ros">ROS</button>
-          <button class="filter-btn" data-filter="robotique">Robotique</button>
-          <button class="filter-btn" data-filter="matlab">MATLAB</button>
-          <button class="filter-btn" data-filter="simulation">Simulation</button>
-          <button class="filter-btn" data-filter="ia">IA</button>
-          <button class="filter-btn" data-filter="embedded">Embarqué</button>
-          <button class="filter-btn" data-filter="cartographie">Cartographie</button>
-          <button class="filter-btn" data-filter="image-processing">Traitement d’images</button>
-          <button class="filter-btn" data-filter="game">Jeux</button>
-          <button class="filter-btn" data-filter="ml">ML</button>
-        </div>
+		  <button class="filter-btn active" data-filter="all">All</button>
+		  <button class="filter-btn" data-filter="python">Python</button>
+		  <button class="filter-btn" data-filter="ros">ROS</button>
+		  <button class="filter-btn" data-filter="robotics">Robotics</button>
+		  <button class="filter-btn" data-filter="matlab">MATLAB</button>
+		  <button class="filter-btn" data-filter="simulation">Simulation</button>
+		  <button class="filter-btn" data-filter="ai">AI</button>
+		  <button class="filter-btn" data-filter="embedded">Embedded</button>
+		  <button class="filter-btn" data-filter="mapping">Mapping</button>
+		  <button class="filter-btn" data-filter="image-processing">Image Processing</button>
+		  <button class="filter-btn" data-filter="game">Game</button>
+		  <button class="filter-btn" data-filter="ml">Machine Learning</button>
+		  <button class="filter-btn" data-filter="classification">Classification</button>
+		  <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+		  <button class="filter-btn" data-filter="nlp">NLP</button>
+		  <button class="filter-btn" data-filter="c">C</button>
+		  <button class="filter-btn" data-filter="cpp">C++</button>
+		  <button class="filter-btn" data-filter="csharp">C#</button>
+		</div>
 	  </div>
 	</div>
   </header>
@@ -53,35 +59,62 @@
   <main class="project-grid">
 
     <!-- Projet avec image + rapport -->
-    <article class="project-card python ia">
-      <img src="images/Vue_globale_ebd.webp" alt="ABS EBD simulation">
-      <h2>Simulation MATLAB : ABS & EBD</h2>
-      <p>Modélisation d’un système de freinage intelligent sous Simulink, intégrant ABS et répartition électronique de freinage.</p>
-      <p><strong>Notion :</strong> Dynamique véhicule, sécurité</p>
-      <p><strong>Langage :</strong> MATLAB / Simulink</p>
-      <a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf" target="_blank" class="btn-glow-outline">Télécharger le rapport</a>
-    </article>
+    <article class="project-card matlab simulation ai">
+	  <img src="images/Vue_globale_ebd.webp" alt="ABS and EBD Simulation" />
+	  <h2>MATLAB Simulation: ABS & EBD</h2>
+	  <p class="project-description">Modeling of an intelligent braking system using Simulink, integrating Anti-lock Braking System (ABS) and Electronic Brakeforce Distribution (EBD).</p>
+	  <p><strong>Concepts:</strong> Vehicle dynamics, safety systems</p>
+	  <p><strong>Language:</strong> MATLAB / Simulink</p>
+	  <a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
 
     <!-- Projet GitHub ML -->
-    <article class="project-card python ia">
-      <img src="images/recommandation_book.webp" alt="Recommandation livres" />
-      <h2>Recommandation de livres</h2>
-      <p>Moteur de recommandation avec KNN sur le dataset Book-Crossings, traitement de similarité utilisateur/livre.</p>
-      <p><strong>Notion :</strong> Machine Learning, KNN</p>
-      <p><strong>Langage :</strong> Python (Pandas, scikit-learn)</p>
-      <a href="https://github.com/enzocherif/Book-recommendation" target="_blank" class="btn-glow">Voir le GitHub</a>
-    </article>
+    <article class="project-card python ai ml data-analysis">
+	  <img src="images/recommandation_book.webp" alt="Book Recommendation System" />
+	  <h2>Book Recommendation Engine</h2>
+	  <p class="project-description">Recommendation system using KNN on the Book-Crossings dataset, analyzing user-book similarity and preferences.</p>
+	  <p><strong>Concepts:</strong> Machine Learning, K-Nearest Neighbors (KNN)</p>
+	  <p><strong>Language:</strong> Python (Pandas, scikit-learn)</p>
+	  <a href="https://github.com/enzocherif/Book-recommendation" target="_blank" class="btn-glow">View on GitHub</a>
+	</article>
 
     <!-- Projet ROS -->
-    <article class="project-card ros ia">
-      <img src="images/Turtle_bot.webp" alt="TurtleBot ROS">
-      <h2>Robot autonome avec ROS</h2>
-      <p>Navigation, SLAM et évitement d’obstacles en temps réel via ROS, avec intégration capteurs et visualisation RViz.</p>
-      <p><strong>Notion :</strong> Robotique mobile, contrôle en temps réel</p>
-      <p><strong>Langage :</strong> Python / C++ / ROS1</p>
-      <a href="rapports/CR_ROS.pdf" target="_blank" class="btn-glow-outline">Télécharger le rapport</a>
-    </article>
+	<article class="project-card ros ai robotics cpp embedded">
+	  <img src="images/Turtle_bot.webp" alt="TurtleBot Autonomous Robot with ROS" />
+	  <h2>Autonomous Robot with ROS</h2>
+	  <p class="project-description">Real-time navigation, SLAM, and obstacle avoidance using ROS, with sensor integration and RViz visualization.</p>
+	  <p><strong>Concepts:</strong> Mobile robotics, real-time control</p>
+	  <p><strong>Language:</strong> Python / C++ / ROS1</p>
+	  <a href="rapports/CR_ROS.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+
 	
+	<!-- Project: Rainfall Prediction -->
+	<article class="project-card python ai ml classification">
+	  <img src="images/rainfall_prediction.webp" alt="Rainfall Prediction" />
+	  <div class="card-content">
+		<h2>Rainfall Prediction</h2>
+		<p class="project-description">
+		  Classifier with grid search on weather data, evaluated by metrics.
+		</p>
+		<p><strong>Concepts:</strong> Classification, cross-validation</p>
+		<p><strong>Language:</strong> Python</p>
+	  </div>
+	  <a href="#" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+
+	
+	<!-- Project: Titanic Survival Prediction -->
+	<article class="project-card python ai classification">
+	  <img src="images/titanic_survival.webp" alt="Titanic Survival Prediction Classifier" />
+	  <h2>Titanic Survival Prediction</h2>
+	  <p class="project-description">Logistic Regression pipeline to predict passenger survival using engineered features. Coefficient analysis, model tuning, and performance evaluation with accuracy and interpretability metrics.</p>
+	  <p><strong>Concepts:</strong> Logistic regression, feature coefficients, supervised learning</p>
+	  <p><strong>Language:</strong> Python</p>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Practice%20Project.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
 	<!-- Projet Rock-Paper-Scissors -->
     <article class="project-card python ia game">
       <img src="images/rock_paper_scissors.webp" alt="Rock-Paper-Scissors intelligent" />

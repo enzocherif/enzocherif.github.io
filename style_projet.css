@@ -185,7 +185,7 @@ body {
    ============================= */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 3rem;
 }
 
@@ -217,10 +217,13 @@ body {
 .project-card img {
   width: 100%;
   max-width: 300px;
+  height: 200px; /* hauteur fixe pour uniformiser */
+  object-fit: cover; /* rogne pour remplir sans déformer */
   border-radius: 1rem;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
   margin-bottom: 1.5rem;
 }
+
 
 .project-card h2 {
   font-size: 1.9rem;
@@ -231,11 +234,28 @@ body {
 }
 
 .project-card p {
-  font-size: 1.45rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  padding: 0 0.2rem;
   color: #e0e0e0;
   margin-bottom: 1rem;
 }
+
+.project-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* limite à 2 lignes */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.project-card .card-content {
+  min-height: 180px; /* ajuste selon ton contenu type */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
 
 .btn-glow,
 .btn-glow-outline {
