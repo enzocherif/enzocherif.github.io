@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tous mes projets – Enzo CHERIF</title>
+  <title>All My Projects – Enzo CHERIF</title>
   <link rel="stylesheet" href="style_projet.css"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet"
@@ -16,7 +16,7 @@
   
 	<!-- Bouton Retour -->
 	<a href="javascript:history.back()" class="btn-back">
-	  <i class="fas fa-arrow-left"></i> Retour
+	  <i class="fas fa-arrow-left"></i> Back
 	</a>
 
   <header class="project-header">
@@ -30,7 +30,7 @@
 	  </span>
 	</p>
 	<div class="filter-accordion">
-	  <button class="filter-toggle">Filtrer par catégorie <span class="arrow">▼</span></button>
+	  <button class="filter-toggle">Filter by category <span class="arrow">▼</span></button>
 	  <div class="filter-panel">
 		<div class="filter-buttons">
 		  <button class="filter-btn active" data-filter="all">All</button>
@@ -228,7 +228,7 @@
   </main>
 
   <footer>
-    <p>© 2025 Enzo CHERIF – <a href="index.html">Retour au portfolio</a></p>
+    <p>© 2025 Enzo CHERIF – <a href="index.html">Back to portfolio</a></p>
   </footer>
 
 <!-- Bibliothèque Particles.js -->
@@ -292,11 +292,16 @@
   
 document.addEventListener('DOMContentLoaded', () => {
   const words = [
-    'simulation',
-    'IA',
-    'robotique',
-    'traitement de données'
-  ];
+	  'simulation',
+	  'AI & robotics',
+	  'data processing',
+	  'embedded systems',
+	  'machine learning',
+	  'real-time control',
+	  'image classification',
+	  'intelligent automation'
+	];
+
   const typeEl = document.getElementById('typewriter');
   let wordIndex = 0, charIndex = 0, isDeleting = false;
   const typingSpeed = 120;
