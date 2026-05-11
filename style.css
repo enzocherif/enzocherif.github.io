@@ -136,25 +136,25 @@
 	   ======================= */
 
 	.animated-header {
-	  height: 100vh;
-	  width: 100%;
-	  background-color: var(--bg-color);
-	  color: var(--text-color);
-	  padding: 40px 12%;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: flex-start;
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  padding-left: 6%;
-	  padding-right: 6%;
-	  transition: transform 0.4s ease;
-	  z-index: 1000;
-	}
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  /* Compenser la nav fixe (~50px) pour que le contenu soit visuellement centré */
+  padding-top: 50px;
+}
 	/* remove the top padding so the nav hugs the viewport edge */
-	.animated-header{ padding-top:0 !important; }
+	
 
 
 	.animated-header.hide {
@@ -186,17 +186,21 @@
 	}
 	/* --- keep nav glued to the top-right -------------------------------- */
 	/* PATCH FINAL : nav collée au bord supérieur                          */
-	.header-nav{
-	  position: fixed !important;  /* remplace le position:absolute        */
-	  top: 0    !important;        /* 0 ⇒ plus aucun espace vertical       */
-	  right: 10% !important;        /* même marge latérale que le reste     */
-	  display: flex;
-	  justify-content: center;   /* ✅ centre horizontalement */
-	  align-items: center;       /* ✅ centre verticalement */
-	  gap: 3rem;                 /* espace entre les liens */
-	  padding: 1rem 2rem;
-	  flex-wrap: wrap;
-	}
+	.header-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  z-index: 1500;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.header-nav::-webkit-scrollbar { display: none; }
 
 
 
@@ -210,20 +214,19 @@
 
 
 	/* horizontal list */
-	.header-nav ul{
-	  display:flex; gap:2.2rem; list-style:none; margin:0; padding:0;
-	}
+	.header-nav ul { display:flex; gap:1.2rem; list-style:none; margin:0; padding:0; flex-wrap:nowrap; }
 
 	/* links */
-	.header-nav a{
-	  position:relative;
-	  font-size:1.45rem;
-	  font-weight:500;
-	  padding:.6rem 1rem;
-	  color:var(--text-light);
-	  text-decoration:none;
-	  transition:.25s;
-	}
+	.header-nav a {
+  position: relative;
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: .4rem .6rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: .25s;
+  white-space: nowrap;
+}
 
 	/* glowing underline on hover */
 	.header-nav a::after{
@@ -249,7 +252,7 @@
 
 	/* smaller gap on tiny screens */
 	@media(max-width:650px){
-	  .header-nav ul{ gap:1.2rem; }
+	  .header-nav ul { display:flex; gap:1.2rem; list-style:none; margin:0; padding:0; flex-wrap:nowrap; }
 	  .header-nav a{ font-size:1.25rem; padding:.5rem .8rem; }
 	}
 	/* ======  HAMBURGER  (mobile ≤ 640 px) =============================== */
@@ -366,14 +369,14 @@
 	   INTRO LEFT BLOCK
 	   ======================= */
 	.header-left-block {
-	  max-width: 650px;
-	  display: flex;
-	  flex-direction: column;
-	  gap: 2rem;
-	  margin-top: 6rem;
-	  position: relative; /* Ajoute cette ligne */
-	}
-	.header-left-block{ margin-top: 4rem; }   
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 0;
+  position: relative;
+}
+	
 
 
 	.big-intro {
@@ -493,32 +496,13 @@
 	   SCROLL INDICATOR
 	   ======================= */
 	/* décale la flèche de 1 rem vers la droite par rapport aux boutons   */
-	.scroll-down{
-	  position:fixed;
-	  bottom:20px;        /* ↕ décalage vertical : + grand => + haut      */
-	  left:50%;           /* ↔ décalage horizontal : 50 % = centre,       */
-						  /*    60 % = un peu vers la droite, etc.        */
-		/* nouvelle ligne → même teinte que tes autres éléments */
-	  color: var(--main-color);        /* ou la valeur hex exacte, ex. #00ffca */
-	  transform:translateX(-50%);
-	  font-size:4rem;
-	  animation:bounce 1.5s infinite;
-	  z-index:1000;
-	}
-	@media(max-width:640px){
-	  .scroll-down{ z-index:1500; }   /* > nav overlay (1000)               */
-	}
-
-
-
-	@keyframes bounce{
-	  0%,100%{transform:translateY(0);}
+	
 	  50%    {transform:translateY(6px);}
 	}
 
 	
 	@media(max-width:600px){
-	  .header-left-block{ margin-top:2rem; }
+	  
 	  .big-intro      { font-size:4rem; }
 	  .typing-subline { font-size:2rem; }
 	}
@@ -1126,7 +1110,7 @@
   width: 100%;
   max-height: 420px;
   object-fit: cover;
-  object-position: center 60%;
+  object-position: center 45%;
   border-radius: 1rem;
   border: 1px solid rgba(0,255,238,.15);
   box-shadow: 0 0 30px rgba(0,0,0,.5);
@@ -2246,7 +2230,7 @@ html,body{ max-width:100%; overflow-x:hidden; }  /* sécurité absolue */
 /* 5.  Scroll-down : z-index > tiroir mobile                           */
 /* =================================================================== */
 @media(max-width:640px){
-  .scroll-down{ z-index:2500; }
+  
 }
 
 /* =================================================================== */
@@ -2314,7 +2298,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
 /*  E.   Flèche « scroll-down » toujours au-dessus du tiroir            */
 /* =================================================================== */
 @media(max-width:640px){
-  .scroll-down{ z-index:2500; }
+  
 }
 /* =================================================================== */
 /*  PROJETS  –  optimisations smartphone ≤ 640 px                       */
@@ -2988,4 +2972,240 @@ html,body{ max-width:100%; overflow-x:hidden; }
   .renault-kpi-number { font-size: 1.8rem; }
 
   .post-proj-header h3 { font-size: 1.3rem; }
+}
+
+
+/* =====================================================================
+   BURGER + MOBILE NAV — version propre et complète
+   ===================================================================== */
+
+/* ── Burger button ── */
+#burger {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  right: 5%;
+  z-index: 3000;
+  width: 36px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#burger .bar {
+  display: block;
+  height: 3px;
+  background: var(--main-color);
+  border-radius: 3px;
+  transition: width 0.3s ease, transform 0.35s ease, opacity 0.3s ease;
+  box-shadow: 0 0 6px var(--main-color);
+}
+#burger .bar:nth-child(1) { width: 100%; }
+#burger .bar:nth-child(2) { width: 70%; }
+#burger .bar:nth-child(3) { width: 100%; }
+
+/* Etat ouvert : croix */
+#burger.open .bar:nth-child(1) { width: 100%; transform: translateY(12px) rotate(45deg); }
+#burger.open .bar:nth-child(2) { opacity: 0; width: 0; }
+#burger.open .bar:nth-child(3) { width: 100%; transform: translateY(-13px) rotate(-45deg); }
+
+/* ── Mobile nav overlay ── */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: rgba(8, 8, 8, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* état fermé */
+  clip-path: circle(0% at calc(100% - 5% - 18px) 1.6rem);
+  transition: clip-path 0.5s cubic-bezier(.77,0,.175,1);
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.mobile-nav.open {
+  clip-path: circle(150% at calc(100% - 5% - 18px) 1.6rem);
+  pointer-events: all;
+}
+
+/* Liens du menu mobile */
+.mobile-nav a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1.4rem 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.mobile-nav a:first-child { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+
+.mobile-nav a:hover,
+.mobile-nav a:active {
+  color: var(--main-color);
+  background: rgba(0, 255, 238, 0.05);
+  text-shadow: 0 0 12px var(--main-color);
+}
+
+/* Animation en cascade des liens */
+.mobile-nav.open a {
+  animation: mobileNavIn 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+.mobile-nav.open a:nth-child(1)  { animation-delay: 0.12s; }
+.mobile-nav.open a:nth-child(2)  { animation-delay: 0.16s; }
+.mobile-nav.open a:nth-child(3)  { animation-delay: 0.20s; }
+.mobile-nav.open a:nth-child(4)  { animation-delay: 0.24s; }
+.mobile-nav.open a:nth-child(5)  { animation-delay: 0.28s; }
+.mobile-nav.open a:nth-child(6)  { animation-delay: 0.32s; }
+.mobile-nav.open a:nth-child(7)  { animation-delay: 0.36s; }
+.mobile-nav.open a:nth-child(8)  { animation-delay: 0.40s; }
+.mobile-nav.open a:nth-child(9)  { animation-delay: 0.44s; }
+.mobile-nav.open a:nth-child(10) { animation-delay: 0.48s; }
+.mobile-nav.open a:nth-child(11) { animation-delay: 0.52s; }
+
+@keyframes mobileNavIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Affichage du burger sur mobile ── */
+@media (max-width: 768px) {
+  #burger {
+    display: flex;
+  }
+  .header-nav,
+  .sticky-nav {
+    display: none !important;
+  }
+}
+
+
+/* =====================================================================
+   EFFETS SCROLL — 7 animations
+   ===================================================================== */
+
+/* ── 1. Progress bar (injectée via JS, pas de CSS nécessaire) ── */
+
+/* ── 2. Hero slide-in — will-change pour perf GPU ── */
+.big-intro, .typing-subline, .social-icons, .header-buttons {
+  will-change: opacity, transform;
+}
+
+/* ── 3. Magnetic hover — curseur pointeur sur les CTA ── */
+.btn-glow, .btn-glow-outline, .renault-report-btn {
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* ── 4. Counter KPI — style du span animé ── */
+#kpi-count {
+  color: var(--main-color);
+  text-shadow: 0 0 10px var(--main-color);
+  font-weight: 700;
+  display: inline-block;
+  min-width: 2ch;
+  transition: color 0.2s;
+}
+
+/* ── 5. Stagger — state initial géré via JS ── */
+
+/* ── 6. Parallax sections — var CSS utilisée par le pseudo-élément ── */
+#post-actuel::before,
+#stage-renault::before,
+#stage-thailande::before {
+  transition: transform 0.1s linear;
+  transform: translateY(var(--px-offset, 0px));
+  will-change: transform;
+}
+
+/* ── 7. Timeline — ligne de progression ── */
+#tl-progress-line {
+  will-change: height;
+}
+
+/* Item activé : halo néon sur le contenu */
+.tl-item.active .tl-content {
+  border-color: var(--main-color) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 238, 0.25);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* Point de la timeline activé */
+.tl-item.active::before {
+  background: var(--main-color);
+  box-shadow: 0 0 0 4px rgba(0, 255, 238, 0.25), 0 0 12px var(--main-color);
+  transform: scale(1.2);
+}
+
+/* Transition sur le point ── */
+.tl-item::before {
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* .tl-content : smooth sur transform (micro-pop) */
+.tl-content {
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  will-change: transform;
+}
+
+/* ── Smooth scroll global ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Réduction des animations si l'utilisateur le préfère ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  #scroll-progress { display: none; }
+}
+
+/* ── Flèche scroll-down ── */
+.scroll-down {
+  position: fixed;
+  bottom: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: var(--main-color);
+  text-decoration: none;
+  z-index: 1100;
+  filter: drop-shadow(0 0 8px var(--main-color));
+  line-height: 1;
+  display: block;
+  width: fit-content;
+  pointer-events: auto;
+  animation: bounceScrollArrow 1.6s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+.scroll-down.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes bounceScrollArrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(9px); }
 }
