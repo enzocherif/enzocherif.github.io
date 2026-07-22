@@ -1232,32 +1232,17 @@
 	  .proj-text{ text-align: center; }
 	}
 /* =================================================================== */
-/*  PROJETS – bouton “Voir tous mes projets” + Neon Buddy              */
+/*  PROJETS – bouton "Voir tous mes projets" + Neon Buddies            */
 /* =================================================================== */
+/* NOTE : .projects-footer et .neon-buddy sont redéfinis plus bas dans
+   ce fichier (section "MASCOTTES NEON BUDDIES") avec le nouveau système
+   à 3 bonhommes SVG. On ne garde ici que btn-view-all ; les anciennes
+   règles .neon-buddy / float-buddy ont été retirées pour éviter tout
+   conflit (double animation, display:flex qui casserait le positionnement
+   absolu des bonhommes). */
 .projects-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
   margin: 3rem auto 0;
-}
-
-
-.neon-buddy {
-  width: 60px; 
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 8px var(--main-color));
-  animation: float-buddy 3s ease-in-out infinite;
-}
-.neon-buddy img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@keyframes float-buddy {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
+  text-align: center;
 }
 
 /* CTA “Voir tous mes projets” */
@@ -3208,4 +3193,309 @@ html {
 @keyframes bounceScrollArrow {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(9px); }
+}
+
+/* =================================================================== */
+/*  NOUVEAUX EFFETS CREATIFS — ajoutés                                 */
+/* =================================================================== */
+
+/* ----------------------------------------------------------------- */
+/*  1bis. NEUTRALISATION DES ANCIENS TRANSFORM:HOVER (conflit tilt)   */
+/* ----------------------------------------------------------------- */
+/* Les règles .card:hover / #domains .card:hover / #tools .card:hover
+   définissaient un transform (translateY/scale) qui entrait en conflit
+   avec le tilt 3D piloté en JS ci-dessous, créant un effet "ancien hover"
+   qui écrasait le nouveau. On neutralise ce transform ici : le survol
+   garde son halo/box-shadow, le transform du conteneur est désormais
+   100% géré par JS (les enfants i/h3/p gardent leur translateZ plus bas). */
+#domains .card:hover,
+#tools .card:hover {
+  transform: none;
+}
+/* on réaffirme translateZ sur les enfants pour gagner sur les anciennes
+   règles #domains .card:hover i { transform: scale(...) } */
+#domains .card:hover i,
+#tools .card:hover .tool-logo {
+  transform: translateZ(28px) !important;
+}
+
+/* ----------------------------------------------------------------- */
+/*  1. CURSEUR NEON MAGNETIQUE CUSTOM                                 */
+/* ----------------------------------------------------------------- */
+#neon-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--main-color);
+  box-shadow: 0 0 10px var(--main-color), 0 0 22px var(--main-color);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease, opacity .25s ease, background .2s ease;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+#neon-cursor.cursor-hover {
+  width: 46px;
+  height: 46px;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 16px var(--main-color), 0 0 30px var(--main-color);
+}
+#neon-cursor.cursor-click {
+  width: 12px;
+  height: 12px;
+}
+@media (max-width: 900px), (hover: none) {
+  #neon-cursor { display: none; }
+}
+
+/* ----------------------------------------------------------------- */
+/*  2. TILT 3D + GLOW SOURIS SUR LES CARTES (Domains / Tools)         */
+/* ----------------------------------------------------------------- */
+#domains .card,
+#tools .card {
+  transform-style: preserve-3d;
+  transition: transform .12s ease-out, box-shadow .3s ease;
+}
+#domains .card .card-glow,
+#tools .card .card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+              rgba(0,255,238,.30), transparent 60%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+#domains .card:hover .card-glow,
+#tools .card:hover .card-glow {
+  opacity: 1;
+}
+#domains .card i,
+#tools .tool-logo,
+#domains .card h3, #domains .card p,
+#tools .card h3, #tools .card p {
+  transform: translateZ(28px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------- */
+/*  3. FLIP 3D SUR LES IMAGES PROJETS (au survol)                     */
+/* ----------------------------------------------------------------- */
+.project-item .flip-scene {
+  width: 340px;
+  max-width: 100%;
+  height: 220px;
+  perspective: 1400px;
+  flex-shrink: 0;
+}
+.project-item .flip-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.22,1,.36,1);
+}
+.project-item .flip-scene:hover .flip-card,
+.project-item .flip-scene.flipped .flip-card {
+  transform: rotateY(180deg);
+}
+.project-item .flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: .8rem;
+  overflow: hidden;
+}
+.project-item .flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: .8rem;
+  box-shadow: 0 0 16px rgba(0,0,0,.55);
+}
+.project-item .flip-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(150deg, #0c1413, #081513);
+  border: 1px solid var(--main-color);
+  box-shadow: 0 0 26px rgba(0,255,238,.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.project-item .flip-back .flip-icon {
+  font-size: 2.4rem;
+  color: var(--main-color);
+  text-shadow: 0 0 12px var(--main-color);
+}
+.project-item .flip-back .flip-cta {
+  display: inline-block;
+  padding: .7rem 1.8rem;
+  border: 2px solid var(--main-color);
+  border-radius: 3rem;
+  color: var(--main-color);
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: .3s;
+}
+.project-item .flip-back .flip-cta:hover {
+  background: var(--main-color);
+  color: #000;
+  box-shadow: 0 0 18px var(--main-color);
+}
+
+@media (max-width: 700px) {
+  .project-item .flip-scene {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/*  5. MASCOTTES NEON BUDDIES — 3 bonhommes SVG, balade + clic       */
+/* ----------------------------------------------------------------- */
+.projects-footer {
+  position: relative;
+  overflow: visible;
+  min-height: 110px;
+}
+
+.neon-buddy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 46px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px var(--main-color));
+  cursor: pointer;
+  z-index: 2;
+}
+.neon-buddy svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.neon-buddy .stroke {
+  fill: none;
+  stroke: var(--main-color);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.neon-buddy .fill { fill: var(--main-color); }
+.neon-buddy .fill-soft { fill: rgba(0,255,238,.12); }
+.neon-buddy .dim { stroke: var(--main-color); opacity: .55; }
+
+.neon-buddy.dir-left svg { transform: scaleX(-1); }
+.neon-buddy.popped { opacity: 0; pointer-events: none; }
+
+/* bob de marche global (tout le corps) */
+@keyframes buddy-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+.neon-buddy.walking .bob {
+  animation: buddy-bob .8s ease-in-out infinite;
+}
+
+/* jambes en ciseaux */
+@keyframes buddy-leg-front {
+  0%, 100% { transform: rotate(18deg); }
+  50%      { transform: rotate(-18deg); }
+}
+@keyframes buddy-leg-back {
+  0%, 100% { transform: rotate(-18deg); }
+  50%      { transform: rotate(18deg); }
+}
+.neon-buddy.walking .leg-l { animation: buddy-leg-front .8s ease-in-out infinite; transform-origin: 28px 49px; }
+.neon-buddy.walking .leg-r { animation: buddy-leg-back  .8s ease-in-out infinite; transform-origin: 36px 49px; }
+
+/* bras qui balancent (pour le bonhomme penseur, sans accessoire en main) */
+@keyframes buddy-arm-front {
+  0%, 100% { transform: rotate(-14deg); }
+  50%      { transform: rotate(14deg); }
+}
+@keyframes buddy-arm-back {
+  0%, 100% { transform: rotate(14deg); }
+  50%      { transform: rotate(-14deg); }
+}
+.neon-buddy.walking .arm-swing-l { animation: buddy-arm-front .8s ease-in-out infinite; transform-origin: 24px 28px; }
+.neon-buddy.walking .arm-swing-r { animation: buddy-arm-back  .8s ease-in-out infinite; transform-origin: 40px 28px; }
+
+/* Bonhomme 1 — codeur : mains qui tapent + écran qui clignote */
+@keyframes buddy-type-hand {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(2.2px); }
+}
+.neon-buddy.walking .type-l { animation: buddy-type-hand .4s ease-in-out infinite; }
+.neon-buddy.walking .type-r { animation: buddy-type-hand .4s ease-in-out infinite .2s; }
+
+@keyframes buddy-screen-blink {
+  0%, 40%, 100% { opacity: .9; }
+  20%           { opacity: .35; }
+}
+.neon-buddy.walking .laptop-screen { animation: buddy-screen-blink 1.6s steps(2,end) infinite; }
+
+/* Bonhomme 2 — ingénieur : clé qui tourne + étincelles */
+@keyframes buddy-wrench-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.neon-buddy.walking .wrench {
+  animation: buddy-wrench-spin 1.6s linear infinite;
+  transform-origin: 52px 42px;
+}
+@keyframes buddy-spark {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
+}
+.neon-buddy.walking .spark { animation: buddy-spark .6s ease-in-out infinite; }
+
+/* Bonhomme 3 — penseur IA : ampoule qui pulse */
+@keyframes buddy-bulb-glow {
+  0%, 100% { opacity: .4; }
+  50%      { opacity: 1; }
+}
+.neon-buddy.walking .bulb-core { animation: buddy-bulb-glow 1.4s ease-in-out infinite; }
+@keyframes buddy-bulb-ray {
+  0%, 100% { opacity: .15; }
+  50%      { opacity: .8; }
+}
+.neon-buddy.walking .bulb-ray { animation: buddy-bulb-ray 1.4s ease-in-out infinite; }
+
+@media (max-width: 700px) {
+  .neon-buddy { width: 36px; }
+}
+
+.buddy-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--main-color);
+  box-shadow: 0 0 8px var(--main-color), 0 0 14px var(--main-color);
+  pointer-events: none;
+  z-index: 3;
+  animation: buddy-burst .7s ease-out forwards;
+}
+@keyframes buddy-burst {
+  0%   { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--bx), var(--by)) scale(0); opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .neon-buddy { width: 44px; }
 }

@@ -423,4 +423,248 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.classList.toggle('visible', window.scrollY > 300);
   }, { passive: true });
 
+
+
+  /* ══════════════════════════════════════════════════════════════════
+     NOUVEAUX EFFETS — Curseur néon, Tilt 3D, Flip projets, Glitch titres,
+     Mascotte Neon Buddy interactive
+  ══════════════════════════════════════════════════════════════════ */
+
+  /* ---------------------------------------------------------------
+     A. CURSEUR NEON MAGNETIQUE CUSTOM (desktop uniquement)
+  --------------------------------------------------------------- */
+  if (window.matchMedia('(hover: hover)').matches && window.innerWidth > 900) {
+    const neonCursor = document.createElement('div');
+    neonCursor.id = 'neon-cursor';
+    document.body.appendChild(neonCursor);
+
+    let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    let tx = cx, ty = cy;
+    window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+
+    const animateCursor = () => {
+      cx += (tx - cx) * 0.25;
+      cy += (ty - cy) * 0.25;
+      neonCursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%)`;
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    const hoverSelector = 'a, button, .card, .project-item img, .flip-scene, .btn-glow, .btn-glow-outline, .btn-download, .btn-view-all, .neon-buddy, input, textarea';
+    document.querySelectorAll(hoverSelector).forEach(el => {
+      el.addEventListener('mouseenter', () => neonCursor.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => neonCursor.classList.remove('cursor-hover'));
+    });
+    window.addEventListener('mousedown', () => neonCursor.classList.add('cursor-click'));
+    window.addEventListener('mouseup',   () => neonCursor.classList.remove('cursor-click'));
+  }
+
+
+  /* ---------------------------------------------------------------
+     B. TILT 3D + GLOW SOURIS SUR LES CARTES (Domains / Tools)
+  --------------------------------------------------------------- */
+  document.querySelectorAll('#domains .card, #tools .card').forEach(card => {
+    const glow = document.createElement('div');
+    glow.className = 'card-glow';
+    card.appendChild(glow);
+
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const cx2 = x / r.width  - 0.5;
+      const cy2 = y / r.height - 0.5;
+      card.style.transform = `rotateY(${cx2 * 16}deg) rotateX(${-cy2 * 16}deg) translateY(-6px) scale(1.03)`;
+      card.style.setProperty('--mx', x + 'px');
+      card.style.setProperty('--my', y + 'px');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+
+  /* ---------------------------------------------------------------
+     C. FLIP 3D SUR LES IMAGES DE PROJETS
+  --------------------------------------------------------------- */
+  document.querySelectorAll('.project-item img').forEach(img => {
+    const link = img.closest('.project-item')?.querySelector('.btn-download');
+
+    const scene = document.createElement('div');
+    scene.className = 'flip-scene';
+
+    const flipCard = document.createElement('div');
+    flipCard.className = 'flip-card';
+
+    const front = document.createElement('div');
+    front.className = 'flip-face flip-front';
+
+    const back = document.createElement('div');
+    back.className = 'flip-face flip-back';
+    back.innerHTML = `
+      <span class="flip-icon">📄</span>
+      <a class="flip-cta" href="${link ? link.getAttribute('href') : '#'}" target="_blank">Voir le rapport</a>
+    `;
+
+    img.parentNode.insertBefore(scene, img);
+    front.appendChild(img);
+    flipCard.appendChild(front);
+    flipCard.appendChild(back);
+    scene.appendChild(flipCard);
+  });
+
+
+  /* ---------------------------------------------------------------
+     D. MASCOTTES NEON BUDDIES — 3 bonhommes SVG, chacun avec son
+        action en marchant. Balade horizontale + clic = explosion.
+  --------------------------------------------------------------- */
+  function buildBuddySVG(type){
+    if (type === 'coder') {
+      return `
+      <svg viewBox="0 0 64 92">
+        <g class="bob">
+          <circle class="stroke" cx="32" cy="14" r="8"/>
+          <path class="stroke fill-soft" d="M22,24 Q32,20 42,24 L40,50 Q32,54 24,50 Z"/>
+          <g class="leg-l"><path class="stroke" d="M28,49 L21,76"/></g>
+          <g class="leg-r"><path class="stroke" d="M36,49 L43,76"/></g>
+          <g class="type-l"><path class="stroke" d="M24,32 L13,52"/></g>
+          <g class="type-r"><path class="stroke" d="M40,32 L51,52"/></g>
+          <g transform="translate(8,52)">
+            <rect class="stroke" x="0" y="0" width="48" height="5" rx="1.5"/>
+            <rect class="stroke laptop-screen" x="5" y="-22" width="38" height="22" rx="1.5"/>
+            <line class="dim" x1="10" y1="-15" x2="38" y2="-15"/>
+            <line class="dim" x1="10" y1="-10" x2="30" y2="-10"/>
+            <line class="dim" x1="10" y1="-5" x2="34" y2="-5"/>
+          </g>
+        </g>
+      </svg>`;
+    }
+    if (type === 'engineer') {
+      return `
+      <svg viewBox="0 0 64 92">
+        <g class="bob">
+          <circle class="stroke" cx="32" cy="14" r="8"/>
+          <path class="stroke fill-soft" d="M22,24 Q32,20 42,24 L40,50 Q32,54 24,50 Z"/>
+          <g class="leg-l"><path class="stroke" d="M28,49 L21,76"/></g>
+          <g class="leg-r"><path class="stroke" d="M36,49 L43,76"/></g>
+          <g class="arm-swing-l"><path class="stroke" d="M24,28 L13,38"/></g>
+          <path class="stroke" d="M40,28 L51,42"/>
+          <g class="wrench" transform="translate(52,42)">
+            <path class="stroke" d="M0,0 L0,-15"/>
+            <path class="stroke fill" d="M-5.5,7.5 L-5.5,2 L-1.5,-2.3 L1.5,-2.3 L5.5,2 L5.5,7.5 L1.5,11.5 L-1.5,11.5 Z"/>
+            <circle cx="0" cy="6.5" r="2.4" fill="#080808"/>
+          </g>
+          <circle class="fill spark" cx="56" cy="46" r="1.6"/>
+          <circle class="fill spark" cx="60" cy="51" r="1.2"/>
+          <circle class="fill spark" cx="55" cy="54" r="1.3"/>
+        </g>
+      </svg>`;
+    }
+    return `
+      <svg viewBox="0 0 64 92">
+        <g class="bob">
+          <circle class="stroke" cx="32" cy="14" r="8"/>
+          <path class="stroke fill-soft" d="M22,24 Q32,20 42,24 L40,50 Q32,54 24,50 Z"/>
+          <g class="leg-l"><path class="stroke" d="M28,49 L21,76"/></g>
+          <g class="leg-r"><path class="stroke" d="M36,49 L43,76"/></g>
+          <g class="arm-swing-l"><path class="stroke" d="M24,28 L14,42"/></g>
+          <g class="arm-swing-r"><path class="stroke" d="M40,28 L50,42"/></g>
+          <g transform="translate(32,-3)">
+            <line class="bulb-ray dim" x1="0" y1="-3" x2="0" y2="-9"/>
+            <line class="bulb-ray dim" x1="-7" y1="1" x2="-12" y2="-2"/>
+            <line class="bulb-ray dim" x1="7" y1="1" x2="12" y2="-2"/>
+            <circle class="fill bulb-core" cx="0" cy="2" r="5.5"/>
+            <path class="stroke" d="M-3,7.5 L3,7.5" stroke-width="2.4"/>
+          </g>
+        </g>
+      </svg>`;
+  }
+
+  function makeNeonBuddy(type, container, offsetIndex){
+    const wrap = document.createElement('div');
+    wrap.className = 'neon-buddy walking dir-right buddy-' + type;
+    wrap.innerHTML = buildBuddySVG(type);
+    container.appendChild(wrap);
+
+    let dir = 1;
+    let busy = false;
+    let pending = null;
+
+    const startLeft = 8 + offsetIndex * 70;
+
+    const getMaxLeft = () => Math.max(startLeft, container.clientWidth - wrap.offsetWidth - 8);
+
+    function step(){
+      if (busy) return;
+      const maxLeft = getMaxLeft();
+      const target = dir === 1 ? maxLeft : startLeft;
+      const current = parseFloat(wrap.style.left || startLeft);
+      const distance = Math.abs(target - current);
+      // vitesse ralentie x1.5 par rapport à la version précédente
+      const duration = Math.max(2.25, (distance / 80) * 1.5);
+      wrap.style.transition = `left ${duration}s linear`;
+      wrap.classList.toggle('dir-left', dir === -1);
+      wrap.style.left = target + 'px';
+      dir *= -1;
+    }
+
+    wrap.style.left = startLeft + 'px';
+    wrap.addEventListener('transitionend', (e) => {
+      if (e.propertyName !== 'left' || busy) return;
+      clearTimeout(pending);
+      pending = setTimeout(step, 900 + Math.random() * 700);
+    });
+    pending = setTimeout(step, 800 + offsetIndex * 400 + Math.random() * 600);
+
+    function burst(){
+      const r = wrap.getBoundingClientRect();
+      const cr = container.getBoundingClientRect();
+      const ox = r.left - cr.left + r.width / 2;
+      const oy = r.top  - cr.top  + r.height / 2;
+
+      for (let i = 0; i < 14; i++) {
+        const p = document.createElement('div');
+        p.className = 'buddy-particle';
+        const angle = (Math.PI * 2 * i) / 14;
+        const dist  = 30 + Math.random() * 35;
+        p.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
+        p.style.setProperty('--by', Math.sin(angle) * dist + 'px');
+        const size = 3 + Math.random() * 4;
+        p.style.width  = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = ox + 'px';
+        p.style.top  = oy + 'px';
+        container.appendChild(p);
+        p.addEventListener('animationend', () => p.remove());
+      }
+    }
+
+    wrap.addEventListener('click', () => {
+      if (busy) return;
+      busy = true;
+      clearTimeout(pending);
+
+      burst();
+      wrap.classList.add('popped');
+      wrap.style.transition = 'none';
+
+      setTimeout(() => {
+        wrap.style.left = startLeft + 'px';
+        wrap.classList.remove('dir-left');
+        wrap.classList.remove('popped');
+        dir = 1;
+        void wrap.offsetWidth; // force reflow avant de réactiver les transitions
+        busy = false;
+        pending = setTimeout(step, 900);
+      }, 600);
+    });
+  }
+
+  const buddyFooter = document.querySelector('.projects-footer');
+  if (buddyFooter) {
+    makeNeonBuddy('coder',    buddyFooter, 0);
+    makeNeonBuddy('engineer', buddyFooter, 1);
+    makeNeonBuddy('thinker',  buddyFooter, 2);
+  }
+
 });
