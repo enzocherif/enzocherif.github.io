@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All My Projects – Enzo CHERIF</title>
+  <meta name="description" content="All engineering, robotics, embedded systems and machine learning projects by Enzo CHERIF, with reports and GitHub links.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+  <link rel="stylesheet" href="style_projet.css"/>
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer">
+</head>
+<body>
+  <!-- Fond animé à particules -->
+  <div id="particles-js" aria-hidden="true"></div>
+  
+	<!-- Bouton Retour -->
+	<a href="index.html#projects" class="btn-back">
+	  <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+	</a>
+
+  <header class="project-header">
+    <h1>All My Projects</h1>
+    <p class="text-center">
+	  <span class="static-text">
+		Here is a selection of projects I’ve worked on :
+	  </span>
+	  <span class="typewriter-subline">
+		<span id="typewriter"></span><span class="cursor" aria-hidden="true">|</span>
+	  </span>
+	</p>
+	<div class="filter-accordion">
+	  <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">Filter by category <span class="arrow" aria-hidden="true">▼</span></button>
+	  <div class="filter-panel" id="filter-panel">
+		<div class="filter-buttons" role="group" aria-label="Project categories">
+		  <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="python">Python</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ros">ROS</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="robotics">Robotics</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="matlab">MATLAB</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="simulation">Simulation</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ai">AI</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="embedded">Embedded</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="mapping">Mapping</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="image-processing">Image Processing</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="game">Game</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ml">Machine Learning</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="clustering">Clustering</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="classification">Classification</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="data-analysis">Data Analysis</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="nlp">NLP</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="c">C</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="cpp">C++</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="csharp">C#</button>
+		</div>
+	  </div>
+	</div>
+  </header>
+
+  <main class="project-grid">
+
+    <!-- Projet avec image + rapport -->
+    <article class="project-card matlab simulation ai">
+	  <img loading="lazy" decoding="async" src="images/Vue_globale_ebd.webp" alt="ABS and EBD Simulation" />
+	  <h2>MATLAB Simulation: ABS & EBD</h2>
+	  <p class="project-description">Modeling of an intelligent braking system using Simulink, integrating Anti-lock Braking System (ABS) and Electronic Brakeforce Distribution (EBD).</p>
+	  <p><strong>Concepts:</strong> Vehicle dynamics, safety systems</p>
+	  <p><strong>Language:</strong> MATLAB / Simulink</p>
+	  <a href="rapports/CR_ABS_CHERIF_GUIVARCH.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+
+    <!-- Projet GitHub ML -->
+    <article class="project-card python ai ml data-analysis">
+	  <img loading="lazy" decoding="async" src="images/recommandation_book.webp" alt="Book Recommendation System" />
+	  <h2>Book Recommendation Engine</h2>
+	  <p class="project-description">Recommendation system using KNN on the Book-Crossings dataset, analyzing user-book similarity and preferences.</p>
+	  <p><strong>Concepts:</strong> Machine Learning, K-Nearest Neighbors (KNN)</p>
+	  <p><strong>Language:</strong> Python (Pandas, scikit-learn)</p>
+	  <a href="https://github.com/enzocherif/Book-recommendation" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+    <!-- Projet ROS -->
+	<article class="project-card ros ai robotics cpp embedded">
+	  <img loading="lazy" decoding="async" src="images/Turtle_bot.webp" alt="TurtleBot Autonomous Robot with ROS" />
+	  <h2>Autonomous Robot with ROS</h2>
+	  <p class="project-description">Real-time navigation, SLAM, and obstacle avoidance using ROS, with sensor integration and RViz visualization.</p>
+	  <p><strong>Concepts:</strong> Mobile robotics, real-time control</p>
+	  <p><strong>Language:</strong> Python / C++ / ROS1</p>
+	  <a href="rapports/CR_ROS.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+
+	
+	<!-- Project: Rainfall Prediction -->
+	<article class="project-card python ai ml classification">
+	  <img loading="lazy" decoding="async" src="images/rainfall_prediction.webp" alt="Rainfall Prediction" />
+	  <div class="card-content">
+		<h2>Rainfall Prediction</h2>
+		<p class="project-description">
+		  Classifier with grid search on weather data, evaluated by metrics.
+		</p>
+		<p><strong>Concepts:</strong> Classification, cross-validation</p>
+		<p><strong>Language:</strong> Python</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+	<!-- Project: Titanic Survival Prediction -->
+	<article class="project-card python ai classification">
+	  <img loading="lazy" decoding="async" src="images/titanic_survival.webp" alt="Titanic Survival Prediction Classifier" />
+	  <h2>Titanic Survival Prediction</h2>
+	  <p class="project-description">Logistic Regression pipeline to predict passenger survival using engineered features. Coefficient analysis, model tuning, and performance evaluation with accuracy and interpretability metrics.</p>
+	  <p><strong>Concepts:</strong> Logistic regression, feature coefficients, supervised learning</p>
+	  <p><strong>Language:</strong> Python</p>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Practice%20Project.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+	<!-- Projet Rock-Paper-Scissors -->
+    <article class="project-card python ai game">
+	  <img loading="lazy" decoding="async" src="images/rock_paper_scissors.webp" alt="Intelligent Rock-Paper-Scissors Bot" />
+	  <div class="card-content">
+		<h2>Rock-Paper-Scissors</h2>
+		<p class="project-description">
+		  AI-powered bot using multi-level Markov models and adaptive strategy with fallback on frequency analysis.
+		</p>
+		<p><strong>Concepts:</strong> Markov chains, adaptive learning</p>
+		<p><strong>Language:</strong> Python</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+	<!-- Projet Simulateur dynamique MATLAB -->
+    <article class="project-card matlab simulation">
+	  <img loading="lazy" decoding="async" src="images/app.webp" alt="Dynamic Simulator Interface" />
+	  <div class="card-content">
+		<h2>Dynamic Simulator – MATLAB</h2>
+		<p class="project-description">
+		  Interactive interface for vehicle stability (MF400H quad & Mercedes S-Class) with real-time dynamic modeling and safety indicators.
+		</p>
+		<p><strong>Concepts:</strong> Dynamic modeling, simulation</p>
+		<p><strong>Language:</strong> MATLAB</p>
+	  </div>
+	  <a href="rapports/CR_BERTA_CHERIF.pdf" class="btn-glow-outline" target="_blank">Download Report</a>
+	</article>
+
+	<!-- Projet Traitement d’Image -->
+    <article class="project-card python ai image-processing">
+	  <img loading="lazy" decoding="async" src="images/Image_en_niveau_de_gris%20(1).webp" alt="Grayscale Image Segmentation" />
+	  <div class="card-content">
+		<h2>Image Processing – Object Counting</h2>
+		<p class="project-description">
+		  Python/OpenCV pipeline for object detection on grayscale images using adaptive thresholding, contour extraction, and morphology.
+		</p>
+		<p><strong>Concepts:</strong> Computer vision, image segmentation</p>
+		<p><strong>Language:</strong> Python / OpenCV</p>
+	  </div>
+	  <a href="rapports/CR_CAVIC.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+
+	<!-- Projet Analyse de données : Cat vs Dog -->
+    <article class="project-card python ai ml classification data-analysis">
+	  <img loading="lazy" decoding="async" src="images/cat_dog_classification.webp" alt="Cat vs Dog Image Classification" />
+	  <div class="card-content">
+		<h2>Cat vs Dog Classification</h2>
+		<p class="project-description">
+		  CNN-based image classifier built from scratch with data preprocessing, model training and evaluation using TensorFlow.
+		</p>
+		<p><strong>Concepts:</strong> Image classification, CNN</p>
+		<p><strong>Language:</strong> Python / TensorFlow</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/Data_Analysis_Python/blob/main/fcc_cat_dog.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+	<!-- Projet Prédiction frais de santé -->
+    <article class="project-card python ai ml data-analysis">
+	  <img loading="lazy" decoding="async" src="images/insurance_data_preview.webp" alt="Health Cost Prediction" />
+	  <div class="card-content">
+		<h2>Health Cost Prediction</h2>
+		<p class="project-description">
+		  Keras regression model predicting medical expenses using demographic and lifestyle features with one-hot encoding and early stopping.
+		</p>
+		<p><strong>Concepts:</strong> Regression, data preprocessing, Keras</p>
+		<p><strong>Language:</strong> Python</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+    <!-- Projet NLP -->
+    <article class="project-card python ai ml nlp">
+	  <img loading="lazy" decoding="async" src="images/sms_spam.webp" alt="SMS Spam Classifier" />
+	  <div class="card-content">
+		<h2>SMS Spam Classifier</h2>
+		<p class="project-description">
+		  RNN-based spam detector trained on public text datasets using TensorFlow and Keras.
+		</p>
+		<p><strong>Concepts:</strong> Natural Language Processing (NLP), recurrent neural networks</p>
+		<p><strong>Language:</strong> Python (TensorFlow / Keras)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+	<!-- Projet Systèmes embarqués -->
+    <article class="project-card embedded c csharp robotics">
+	  <img loading="lazy" decoding="async" src="images/page_garde.webp" alt="C# Supervision Interface for Mobile Robot" />
+	  <div class="card-content">
+		<h2>Embedded System – Mobile Robot Control</h2>
+		<p class="project-description">
+		  C/C# suite for UART-based robot: real-time commands, telemetry monitoring, UI design and MCU testing.
+		</p>
+		<p><strong>Concepts:</strong> Embedded systems, UART communication</p>
+		<p><strong>Language:</strong> C / C#</p>
+	  </div>
+	  <a href="rapports/CR_elec.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+	
+	<!-- Projet Cartographie marine -->
+    <article class="project-card mapping ml data-analysis">
+	  <img loading="lazy" decoding="async" src="images/dinamis.webp" alt="Marine Mapping of Posidonia – Rayol Domain" />
+	  <div class="card-content">
+		<h2>Marine Mapping – Posidonia</h2>
+		<p class="project-description">
+		  Satellite and bathymetry fusion for seagrass mapping using QGIS and supervised classification techniques.
+		</p>
+		<p><strong>Concepts:</strong> Supervised classification, GIS analysis</p>
+		<p><strong>Language:</strong> QGIS / Python</p>
+	  </div>
+	  <a href="rapports/CR_PROJET.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	</article>
+	
+	<article class="project-card python ai ml data-analysis">
+	  <img loading="lazy" decoding="async" src="images/dbscan_vs_hdbscan.webp" alt="DBSCAN vs HDBSCAN Clustering" />
+	  <div class="card-content">
+		<h2>DBSCAN vs HDBSCAN</h2>
+		<p class="project-description">
+		  Unsupervised clustering comparison using DBSCAN and HDBSCAN, with evaluation of density-based methods and parameter sensitivity.
+		</p>
+		<p><strong>Concepts:</strong> Clustering, unsupervised learning, density estimation</p>
+		<p><strong>Language:</strong> Python (scikit-learn, hdbscan, matplotlib)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Comparing_DBScan_HDBScan.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+	<article class="project-card python ai ml classification data-analysis">
+	  <img loading="lazy" decoding="async" src="images/decision_tree_classifier.webp" alt="Decision Tree Classifier" />
+	  <div class="card-content">
+		<h2>Decision Tree Classifier</h2>
+		<p class="project-description">
+		  Supervised classification using decision trees, including feature importance, model visualization and accuracy evaluation.
+		</p>
+		<p><strong>Concepts:</strong> Decision trees, classification, model interpretability</p>
+		<p><strong>Language:</strong> Python (scikit-learn, matplotlib)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Decision_trees.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+	<article class="project-card python ai ml classification data-analysis">
+	  <img loading="lazy" decoding="async" src="images/evaluating_classifiers.webp" alt="Evaluating Classification Models" />
+	  <div class="card-content">
+		<h2>Evaluating Classification Models</h2>
+		<p class="project-description">
+		  Comparison of classification performance using precision, recall, F1-score, ROC curves and confusion matrices on supervised models.
+		</p>
+		<p><strong>Concepts:</strong> Classification metrics, model evaluation, ROC analysis</p>
+		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating%20Classification%20Models.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+	<article class="project-card python ai ml clustering data-analysis">
+	  <img loading="lazy" decoding="async" src="images/kmeans_evaluation.webp" alt="K-Means Clustering Evaluation" />
+	  <div class="card-content">
+		<h2>Evaluating K-Means Clustering</h2>
+		<p class="project-description">
+		  Analysis of K-Means clustering performance using inertia, silhouette score and visual inspection across different k values.
+		</p>
+		<p><strong>Concepts:</strong> Unsupervised learning, clustering evaluation, K-Means</p>
+		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_k-means_clustering.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+	<article class="project-card python ai ml clustering data-analysis">
+	  <img loading="lazy" decoding="async" src="images/kmeans_customer_segmentation.webp" alt="Customer Segmentation with K-Means" />
+	  <div class="card-content">
+		<h2>Customer Segmentation – K-Means</h2>
+		<p class="project-description">
+		  Unsupervised clustering of customer data using K-Means to identify distinct market segments based on purchasing behavior.
+		</p>
+		<p><strong>Concepts:</strong> Customer segmentation, clustering, K-Means</p>
+		<p><strong>Language:</strong> Python (scikit-learn, pandas, seaborn)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/K-Means-Customer-Seg.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+	
+	<article class="project-card python ai ml classification data-analysis">
+	  <img loading="lazy" decoding="async" src="images/evaluating_random_forest.webp" alt="Random Forest Evaluation" />
+	  <div class="card-content">
+		<h2>Evaluating Random Forest</h2>
+		<p class="project-description">
+		  Analysis of Random Forest performance using feature importance, classification metrics, and comparison with simpler models.
+		</p>
+		<p><strong>Concepts:</strong> Ensemble methods, feature importance, supervised learning</p>
+		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
+	  </div>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_random_forest.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
+	</article>
+
+  </main>
+  <p class="no-results" id="no-results" role="status" hidden>No project matches this category yet.</p>
+
+  <footer>
+    <p>© <span id="year">2026</span> Enzo CHERIF – <a href="index.html">Back to portfolio</a></p>
+  </footer>
+
+  <!-- Bibliothèque Particles.js (defer) puis script de la page -->
+  <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="projets.js"></script>
+</body>
+</html>
