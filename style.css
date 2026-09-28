@@ -6,8 +6,6 @@
 	  padding: 0;
 	  box-sizing: border-box;
 	  border: none;
-	  outline: none;
-	  scroll-behavior: smooth;
 	  font-family: 'Poppins', sans-serif;
 	}
 
@@ -495,10 +493,6 @@
 	/* =======================
 	   SCROLL INDICATOR
 	   ======================= */
-	/* décale la flèche de 1 rem vers la droite par rapport aux boutons   */
-	
-	  50%    {transform:translateY(6px);}
-	}
 
 	
 	@media(max-width:600px){
@@ -515,7 +509,7 @@
 	}
 
 	/* on remonte tous les vrais éléments du header au-dessus du canvas */
-	.animated-header > *:not(#particles-js){
+	.animated-header > *:not(#particles-js):not(.header-nav):not(.scroll-down){
 	  position:relative;
 	  z-index:1;
 	}
@@ -1476,8 +1470,7 @@
 /*  COMPÉTENCES – terminal “néon glass”                                */
 /* =================================================================== */
 
-/* police monospace élégante (Fira Code) */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
+/* police monospace (Fira Code) : chargée dans le <head> de index.html */
 
 .terminal-wrapper{
   width: min(90vw, 1100px);
@@ -2898,7 +2891,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
     margin: 0 auto;
   }
 
-  .swiper-container { width: 100% !important; }
+  .ref-wrapper .swiper { width: 100% !important; }
 
   /* ── Contact ── */
   #contact .contact-wrapper {
@@ -3498,4 +3491,111 @@ html {
 
 @media (max-width: 700px) {
   .neon-buddy { width: 44px; }
+}
+
+
+/* =====================================================================
+   CORRECTIFS — audit septembre 2026
+   ===================================================================== */
+
+/* ── Accessibilité : focus clavier visible (l'ancien reset le supprimait) ── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--main-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Lien d'évitement (visible uniquement au clavier) */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 10001;
+  padding: .8rem 1.6rem;
+  background: var(--main-color);
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: .6rem;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Texte réservé aux lecteurs d'écran */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Les ancres ne passent plus sous la barre de navigation fixe */
+section[id] { scroll-margin-top: 70px; }
+
+/* ── Carrousel Références : Swiper 9 utilise la classe .swiper ── */
+.ref-wrapper { position: relative; }
+.ref-wrapper .swiper { overflow: hidden; border-radius: 1.2rem; }
+.ref-wrapper .swiper-slide { height: auto; }
+.ref-wrapper .swiper-pagination {
+  position: static;
+  margin-top: 1.6rem;
+}
+@media (max-width: 700px) {
+  /* sur mobile : balayage + puces, les flèches chevauchaient les cartes */
+  .ref-wrapper .swiper-button-prev,
+  .ref-wrapper .swiper-button-next { display: none; }
+}
+
+/* Barre de navigation « sticky » : défile au lieu de déborder */
+.sticky-nav { overflow-x: auto; scrollbar-width: none; }
+.sticky-nav::-webkit-scrollbar { display: none; }
+@media (max-width: 1250px) {
+  .sticky-nav ul { gap: 1.8rem; }
+  .sticky-nav a { font-size: 1.3rem; }
+}
+
+/* Menu mobile : les liens restent atteignables sur petits écrans */
+.mobile-nav { justify-content: flex-start; padding: 6rem 0 2rem; }
+.mobile-nav a { padding: 1.1rem 2rem; }
+@media (min-height: 700px) {
+  .mobile-nav { justify-content: center; padding: 0; }
+}
+body.nav-open { overflow: hidden; }
+
+/* Mouvement réduit : pas de curseur custom, flèche immobile */
+@media (prefers-reduced-motion: reduce) {
+  #neon-cursor, .neon-buddy, .buddy-particle { display: none !important; }
+  .scroll-down { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Contact : bouton centré, sans soulignement */
+.neon-btn { align-self: center; text-decoration: none; }
+
+/* Titre « My journey » centré comme les autres sections */
+#timeline-title { text-align: center; }
+
+/* Certifications : les lignes de texte simple héritaient d'une taille ~9px */
+.certif-links li { font-size: 1.45rem; line-height: 1.5; color: #ddd; }
+
+/* Poste actuel : listes lisibles (alignées à gauche) une fois empilées */
+@media (max-width: 700px) {
+  .post-proj-card ul { text-align: left; }
+}
+
+/* Burger : petit fond pour rester lisible au-dessus du contenu */
+#burger::before {
+  content: "";
+  position: absolute;
+  inset: -8px -7px;
+  background: rgba(8, 8, 8, .7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  z-index: -1;
 }

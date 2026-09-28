@@ -2,7 +2,7 @@
    STYLE PROJET INDIVIDUEL + FILTRES ACCORDÉON
    ============================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
 
 :root {
   --bg-color: #080808;
@@ -24,12 +24,6 @@ body {
   overflow-x: hidden;
 }
 
-/* style_projet.css */
-:root {
-  --bg-color: #080808;
-  --text-color: #fff;
-  --main-color: #00ffee;
-}
 
 #particles-js {
   position: fixed;
@@ -51,7 +45,7 @@ body {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background: var(--main-color);
-  color: #fff;
+  color: #000;
   font-weight: 600;
   text-decoration: none;
   border-radius: 0.5rem;
@@ -185,7 +179,7 @@ body {
    ============================= */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
   gap: 3rem;
 }
 
@@ -208,6 +202,8 @@ body {
   margin-top: auto;
   /* facultatif : align-self: flex-end; pour que le bouton soit collé à droite */
 }
+
+.project-card[hidden] { display: none; }
 
 .project-card:hover {
   transform: translateY(-8px);
@@ -243,7 +239,8 @@ body {
 
 .project-description {
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* limite à 2 lignes */
+  -webkit-line-clamp: 4; /* limite à 4 lignes */
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -402,5 +399,39 @@ footer a:hover {
   .filter-panel.open {
     /* ou une hauteur « calc » si tu veux préserver un peu de marge : */
     max-height: 80vh !important;
+  }
+}
+
+/* === Accessibilité : focus clavier visible === */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--main-color);
+  outline-offset: 3px;
+}
+
+/* === Message "aucun résultat" du filtre === */
+.no-results {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ccc;
+  margin-top: 2rem;
+}
+
+/* === Le header ne passe plus sous le bouton Retour fixe sur mobile === */
+@media (max-width: 600px) {
+  .project-header { padding-top: 2.5rem; }
+  .project-header h1 { font-size: 2.2rem; }
+  .project-header p { font-size: 1.2rem; }
+  .filter-toggle { font-size: 1.2rem; }
+  .filter-btn { font-size: 1.1rem; }
+  .filter-buttons { flex-direction: row; gap: .8rem; border-radius: 1.5rem; padding: 1rem; }
+  .filter-btn { padding: .5rem 1.2rem; }
+  main p { margin: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

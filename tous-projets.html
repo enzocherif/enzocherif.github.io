@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All My Projects – Enzo CHERIF</title>
+  <meta name="description" content="All engineering, robotics, embedded systems and machine learning projects by Enzo CHERIF, with reports and GitHub links.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
   <link rel="stylesheet" href="style_projet.css"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       referrerpolicy="no-referrer">
 </head>
 <body>
   <!-- Fond animé à particules -->
-  <div id="particles-js"></div>
+  <div id="particles-js" aria-hidden="true"></div>
   
 	<!-- Bouton Retour -->
-	<a href="javascript:history.back()" class="btn-back">
-	  <i class="fas fa-arrow-left"></i> Back
+	<a href="index.html#projects" class="btn-back">
+	  <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
 	</a>
 
   <header class="project-header">
@@ -26,31 +28,32 @@
 		Here is a selection of projects I’ve worked on :
 	  </span>
 	  <span class="typewriter-subline">
-		<span id="typewriter"></span><span class="cursor">|</span>
+		<span id="typewriter"></span><span class="cursor" aria-hidden="true">|</span>
 	  </span>
 	</p>
 	<div class="filter-accordion">
-	  <button class="filter-toggle">Filter by category <span class="arrow">▼</span></button>
-	  <div class="filter-panel">
-		<div class="filter-buttons">
-		  <button class="filter-btn active" data-filter="all">All</button>
-		  <button class="filter-btn" data-filter="python">Python</button>
-		  <button class="filter-btn" data-filter="ros">ROS</button>
-		  <button class="filter-btn" data-filter="robotics">Robotics</button>
-		  <button class="filter-btn" data-filter="matlab">MATLAB</button>
-		  <button class="filter-btn" data-filter="simulation">Simulation</button>
-		  <button class="filter-btn" data-filter="ai">AI</button>
-		  <button class="filter-btn" data-filter="embedded">Embedded</button>
-		  <button class="filter-btn" data-filter="mapping">Mapping</button>
-		  <button class="filter-btn" data-filter="image-processing">Image Processing</button>
-		  <button class="filter-btn" data-filter="game">Game</button>
-		  <button class="filter-btn" data-filter="ml">Machine Learning</button>
-		  <button class="filter-btn" data-filter="classification">Classification</button>
-		  <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
-		  <button class="filter-btn" data-filter="nlp">NLP</button>
-		  <button class="filter-btn" data-filter="c">C</button>
-		  <button class="filter-btn" data-filter="cpp">C++</button>
-		  <button class="filter-btn" data-filter="csharp">C#</button>
+	  <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">Filter by category <span class="arrow" aria-hidden="true">▼</span></button>
+	  <div class="filter-panel" id="filter-panel">
+		<div class="filter-buttons" role="group" aria-label="Project categories">
+		  <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="python">Python</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ros">ROS</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="robotics">Robotics</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="matlab">MATLAB</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="simulation">Simulation</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ai">AI</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="embedded">Embedded</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="mapping">Mapping</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="image-processing">Image Processing</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="game">Game</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="ml">Machine Learning</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="clustering">Clustering</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="classification">Classification</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="data-analysis">Data Analysis</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="nlp">NLP</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="c">C</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="cpp">C++</button>
+		  <button type="button" class="filter-btn" aria-pressed="false" data-filter="csharp">C#</button>
 		</div>
 	  </div>
 	</div>
@@ -60,27 +63,27 @@
 
     <!-- Projet avec image + rapport -->
     <article class="project-card matlab simulation ai">
-	  <img src="images/Vue_globale_ebd.webp" alt="ABS and EBD Simulation" />
+	  <img loading="lazy" decoding="async" src="images/Vue_globale_ebd.webp" alt="ABS and EBD Simulation" />
 	  <h2>MATLAB Simulation: ABS & EBD</h2>
 	  <p class="project-description">Modeling of an intelligent braking system using Simulink, integrating Anti-lock Braking System (ABS) and Electronic Brakeforce Distribution (EBD).</p>
 	  <p><strong>Concepts:</strong> Vehicle dynamics, safety systems</p>
 	  <p><strong>Language:</strong> MATLAB / Simulink</p>
-	  <a href="rapports/CR_ABS_CHERIF_GUIVARCH (1).pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	  <a href="rapports/CR_ABS_CHERIF_GUIVARCH.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
 	</article>
 
     <!-- Projet GitHub ML -->
     <article class="project-card python ai ml data-analysis">
-	  <img src="images/recommandation_book.webp" alt="Book Recommendation System" />
+	  <img loading="lazy" decoding="async" src="images/recommandation_book.webp" alt="Book Recommendation System" />
 	  <h2>Book Recommendation Engine</h2>
 	  <p class="project-description">Recommendation system using KNN on the Book-Crossings dataset, analyzing user-book similarity and preferences.</p>
 	  <p><strong>Concepts:</strong> Machine Learning, K-Nearest Neighbors (KNN)</p>
 	  <p><strong>Language:</strong> Python (Pandas, scikit-learn)</p>
-	  <a href="https://github.com/enzocherif/Book-recommendation" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/Book-recommendation" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
     <!-- Projet ROS -->
 	<article class="project-card ros ai robotics cpp embedded">
-	  <img src="images/Turtle_bot.webp" alt="TurtleBot Autonomous Robot with ROS" />
+	  <img loading="lazy" decoding="async" src="images/Turtle_bot.webp" alt="TurtleBot Autonomous Robot with ROS" />
 	  <h2>Autonomous Robot with ROS</h2>
 	  <p class="project-description">Real-time navigation, SLAM, and obstacle avoidance using ROS, with sensor integration and RViz visualization.</p>
 	  <p><strong>Concepts:</strong> Mobile robotics, real-time control</p>
@@ -91,7 +94,7 @@
 	
 	<!-- Project: Rainfall Prediction -->
 	<article class="project-card python ai ml classification">
-	  <img src="images/rainfall_prediction.webp" alt="Rainfall Prediction" />
+	  <img loading="lazy" decoding="async" src="images/rainfall_prediction.webp" alt="Rainfall Prediction" />
 	  <div class="card-content">
 		<h2>Rainfall Prediction</h2>
 		<p class="project-description">
@@ -100,22 +103,22 @@
 		<p><strong>Concepts:</strong> Classification, cross-validation</p>
 		<p><strong>Language:</strong> Python</p>
 	  </div>
-	  <a href="#" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
 	<!-- Project: Titanic Survival Prediction -->
 	<article class="project-card python ai classification">
-	  <img src="images/titanic_survival.webp" alt="Titanic Survival Prediction Classifier" />
+	  <img loading="lazy" decoding="async" src="images/titanic_survival.webp" alt="Titanic Survival Prediction Classifier" />
 	  <h2>Titanic Survival Prediction</h2>
 	  <p class="project-description">Logistic Regression pipeline to predict passenger survival using engineered features. Coefficient analysis, model tuning, and performance evaluation with accuracy and interpretability metrics.</p>
 	  <p><strong>Concepts:</strong> Logistic regression, feature coefficients, supervised learning</p>
 	  <p><strong>Language:</strong> Python</p>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Practice%20Project.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Practice%20Project.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
 	<!-- Projet Rock-Paper-Scissors -->
     <article class="project-card python ai game">
-	  <img src="images/rock_paper_scissors.webp" alt="Intelligent Rock-Paper-Scissors Bot" />
+	  <img loading="lazy" decoding="async" src="images/rock_paper_scissors.webp" alt="Intelligent Rock-Paper-Scissors Bot" />
 	  <div class="card-content">
 		<h2>Rock-Paper-Scissors</h2>
 		<p class="project-description">
@@ -124,12 +127,12 @@
 		<p><strong>Concepts:</strong> Markov chains, adaptive learning</p>
 		<p><strong>Language:</strong> Python</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
 	<!-- Projet Simulateur dynamique MATLAB -->
     <article class="project-card matlab simulation">
-	  <img src="images/app.webp" alt="Dynamic Simulator Interface" />
+	  <img loading="lazy" decoding="async" src="images/app.webp" alt="Dynamic Simulator Interface" />
 	  <div class="card-content">
 		<h2>Dynamic Simulator – MATLAB</h2>
 		<p class="project-description">
@@ -143,7 +146,7 @@
 
 	<!-- Projet Traitement d’Image -->
     <article class="project-card python ai image-processing">
-	  <img src="images/Image_en_niveau_de_gris (1).webp" alt="Grayscale Image Segmentation" />
+	  <img loading="lazy" decoding="async" src="images/Image_en_niveau_de_gris%20(1).webp" alt="Grayscale Image Segmentation" />
 	  <div class="card-content">
 		<h2>Image Processing – Object Counting</h2>
 		<p class="project-description">
@@ -152,12 +155,12 @@
 		<p><strong>Concepts:</strong> Computer vision, image segmentation</p>
 		<p><strong>Language:</strong> Python / OpenCV</p>
 	  </div>
-	  <a href="rapports/CR_ImageSeg.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	  <a href="rapports/CR_CAVIC.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
 	</article>
 
 	<!-- Projet Analyse de données : Cat vs Dog -->
     <article class="project-card python ai ml classification data-analysis">
-	  <img src="images/cat_dog_classification.webp" alt="Cat vs Dog Image Classification" />
+	  <img loading="lazy" decoding="async" src="images/cat_dog_classification.webp" alt="Cat vs Dog Image Classification" />
 	  <div class="card-content">
 		<h2>Cat vs Dog Classification</h2>
 		<p class="project-description">
@@ -166,12 +169,12 @@
 		<p><strong>Concepts:</strong> Image classification, CNN</p>
 		<p><strong>Language:</strong> Python / TensorFlow</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/Data_Analysis_Python/blob/main/fcc_cat_dog.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/Data_Analysis_Python/blob/main/fcc_cat_dog.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
 	<!-- Projet Prédiction frais de santé -->
     <article class="project-card python ai ml data-analysis">
-	  <img src="images/insurance_data_preview.webp" alt="Health Cost Prediction" />
+	  <img loading="lazy" decoding="async" src="images/insurance_data_preview.webp" alt="Health Cost Prediction" />
 	  <div class="card-content">
 		<h2>Health Cost Prediction</h2>
 		<p class="project-description">
@@ -180,12 +183,12 @@
 		<p><strong>Concepts:</strong> Regression, data preprocessing, Keras</p>
 		<p><strong>Language:</strong> Python</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
     <!-- Projet NLP -->
     <article class="project-card python ai ml nlp">
-	  <img src="images/sms_spam.webp" alt="SMS Spam Classifier" />
+	  <img loading="lazy" decoding="async" src="images/sms_spam.webp" alt="SMS Spam Classifier" />
 	  <div class="card-content">
 		<h2>SMS Spam Classifier</h2>
 		<p class="project-description">
@@ -194,12 +197,12 @@
 		<p><strong>Concepts:</strong> Natural Language Processing (NLP), recurrent neural networks</p>
 		<p><strong>Language:</strong> Python (TensorFlow / Keras)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
 	<!-- Projet Systèmes embarqués -->
     <article class="project-card embedded c csharp robotics">
-	  <img src="images/page_garde.webp" alt="C# Supervision Interface for Mobile Robot" />
+	  <img loading="lazy" decoding="async" src="images/page_garde.webp" alt="C# Supervision Interface for Mobile Robot" />
 	  <div class="card-content">
 		<h2>Embedded System – Mobile Robot Control</h2>
 		<p class="project-description">
@@ -208,12 +211,12 @@
 		<p><strong>Concepts:</strong> Embedded systems, UART communication</p>
 		<p><strong>Language:</strong> C / C#</p>
 	  </div>
-	  <a href="rapports/CR_elec (1).pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	  <a href="rapports/CR_elec.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
 	</article>
 	
 	<!-- Projet Cartographie marine -->
     <article class="project-card mapping ml data-analysis">
-	  <img src="images/dinamis.webp" alt="Marine Mapping of Posidonia – Rayol Domain" />
+	  <img loading="lazy" decoding="async" src="images/dinamis.webp" alt="Marine Mapping of Posidonia – Rayol Domain" />
 	  <div class="card-content">
 		<h2>Marine Mapping – Posidonia</h2>
 		<p class="project-description">
@@ -222,11 +225,11 @@
 		<p><strong>Concepts:</strong> Supervised classification, GIS analysis</p>
 		<p><strong>Language:</strong> QGIS / Python</p>
 	  </div>
-	  <a href="rapports/CR_PROJET (4).pdf" target="_blank" class="btn-glow-outline">Download Report</a>
+	  <a href="rapports/CR_PROJET.pdf" target="_blank" class="btn-glow-outline">Download Report</a>
 	</article>
 	
 	<article class="project-card python ai ml data-analysis">
-	  <img src="images/dbscan_vs_hdbscan.webp" alt="DBSCAN vs HDBSCAN Clustering" />
+	  <img loading="lazy" decoding="async" src="images/dbscan_vs_hdbscan.webp" alt="DBSCAN vs HDBSCAN Clustering" />
 	  <div class="card-content">
 		<h2>DBSCAN vs HDBSCAN</h2>
 		<p class="project-description">
@@ -235,11 +238,11 @@
 		<p><strong>Concepts:</strong> Clustering, unsupervised learning, density estimation</p>
 		<p><strong>Language:</strong> Python (scikit-learn, hdbscan, matplotlib)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Comparing_DBScan_HDBScan.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Comparing_DBScan_HDBScan.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
 	<article class="project-card python ai ml classification data-analysis">
-	  <img src="images/decision_tree_classifier.webp" alt="Decision Tree Classifier" />
+	  <img loading="lazy" decoding="async" src="images/decision_tree_classifier.webp" alt="Decision Tree Classifier" />
 	  <div class="card-content">
 		<h2>Decision Tree Classifier</h2>
 		<p class="project-description">
@@ -248,11 +251,11 @@
 		<p><strong>Concepts:</strong> Decision trees, classification, model interpretability</p>
 		<p><strong>Language:</strong> Python (scikit-learn, matplotlib)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Decision_trees.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Decision_trees.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
 	<article class="project-card python ai ml classification data-analysis">
-	  <img src="images/evaluating_classifiers.webp" alt="Evaluating Classification Models" />
+	  <img loading="lazy" decoding="async" src="images/evaluating_classifiers.webp" alt="Evaluating Classification Models" />
 	  <div class="card-content">
 		<h2>Evaluating Classification Models</h2>
 		<p class="project-description">
@@ -261,11 +264,11 @@
 		<p><strong>Concepts:</strong> Classification metrics, model evaluation, ROC analysis</p>
 		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating%20Classification%20Models.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating%20Classification%20Models.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
 	<article class="project-card python ai ml clustering data-analysis">
-	  <img src="images/kmeans_evaluation.webp" alt="K-Means Clustering Evaluation" />
+	  <img loading="lazy" decoding="async" src="images/kmeans_evaluation.webp" alt="K-Means Clustering Evaluation" />
 	  <div class="card-content">
 		<h2>Evaluating K-Means Clustering</h2>
 		<p class="project-description">
@@ -274,11 +277,11 @@
 		<p><strong>Concepts:</strong> Unsupervised learning, clustering evaluation, K-Means</p>
 		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_k-means_clustering.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_k-means_clustering.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
 	<article class="project-card python ai ml clustering data-analysis">
-	  <img src="images/kmeans_customer_segmentation.webp" alt="Customer Segmentation with K-Means" />
+	  <img loading="lazy" decoding="async" src="images/kmeans_customer_segmentation.webp" alt="Customer Segmentation with K-Means" />
 	  <div class="card-content">
 		<h2>Customer Segmentation – K-Means</h2>
 		<p class="project-description">
@@ -287,11 +290,11 @@
 		<p><strong>Concepts:</strong> Customer segmentation, clustering, K-Means</p>
 		<p><strong>Language:</strong> Python (scikit-learn, pandas, seaborn)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/K-Means-Customer-Seg.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/K-Means-Customer-Seg.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 	
 	<article class="project-card python ai ml classification data-analysis">
-	  <img src="images/evaluating_random_forest.webp" alt="Random Forest Evaluation" />
+	  <img loading="lazy" decoding="async" src="images/evaluating_random_forest.webp" alt="Random Forest Evaluation" />
 	  <div class="card-content">
 		<h2>Evaluating Random Forest</h2>
 		<p class="project-description">
@@ -300,115 +303,18 @@
 		<p><strong>Concepts:</strong> Ensemble methods, feature importance, supervised learning</p>
 		<p><strong>Language:</strong> Python (scikit-learn, matplotlib, seaborn)</p>
 	  </div>
-	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_random_forest.ipynb" target="_blank" class="btn-glow-outline">View on GitHub</a>
+	  <a href="https://github.com/enzocherif/ibm-machine-learning-certification/blob/main/notebooks/Evaluating_random_forest.ipynb" target="_blank" rel="noopener" class="btn-glow-outline">View on GitHub</a>
 	</article>
 
   </main>
+  <p class="no-results" id="no-results" role="status" hidden>No project matches this category yet.</p>
 
   <footer>
-    <p>© 2025 Enzo CHERIF – <a href="index.html">Back to portfolio</a></p>
+    <p>© <span id="year">2026</span> Enzo CHERIF – <a href="index.html">Back to portfolio</a></p>
   </footer>
 
-<!-- Bibliothèque Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- Initialisation Particles.js -->
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#00ffea' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: { enable: true, distance: 150, color: '#00ffea', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: 'none', out_mode: 'out' }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 200, line_linked: { opacity: 0.6 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
-<script>
-  // toggle accordion
-  const toggleBtn = document.querySelector('.filter-toggle');
-  const panel = document.querySelector('.filter-panel');
-
-  toggleBtn.addEventListener('click', () => {
-    toggleBtn.classList.toggle('active');
-    panel.classList.toggle('open');
-  });
-
-  // filtrage
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelector('.filter-btn.active')?.classList.remove('active');
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-
-      projectCards.forEach(card => {
-        if (filter === 'all' || card.classList.contains(filter)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-  
-document.addEventListener('DOMContentLoaded', () => {
-  const words = [
-	  'simulation',
-	  'AI & robotics',
-	  'data processing',
-	  'embedded systems',
-	  'machine learning',
-	  'real-time control',
-	  'image classification',
-	  'intelligent automation'
-	];
-
-  const typeEl = document.getElementById('typewriter');
-  let wordIndex = 0, charIndex = 0, isDeleting = false;
-  const typingSpeed = 120;
-  const deletingSpeed = 80;
-  const pauseAfter = 2000;
-
-  function tick() {
-    const current = words[wordIndex];
-    if (!isDeleting) {
-      // on tape
-      typeEl.textContent = current.slice(0, ++charIndex);
-      if (charIndex === current.length) {
-        isDeleting = true;
-        return setTimeout(tick, pauseAfter);
-      }
-    } else {
-      // on supprime
-      typeEl.textContent = current.slice(0, --charIndex);
-      if (charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-      }
-    }
-    setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed);
-  }
-
-  tick();
-});
-</script>
-
+  <!-- Bibliothèque Particles.js (defer) puis script de la page -->
+  <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="projets.js"></script>
 </body>
 </html>

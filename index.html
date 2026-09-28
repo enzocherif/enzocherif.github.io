@@ -18,6 +18,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://enzocherif.github.io/">
   <meta property="og:image" content="https://enzocherif.github.io/images/og-preview.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="701">
+  <meta property="og:image:alt" content="Enzo CHERIF – Robotics, Mechatronics & AI Engineer portfolio">
 
   <!-- 🐦 Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
@@ -27,29 +30,34 @@
 
   <!-- 🔗 Styles and Icons -->
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://enzocherif.github.io/">
 
   <!-- 🧠 Title -->
   <title>Enzo CHERIF – Portfolio | Robotics & AI Engineer</title>
 
   <!-- 📱 Fonts & other visual resources -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
   <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		  referrerpolicy="no-referrer">
 </head>
 
-<body>
+<body id="top">
+	<a class="skip-link" href="#about-me">Skip to content</a>
 	<!-- ===== STICKY NAV (visible après scroll) ===== -->
-	<nav class="sticky-nav glass-nav">
+	<nav class="sticky-nav glass-nav" aria-label="Section navigation">
 	  <ul>
 		<li><a href="#about-me">About</a></li>
 		<li><a href="#post-actuel">Current Role</a></li>
-		<li><a href="#projects">Projects</a></li>
 		<li><a href="#stage-renault">Renault Internship</a></li>
+		<li><a href="#projects">Projects</a></li>
 		<li><a href="#stage-thailande">Thailand Internship</a></li>
 		<li><a href="#certifications">Certifications</a></li>
 		<li><a href="#competences">Skills</a></li>
@@ -61,59 +69,63 @@
 	</nav>
 
 
-	
-  <header class="animated-header" id="fullscreen-header">
-	<div id="particles-js"></div>
-	<!-- ===== MAIN NAVIGATION ===== -->
-	<nav class="header-nav glass-nav">
-	  <ul>
-		<li><a href="#about-me">About</a></li>
-		<li><a href="#post-actuel">Current Role</a></li>
-		<li><a href="#projects">Projects</a></li>
-		<li><a href="#stage-renault">Renault Internship</a></li>
-		<li><a href="#stage-thailande">Thailand Internship</a></li>
-		<li><a href="#certifications">Certifications</a></li>
-		<li><a href="#competences">Skills</a></li>
-		<li><a href="#tools">Tools</a></li>
-		<li><a href="#domains">Domains</a></li>
-		<li><a href="#references">References</a></li>
-		<li><a href="#contact">Contact</a></li>
-	  </ul>
-	</nav>
 	<!-- bouton burger (visible mobile uniquement) -->
-	<button id="burger" aria-label="Toggle navigation">
+	<button id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
 	  <span class="bar"></span>
 	  <span class="bar"></span>
 	  <span class="bar"></span>
 	</button>
 
-	<nav class="mobile-nav" id="mobile-nav">
+	<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
 	  <a href="#about-me">About</a>
-	  <a href="#post-actuel">Current Position</a>
+	  <a href="#post-actuel">Current Role</a>
+	  <a href="#stage-renault">Renault Internship</a>
 	  <a href="#projects">Projects</a>
-	  <a href="#skills">Skills</a>
+	  <a href="#stage-thailande">Thailand Internship</a>
+	  <a href="#certifications">Certifications</a>
+	  <a href="#competences">Skills</a>
+	  <a href="#tools">Tools</a>
+	  <a href="#domains">Domains</a>
 	  <a href="#references">References</a>
 	  <a href="#contact">Contact</a>
 	</nav>
 
-
+  <header class="animated-header" id="fullscreen-header">
+	<div id="particles-js" aria-hidden="true"></div>
+	<!-- ===== MAIN NAVIGATION ===== -->
+	<nav class="header-nav glass-nav" aria-label="Main navigation">
+	  <ul>
+		<li><a href="#about-me">About</a></li>
+		<li><a href="#post-actuel">Current Role</a></li>
+		<li><a href="#stage-renault">Renault Internship</a></li>
+		<li><a href="#projects">Projects</a></li>
+		<li><a href="#stage-thailande">Thailand Internship</a></li>
+		<li><a href="#certifications">Certifications</a></li>
+		<li><a href="#competences">Skills</a></li>
+		<li><a href="#tools">Tools</a></li>
+		<li><a href="#domains">Domains</a></li>
+		<li><a href="#references">References</a></li>
+		<li><a href="#contact">Contact</a></li>
+	  </ul>
+	</nav>
 
     <div class="header-left-block">
       <h1 class="big-intro">Hi, it's <span class="name-glow">Enzo CHERIF</span></h1>
       <h2 class="typing-subline">
-        I'm a <span class="typed-text"></span><span class="cursor">|</span>
+        I'm a <span class="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
       </h2>
 
       <div class="social-icons">
-        <a href="https://linkedin.com/in/enzocherif" target="_blank"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://github.com/enzocherif" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
+        <a href="https://github.com/enzocherif" target="_blank" rel="noopener" aria-label="GitHub profile"><i class='bx bxl-github' aria-hidden="true"></i></a>
       </div>
 
       <!-- Boutons + flèche (nouvelle structure) -->
 	<div class="header-buttons">
-	  <a href="rapports/RESUME ENZO CHERIF.pdf" class="btn-glow" target="_blank">📄 My Resume</a>
+	  <a href="rapports/RESUME%20ENZO%20CHERIF.pdf" class="btn-glow" target="_blank" rel="noopener">📄 My Resume</a>
 	  <a href="#contact" class="btn-glow-outline">✉️ My Contact</a>
 	</div>
+    </div><!-- /.header-left-block -->
 
   <!-- Flèche scroll centrée fixe -->
   <a href="#about-me" class="scroll-down" aria-label="Scroll down">↓</a>
@@ -128,7 +140,7 @@
 		  <h2 id="about-title">About Me</h2>
 		  <div class="about-container">
 			<div class="about-photo">
-			  <img src="images/enzo_profil.webp" alt="Enzo CHERIF">
+			  <img src="images/enzo_profil.webp" alt="Portrait of Enzo CHERIF" width="240" height="240">
 			</div>
 			<div class="about-text">
 			  <p id="about-description">
@@ -148,7 +160,7 @@
 
 			<!-- ICON / LOGO SIDE -->
 			<figure class="stage-photo">
-			  <img src="images/Avelia_Liberty_Night_Alstom_C_ Gandolfi_US.png"
+			  <img src="images/Avelia_Liberty_Night_Alstom_C_%20Gandolfi_US.png"
 				   alt="Alstom – Railway Signaling Pittsburgh"
 				   class="stage-image" loading="lazy">
 			</figure>
@@ -345,7 +357,7 @@
 
 			<!-- === PROJECT 3 (image left) ============================== -->
 			<li class="project-item" data-aos="fade-right">
-			  <img src="images/Image_en_niveau_de_gris (1).webp" alt="Grayscale Segmentation" loading="lazy">
+			  <img src="images/Image_en_niveau_de_gris%20(1).webp" alt="Grayscale Segmentation" loading="lazy">
 			  <div class="proj-text">
 				<h3>Image Processing: Segmentation &amp; Counting</h3>
 				<p>Python/OpenCV pipeline to identify and count objects from grayscale images: adaptive thresholding, morphology, labeling.</p>
@@ -403,7 +415,7 @@
 
 			<!-- PHOTO + DESCRIPTION --------------------------------------- -->
 			<div class="stage-flex">
-			  <img src="images/Photo_TFII_certificat_Enzo_CHERIF.webp"
+			  <img loading="lazy" src="images/Photo_TFII_certificat_Enzo_CHERIF.webp"
 				   alt="TFII Bangkok Internship Certificate"
 				   class="stage-img">
 
@@ -426,8 +438,8 @@
 			<div class="accordion">
 
 			  <!-- Internship Reports -->
-			  <button class="accordion-btn">📑 Internship Reports (Fr / En)</button>
-			  <div class="accordion-panel">
+			  <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="panel-reports" id="btn-reports">📑 Internship Reports (Fr / En)</button>
+			  <div class="accordion-panel" id="panel-reports" role="region" aria-labelledby="btn-reports">
 				<ul class="doc-list">
 				  <li>
 					<a href="rapports/Rapport_De_Stage_CHERIF_Enzo.pdf" target="_blank">Report in French</a>
@@ -439,8 +451,8 @@
 			  </div>
 
 			  <!-- Practical Exercises -->
-			  <button class="accordion-btn">🔧 Labs (Practical Exercises)</button>
-			  <div class="accordion-panel">
+			  <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="panel-labs" id="btn-labs">🔧 Labs (Practical Exercises)</button>
+			  <div class="accordion-panel" id="panel-labs" role="region" aria-labelledby="btn-labs">
 				<ul class="doc-list">
 				  <li><a href="rapports/LAB1_English.pdf" target="_blank">
 					  LAB 1 : Getting started with TI 28335</a></li>
@@ -456,8 +468,6 @@
 					  LAB 6 : Precision of voltage measurements</a></li>
 				  <li><a href="rapports/LAB7_English.pdf" target="_blank">
 					  LAB 7 : Exploring boost &amp; buck converters</a></li>
-				  <li><a href="rapports/LAB8_English.pdf" target="_blank">
-					  LAB 8 : Practical boost converter tests</a></li>
 				  <li><a href="rapports/LAB9_English.pdf" target="_blank">
 					  LAB 9 : Practical buck converter tests</a></li>
 				  <li><a href="rapports/LAB10_English.pdf" target="_blank">
@@ -489,19 +499,19 @@
 			  </h3>
 
 			  <a href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7"
-				target="_blank" class="btn-certif">
+				target="_blank" rel="noopener" class="btn-certif">
 				🎓 View Certification
 			  </a>
 
 
 			  <ul class="certif-links">
-				<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank">
+				<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank" rel="noopener">
 					📚 Book-Recommendation Engine</a></li>
-				<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank">
+				<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" rel="noopener">
 					✊✋✌️ Rock-Paper-Scissors</a></li>
-				<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank">
+				<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" rel="noopener">
 					🔤 SMS Classifier (NN)</a></li>
-				<li><a href="fcc_predict_health_costs_with_regression.ipynb" target="_blank">
+				<li><a href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" rel="noopener">
 					💰 Health-Cost Regression notebook</a></li>
 			  </ul>
 			</article>
@@ -514,7 +524,7 @@
 			  </h3>
 
 			  <a href="https://www.credly.com/badges/09326ad1-f5ff-4c16-b41c-3f6d710085d4/linked_in_profile"
-				target="_blank" class="btn-certif">
+				target="_blank" rel="noopener" class="btn-certif">
 				🎓 View Certification
 			  </a>
 
@@ -523,7 +533,7 @@
 				<li>📚 Covered: Regression, Classification, Clustering, Dimensionality Reduction</li>
 				<li>🧠 Algorithms: KNN, Decision Trees, SVM, DBSCAN, PCA, t-SNE, UMAP</li>
 				<li>🐍 Tools: Python, Scikit-learn, NumPy</li>
-				<li><a href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank">
+				<li><a href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank" rel="noopener">
 				  🔗 View GitHub Repository</a></li>
 			  </ul>
 			</article>
@@ -537,7 +547,7 @@
 		<section id="competences" data-aos="fade-left">
 		  <div class="terminal-wrapper glass-card">
 
-			<h2 class="section-title">Compétences</h2>
+			<h2 class="section-title" id="skills">Skills</h2>
 
 			<div class="terminal">
 			  <div class="terminal-header">
@@ -547,7 +557,8 @@
 			  </div>
 
 			  <div class="terminal-body">
-				<pre id="terminal-content"></pre>
+				<pre id="terminal-content" aria-hidden="true"></pre>
+				<ul class="visually-hidden" id="skills-list"></ul>
 			  </div>
 			</div>
 
@@ -559,73 +570,73 @@
 		  <div class="cards-container">
 			<!-- MATLAB Simulink -->
 			<div class="card" data-aos="fade-right" data-aos-delay="0">
-			  <img src="images/Simulink_Logo.webp" alt="MATLAB Simulink Logo" class="tool-logo">
+			  <img loading="lazy" src="images/Simulink_Logo.webp" alt="MATLAB Simulink Logo" class="tool-logo">
 			  <h3 id="tool-matlab-simulink-title">MATLAB Simulink</h3>
 			  <p id="tool-matlab-simulink-description">Advanced modeling and simulation</p>
 			</div>
 			<!-- MATLAB App Designer -->
 			<div class="card" data-aos="fade-left" data-aos-delay="150">
-			  <img src="images/Matlab_Logo.webp" alt="MATLAB Logo" class="tool-logo">
+			  <img loading="lazy" src="images/Matlab_Logo.webp" alt="MATLAB Logo" class="tool-logo">
 			  <h3 id="tool-matlab-app-title">MATLAB App Designer</h3>
 			  <p id="tool-matlab-app-description">Creating interactive applications for modeling</p>
 			</div>
 			<!-- LabVIEW -->
 			<div class="card" data-aos="fade-up" data-aos-delay="300">
-			  <img src="images/labview_logo.webp" alt="LabVIEW Logo" class="tool-logo">
+			  <img loading="lazy" src="images/labview_logo.webp" alt="LabVIEW Logo" class="tool-logo">
 			  <h3 id="tool-labview-title">LabVIEW</h3>
 			  <p id="tool-labview-description">Design of measurement and automation applications</p>
 			</div>
 			<!-- ROS -->
 			<div class="card" data-aos="fade-right" data-aos-delay="450">
-			  <img src="images/Ros_logo.webp" alt="ROS Logo" class="tool-logo">
+			  <img loading="lazy" src="images/Ros_logo.webp" alt="ROS Logo" class="tool-logo">
 			  <h3 id="tool-ros-title">ROS (Robot Operating System)</h3>
 			  <p id="tool-ros-description">Robot control and coordination</p>
 			</div>
 			<!-- Linux -->
 			<div class="card" data-aos="fade-left" data-aos-delay="600">
-			  <img src="images/linux_logo.webp" alt="Linux Logo" class="tool-logo">
+			  <img loading="lazy" src="images/linux_logo.webp" alt="Linux Logo" class="tool-logo">
 			  <h3 id="tool-linux-title">Linux</h3>
 			  <p id="tool-linux-description">Administration and development on Unix systems</p>
 			</div>
 			<!-- Git -->
 			<div class="card" data-aos="fade-up" data-aos-delay="750">
-			  <img src="images/git.webp" alt="Git Logo" class="tool-logo">
+			  <img loading="lazy" src="images/git.webp" alt="Git Logo" class="tool-logo">
 			  <h3 id="tool-git-title">Git</h3>
 			  <p id="tool-git-description">Version control for collaborative projects</p>
 			</div>
 			<!-- LaTeX -->
 			<div class="card" data-aos="fade-right" data-aos-delay="950">
-			  <img src="images/Latex_Logo.webp" alt="LaTeX Logo" class="tool-logo">
+			  <img loading="lazy" src="images/Latex_Logo.webp" alt="LaTeX Logo" class="tool-logo">
 			  <h3 id="tool-latex-title">LaTeX</h3>
-			  <p id="tool-latex-description">Administration and development on Unix systems</p>
+			  <p id="tool-latex-description">Scientific documents and technical reports</p>
 			</div>
 			<!-- SolidWorks -->
 			<div class="card" data-aos="fade-left" data-aos-delay="1100">
-			  <img src="images/solidworks.webp" alt="SolidWorks Logo" class="tool-logo">
+			  <img loading="lazy" src="images/solidworks.webp" alt="SolidWorks Logo" class="tool-logo">
 			  <h3 id="tool-solidworks-title">SolidWorks</h3>
 			  <p id="tool-solidworks-description">3D modeling and simulation for product design</p>
 			</div>
 			<!-- Catia -->
 			<div class="card" data-aos="fade-up" data-aos-delay="1250">
-			  <img src="images/catia-logo.webp" alt="CATIA Logo" class="tool-logo">
+			  <img loading="lazy" src="images/catia-logo.webp" alt="CATIA Logo" class="tool-logo">
 			  <h3 id="tool-catia-title">CATIA</h3>
 			  <p id="tool-catia-description">Design and modeling of mechanical systems</p>
 			</div>
 			<!-- Windows -->
 			<div class="card" data-aos="fade-right" data-aos-delay="1500">
-			  <img src="images/Window_logo.webp" alt="Windows Logo" class="tool-logo">
+			  <img loading="lazy" src="images/Window_logo.webp" alt="Windows Logo" class="tool-logo">
 			  <h3 id="tool-windows-title">Windows</h3>
 			  <p id="tool-windows-description">Operating systems for everyday use</p>
 			</div>
 			<!-- Excel -->
 			<div class="card" data-aos="fade-left" data-aos-delay="1650">
-			  <img src="images/excel_logo.webp" alt="Excel Logo" class="tool-logo">
+			  <img loading="lazy" src="images/excel_logo.webp" alt="Excel Logo" class="tool-logo">
 			  <h3 id="tool-excel-title">Excel</h3>
 			  <p id="tool-excel-description">Data analysis and spreadsheet automation</p>
 			</div>
 			<!-- Microsoft Office Suite -->
 			<div class="card" data-aos="fade-up" data-aos-delay="1800">
-			  <img src="images/microsoft_suite_logo.webp" alt="Microsoft Office Suite Logo" class="tool-logo">
+			  <img loading="lazy" src="images/microsoft_suite_logo.webp" alt="Microsoft Office Suite Logo" class="tool-logo">
 			  <h3 id="tool-office-suite-title">Microsoft Office Suite</h3>
 			  <p id="tool-office-suite-description">Document management and professional presentations</p>
 			</div>
@@ -712,7 +723,8 @@
 		<section id="references" data-aos="fade-right">
 		  <h2 id="references-title">References</h2>
 
-		  <div class="swiper-container ref-wrapper">
+		  <div class="ref-wrapper">
+			<div class="swiper swiper-container">
 			<div class="swiper-wrapper">
 
 			  <div class="swiper-slide reference-card">
@@ -754,13 +766,14 @@
 
 
 			</div><!-- /.swiper-wrapper -->
+			</div><!-- /.swiper -->
 
 			<!-- flèches de navigation -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev" role="button" aria-label="Previous reference"></div>
+			<div class="swiper-button-next" role="button" aria-label="Next reference"></div>
 			<!-- pagination (points) -->
 			<div class="swiper-pagination"></div>
-		  </div><!-- /.swiper-container -->
+		  </div><!-- /.ref-wrapper -->
 		</section>
 
 
@@ -775,7 +788,7 @@
 
 			<div class="tl-item" data-aos="fade-right">
 			  <div class="tl-content">
-				<img src="images/lyce_parc_des_loges_logo-Photoroom.webp" alt="Lycée" />
+				<img src="images/lyce_parc_des_loges_logo-Photoroom.webp" alt="Lycée Parc des Loges logo" width="72" height="72" loading="lazy">
 				<h3>Bac S – Option SI</h3>
 				<p>Lycée Parc des Loges</p>
 				<span class="tl-date">2019</span>
@@ -784,7 +797,7 @@
 
 			<div class="tl-item" data-aos="fade-left">
 			  <div class="tl-content">
-				<img src="images/logo-parc-de-vilgenis-fond-transparent.webp" alt="Prépa" />
+				<img src="images/logo-parc-de-vilgenis-fond-transparent.webp" alt="Lycée Parc de Vilgénis logo" width="72" height="72" loading="lazy">
 				<h3>Classe Préparatoire PTSI / PT</h3>
 				<p>Lycée Parc de Vilgénis</p>
 				<span class="tl-date">2019 – 2022</span>
@@ -793,7 +806,7 @@
 
 			<div class="tl-item" data-aos="fade-right">
 			  <div class="tl-content">
-				<img src="images/seatech.webp" alt="SeaTech" />
+				<img src="images/seatech.webp" alt="SeaTech logo" width="72" height="72" loading="lazy">
 				<h3>French Engineering Degree in Mechatronics &amp; Robotics</h3>
 				<p>SeaTech – INP Toulon</p>
 				<span class="tl-date">2022 – 2025</span>
@@ -802,7 +815,7 @@
 
 			<div class="tl-item" data-aos="fade-left">
 			  <div class="tl-content">
-				<img src="images/logo-utln.webp" alt="UTLN" />
+				<img src="images/logo-utln.webp" alt="Université de Toulon logo" width="72" height="72" loading="lazy">
 				<h3>Master’s degree in Robotics &amp; AI</h3>
 				<p>Université de Toulon</p>
 				<span class="tl-date">2024 – 2025</span>
@@ -834,18 +847,18 @@
 				<i class="fa-brands fa-linkedin"></i>
 				<span><strong>LinkedIn&nbsp;:</strong>
 				  <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/"
-					 target="_blank">linkedin.com/in/enzocherif</a>
+					 target="_blank" rel="noopener">linkedin.com/in/enzo-cherif</a>
 				</span>
 			  </li>
 			  <li>
 				<i class="fa-solid fa-file-arrow-down"></i>
-				<a href="rapports/RESUME ENZO CHERIF.pdf" target="_blank" download>
+				<a href="rapports/RESUME%20ENZO%20CHERIF.pdf" target="_blank" download>
 				  Download my&nbsp;resume
 				</a>
 			  </li>
 			</ul>
 
-			<a href="mailto:enzocherife@gmail.com?subject=Message%20depuis%20le%20site&body=Bonjour%20Enzo,%0A%0AVotre%20message%20ici..."
+			<a href="mailto:enzocherife@gmail.com?subject=Message%20from%20your%20portfolio&body=Hello%20Enzo,%0A%0A"
 			   class="mailto-btn neon-btn">Send an email</a>
 
 		  </div><!-- /.contact-wrapper -->
@@ -853,23 +866,16 @@
 
 		
     </main>
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<!-- AOS initialized in script.js -->
-	<!-- Swiper 9 -->
-	<link rel="stylesheet"
-		  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-	<script defer
-			src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-	<!-- Librairie d'abord -->
-	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-	
-	<!-- Ton code ensuite -->
-	<script src="script.js"></script>
-	
 	<a href="#top" id="back-to-top" aria-label="Back to top">
 	  ↑
 	</a>
+
+	<!-- Librairies (defer : n'bloquent pas le rendu, exécutées dans l'ordre) -->
+	<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	<!-- Ton code ensuite (AOS / Swiper / particles initialisés dans script.js) -->
+	<script defer src="script.js"></script>
 
 </body>
 </html>

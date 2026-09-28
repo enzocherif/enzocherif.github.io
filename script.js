@@ -1,23 +1,18 @@
 /* =====================================================================
    PORTFOLIO – ENZO CHERIF
-   script.js — 7 effets scroll
+   script.js — 7 effets scroll (bibliothèques CDN optionnelles : le site reste fonctionnel sans elles)
    ===================================================================== */
 
-/* ==========  FORMULAIRE CONTACT  ===================================== */
-function sendEmail(event){
-  event.preventDefault();
-  const name    = document.getElementById('name').value;
-  const email   = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  const mailto  =
-    `mailto:enzo.cherif@example.com?subject=Message depuis le portfolio`
-    + `&body=Nom : ${encodeURIComponent(name)}%0A`
-    + `E-mail : ${encodeURIComponent(email)}%0A%0A`
-    + `${encodeURIComponent(message)}`;
-  window.location.href = mailto;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Préférence système « réduire les animations »
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Si AOS n'a pas pu être chargé (CDN bloqué / hors-ligne), on retire les
+  // attributs data-aos pour que le contenu ne reste jamais invisible.
+  if (typeof window.AOS === 'undefined' || reduceMotion) {
+    document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
+  }
 
   const mainColor =
     getComputedStyle(document.documentElement)
@@ -137,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ══════════════════════════════════════════════════════════════════ */
   function stagger(selector, step = 110) {
     const els = document.querySelectorAll(selector);
-    if (!els.length) return;
+    if (!els.length || reduceMotion || !('IntersectionObserver' in window)) return;
 
     els.forEach((el, i) => {
       el.style.opacity   = '0';
@@ -151,9 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        e.target.style.opacity   = '1';
-        e.target.style.transform = 'none';
-        obs.unobserve(e.target);
+        const el = e.target;
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+        obs.unobserve(el);
+        // Une fois apparue, on rend la main au CSS : sinon le délai de
+        // cascade retardait aussi le tilt au survol des cartes.
+        el.addEventListener('transitionend', function clean(ev) {
+          if (ev.propertyName !== 'opacity') return;
+          el.removeEventListener('transitionend', clean);
+          el.style.transition = '';
+          el.style.transform  = '';
+          el.style.willChange = '';
+        });
       });
     }, { threshold: 0.12 });
 
@@ -163,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   stagger('.post-proj-card',  100);
   stagger('.renault-card',    120);
   stagger('.project-item',    130);
-  stagger('.certif-item',      90);
+  stagger('.certif-card',      90);
   stagger('#tools .card',      80);
   stagger('#domains .card',    80);
   stagger('.tl-item',         150);
@@ -172,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EFFET 6 — PARALLAX léger (desktop uniquement)
   ══════════════════════════════════════════════════════════════════ */
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 768 && !reduceMotion) {
     const parallax = [
       { id: 'post-actuel',     f: 0.10 },
       { id: 'stage-renault',   f: 0.08 },
@@ -243,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — particles.js
   ══════════════════════════════════════════════════════════════════ */
-  particlesJS('particles-js', {
+  if (typeof window.particlesJS === 'function' && !reduceMotion) particlesJS('particles-js', {
     particles: {
       number:  { value: 60, density: { enable: true, value_area: 800 } },
       color:   { value: mainColor },
@@ -278,10 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
       'AI Explorer', 'Automation Engineer', 'Python Developer',
       'Embedded Software', 'Robotics Enthusiast', 'Mechatronics Engineer'
     ];
+    if (reduceMotion) { words.length = 1; }
     let idx = 0, char = 0, erase = false;
     const speed = () => erase ? 50 : 100;
     const tick  = () => {
-      if (!erase && char === words[idx].length) { erase = true; setTimeout(tick, 1600); return; }
+      if (!erase && char === words[idx].length) {
+        if (words.length === 1) return;          // mouvement réduit : mot fixe
+        erase = true; setTimeout(tick, 1600); return;
+      }
       if (erase  && char === 0)                 { erase = false; idx = (idx + 1) % words.length; }
       typedText.textContent = words[idx].substring(0, erase ? --char : ++char);
       setTimeout(tick, speed());
@@ -302,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — Nav active + header hide + sticky
   ══════════════════════════════════════════════════════════════════ */
-  const navLinks  = document.querySelectorAll('.header-nav a');
+  const navLinks  = document.querySelectorAll('.header-nav a, .sticky-nav a');
   const navObs    = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -310,7 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { rootMargin: '-40% 0px -50% 0px' });
-  navLinks.forEach(l => { const s = document.querySelector(l.getAttribute('href')); if (s) navObs.observe(s); });
+  const observed = new Set();
+  navLinks.forEach(l => {
+    const s = document.querySelector(l.getAttribute('href'));
+    if (s && !observed.has(s)) { observed.add(s); navObs.observe(s); }
+  });
 
   const header    = document.getElementById('fullscreen-header');
   const stickyNav = document.querySelector('.sticky-nav');
@@ -329,32 +342,58 @@ document.addEventListener('DOMContentLoaded', () => {
   ══════════════════════════════════════════════════════════════════ */
   const burger    = document.getElementById('burger');
   const mobileNav = document.getElementById('mobile-nav');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileNav.classList.toggle('open');
+  const mobileLinks = mobileNav.querySelectorAll('a');
+  const setMenu = (open) => {
+    burger.classList.toggle('open', open);
+    mobileNav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.setAttribute('aria-hidden', String(!open));
+    // liens non focalisables quand le menu est fermé
+    mobileLinks.forEach(a => a.tabIndex = open ? 0 : -1);
+    if (open && mobileLinks[0]) mobileLinks[0].focus({ preventScroll: true });
+  };
+  setMenu(false);
+  burger.addEventListener('click', () => setMenu(!mobileNav.classList.contains('open')));
+  mobileLinks.forEach(l => l.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) { setMenu(false); burger.focus(); }
   });
-  document.querySelectorAll('#mobile-nav a').forEach(l =>
-    l.addEventListener('click', () => { burger.classList.remove('open'); mobileNav.classList.remove('open'); })
-  );
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mobileNav.classList.contains('open')) setMenu(false);
+  });
 
 
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — AOS
   ══════════════════════════════════════════════════════════════════ */
-  AOS.init({ duration: 800, once: true, offset: 120 });
+  if (typeof window.AOS !== 'undefined' && !reduceMotion) {
+    AOS.init({ duration: 800, once: true, offset: 120 });
+  }
 
 
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — Accordion Thaïlande
   ══════════════════════════════════════════════════════════════════ */
   document.querySelectorAll('#stage-thailande .accordion-btn').forEach(btn => {
-    btn.insertAdjacentHTML('beforeend', '<span class="arrow">▼</span>');
+    btn.insertAdjacentHTML('beforeend', '<span class="arrow" aria-hidden="true">▼</span>');
+    const panel = btn.nextElementSibling;
+    panel.querySelectorAll('a').forEach(a => a.tabIndex = -1);   // fermé = hors tabulation
     btn.addEventListener('click', () => {
-      const panel  = btn.nextElementSibling;
       const isOpen = panel.classList.contains('open');
-      document.querySelectorAll('#stage-thailande .accordion-panel').forEach(p => { p.style.maxHeight = null; p.classList.remove('open'); });
-      document.querySelectorAll('#stage-thailande .accordion-btn').forEach(b => b.classList.remove('active'));
-      if (!isOpen) { panel.style.maxHeight = panel.scrollHeight + 'px'; panel.classList.add('open'); btn.classList.add('active'); }
+      document.querySelectorAll('#stage-thailande .accordion-btn').forEach(b => {
+        const p = b.nextElementSibling;
+        p.style.maxHeight = null; p.classList.remove('open');
+        p.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+        b.classList.remove('active'); b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.classList.add('open');
+        panel.querySelectorAll('a').forEach(a => a.removeAttribute('tabindex'));
+        btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
@@ -376,6 +415,15 @@ document.addEventListener('DOMContentLoaded', () => {
     '-> JavaScript  - Dynamic web interfaces',
     '-> Bash        - Automation via shell scripts'
   ];
+  // Version accessible (lecteurs d'écran) : le <pre> animé est aria-hidden
+  const skillsList = document.getElementById('skills-list');
+  if (skillsList) {
+    lines.slice(1).forEach(l => {
+      const li = document.createElement('li');
+      li.textContent = l.replace(/^->\s*/, '').replace(/\s{2,}-\s*/, ' – ');
+      skillsList.appendChild(li);
+    });
+  }
   let tLine = 0, tChar = 0;
   const type = () => {
     if (tLine >= lines.length) return;
@@ -384,7 +432,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 45);
   };
   const termSec = document.getElementById('competences');
-  if (termSec) {
+  if (terminal && reduceMotion) {
+    terminal.textContent = lines.join('\n');
+  } else if (termSec && terminal) {
     const termObs = new IntersectionObserver((es, o) => {
       es.forEach(e => { if (e.isIntersecting) { type(); o.unobserve(e.target); } });
     }, { threshold: 0.3 });
@@ -395,12 +445,17 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — Swiper
   ══════════════════════════════════════════════════════════════════ */
-  new Swiper('.swiper-container', {
+  if (typeof window.Swiper === 'function') new Swiper('.ref-wrapper .swiper', {
     loop: true,
-    autoplay: { delay: 5500, disableOnInteraction: false },
+    autoplay: reduceMotion ? false : { delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true },
+    a11y: { enabled: true },
     speed: 750, slidesPerView: 1, spaceBetween: 30, grabCursor: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    // éléments passés directement : ils sont hors du conteneur .swiper
+    pagination: { el: document.querySelector('.ref-wrapper .swiper-pagination'), clickable: true },
+    navigation: {
+      nextEl: document.querySelector('.ref-wrapper .swiper-button-next'),
+      prevEl: document.querySelector('.ref-wrapper .swiper-button-prev')
+    }
   });
 
 
@@ -408,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
      EXISTANT — Tilt + Back to top
   ══════════════════════════════════════════════════════════════════ */
   const tiltEl = document.querySelector('.tilt');
-  if (tiltEl) {
+  if (tiltEl && window.matchMedia('(hover: hover)').matches && !reduceMotion) {
     tiltEl.addEventListener('mousemove', e => {
       const r = tiltEl.getBoundingClientRect();
       const x = e.clientX - r.left - r.width / 2;
@@ -433,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------------------
      A. CURSEUR NEON MAGNETIQUE CUSTOM (desktop uniquement)
   --------------------------------------------------------------- */
-  if (window.matchMedia('(hover: hover)').matches && window.innerWidth > 900) {
+  if (window.matchMedia('(hover: hover)').matches && window.innerWidth > 900 && !reduceMotion) {
     const neonCursor = document.createElement('div');
     neonCursor.id = 'neon-cursor';
     document.body.appendChild(neonCursor);
@@ -463,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------------------
      B. TILT 3D + GLOW SOURIS SUR LES CARTES (Domains / Tools)
   --------------------------------------------------------------- */
-  document.querySelectorAll('#domains .card, #tools .card').forEach(card => {
+  if (window.matchMedia('(hover: hover)').matches) document.querySelectorAll('#domains .card, #tools .card').forEach(card => {
     const glow = document.createElement('div');
     glow.className = 'card-glow';
     card.appendChild(glow);
@@ -501,9 +556,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const back = document.createElement('div');
     back.className = 'flip-face flip-back';
+    // Face arrière décorative (le bouton « Full Report » reste l'accès principal)
+    back.setAttribute('aria-hidden', 'true');
     back.innerHTML = `
       <span class="flip-icon">📄</span>
-      <a class="flip-cta" href="${link ? link.getAttribute('href') : '#'}" target="_blank">Voir le rapport</a>
+      <a class="flip-cta" href="${link ? link.getAttribute('href') : '#'}" target="_blank" rel="noopener" tabindex="-1">View report</a>
     `;
 
     img.parentNode.insertBefore(scene, img);
@@ -584,6 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrap = document.createElement('div');
     wrap.className = 'neon-buddy walking dir-right buddy-' + type;
     wrap.innerHTML = buildBuddySVG(type);
+    wrap.setAttribute('aria-hidden', 'true');   // mascotte purement décorative
     container.appendChild(wrap);
 
     let dir = 1;
@@ -661,7 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const buddyFooter = document.querySelector('.projects-footer');
-  if (buddyFooter) {
+  if (buddyFooter && !reduceMotion) {
     makeNeonBuddy('coder',    buddyFooter, 0);
     makeNeonBuddy('engineer', buddyFooter, 1);
     makeNeonBuddy('thinker',  buddyFooter, 2);
