@@ -420,6 +420,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 260);
   }));
 
+  /* ══════════════════════════════════════════════════════════════════
+     THAILAND — signal PWM interactif, chiffres et apparitions au scroll
+  ══════════════════════════════════════════════════════════════════ */
+  const pwm = document.querySelector('[data-pwm]');
+  if (pwm) {
+    const wave = pwm.querySelector('.pwm-wave'), avg = pwm.querySelector('.pwm-avg'), grid = pwm.querySelector('.pwm-grid');
+    const out = pwm.querySelector('[data-duty]'), range = pwm.querySelector('input');
+    const W = 600, H = 150, TOP = 22, BOT = 128, N = 5;
+    let g = '';
+    for (let i = 1; i < 10; i++) g += `M${i * 60} 0V${H}`;
+    for (let j = 1; j < 4; j++) g += `M0 ${j * 37.5}H${W}`;
+    grid.setAttribute('d', g);
+    let duty = 50, target = 50, phase = 0, raf = 0, auto = !reduceMotion, visible = true, last = 0;
+    const draw = () => {
+      const P = W / N, off = (phase % 1) * P;
+      let d = `M0 ${BOT}`;
+      for (let k = -1; k <= N; k++) {
+        const x0 = k * P - off, x1 = x0 + P * duty / 100, x2 = x0 + P;
+        d += `L${Math.max(0, x0).toFixed(1)} ${BOT}L${Math.max(0, x0).toFixed(1)} ${TOP}L${Math.min(W, Math.max(0, x1)).toFixed(1)} ${TOP}L${Math.min(W, Math.max(0, x1)).toFixed(1)} ${BOT}L${Math.min(W, Math.max(0, x2)).toFixed(1)} ${BOT}`;
+      }
+      wave.setAttribute('d', d);
+      const ya = BOT - (BOT - TOP) * duty / 100;
+      avg.setAttribute('d', `M0 ${ya.toFixed(1)}H${W}`);
+      out.textContent = Math.round(duty);
+      if (auto) range.value = Math.round(duty);
+    };
+    const tick = t => {
+      raf = 0;
+      const dt = Math.min(0.05, (t - (last || t)) / 1000); last = t;
+      if (auto) target = 50 + 32 * Math.sin(t / 1600);
+      duty += (target - duty) * Math.min(1, dt * 6);
+      phase += dt * 0.35;
+      draw();
+      if (visible && !document.hidden) raf = requestAnimationFrame(tick);
+    };
+    const start = () => { if (!raf && !reduceMotion) { last = 0; raf = requestAnimationFrame(tick); } };
+    range.addEventListener('input', () => { auto = false; target = +range.value; if (reduceMotion) { duty = target; draw(); } start(); });
+    draw();
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) start(); }).observe(pwm);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
+    start();
+  }
+
+  const th = document.querySelector('.th');
+  if (th && !reduceMotion && 'IntersectionObserver' in window) {
+    th.classList.add('armed');
+    const els = th.querySelectorAll('.th-hero, .th-stats li, .th-split > *, .th-pillars .cp-pillar, .th-highlight, .th-gallery figure, .lab-phase, .th-bottom > *');
+    els.forEach(el => el.classList.add('th-reveal'));
+    th.querySelectorAll('.th-stats li').forEach((el, i) => el.style.transitionDelay = (i * 0.1) + 's');
+    th.querySelectorAll('.th-pillars .cp-pillar').forEach((el, i) => el.style.transitionDelay = (i * 0.12) + 's');
+    th.querySelectorAll('.th-gallery figure').forEach((el, i) => el.style.transitionDelay = (i * 0.1) + 's');
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      const el = en.target;
+      const ns = el.hasAttribute('data-count') ? [el] : [...el.querySelectorAll('[data-count]')];
+      if (en.isIntersecting) { el.classList.add('in'); ns.forEach(n => countUp(n)); }
+      else { el.classList.remove('in'); ns.forEach(n => { n.textContent = '0'; }); }
+    }), { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CERTIFICATIONS — apparition rejouée, compteurs, halo au curseur
+  ══════════════════════════════════════════════════════════════════ */
+  const cc = document.querySelector('.cc');
+  if (cc) {
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      cc.classList.add('armed');
+      const els = cc.querySelectorAll('.cc-stats li, .ccard');
+      els.forEach((el, i) => { el.classList.add('cc-reveal'); el.style.transitionDelay = ((i % 3) * 0.1) + 's'; });
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        const el = en.target, ns = [...el.querySelectorAll('[data-count]')];
+        if (en.isIntersecting) { el.classList.add('in'); ns.forEach(n => countUp(n)); }
+        else { el.classList.remove('in'); ns.forEach(n => { n.textContent = '0'; }); }
+      }), { threshold: 0.15 });
+      els.forEach(el => io.observe(el));
+    }
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      cc.querySelectorAll('.ccard').forEach(c => c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      }));
+    }
+  }
+
   /* Current Position : barre du contrat VIE (mise à jour selon la date du jour) */
   const contract = document.querySelector('.cp-contract');
   if (contract) {

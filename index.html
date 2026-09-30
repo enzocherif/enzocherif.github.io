@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="https://enzocherif.github.io/images/og-preview.webp">
 
   <!-- 🔗 Styles and Icons -->
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=16">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#080808">
   <link rel="canonical" href="https://enzocherif.github.io/">
@@ -166,7 +166,7 @@
 			  <dl class="about-facts">
 				<div><dt>Focus today</dt><dd>Data, AI and full-stack software</dd></div>
 				<div><dt>Availability</dt><dd>With Alstom until April 30, 2027. Open to conversations about what comes next.</dd></div>
-				<div><dt>Languages</dt><dd>French, English <span class="todo">[others?]</span></dd></div>
+				<div><dt>Languages</dt><dd>French, English</dd></div>
 				<div><dt>How I work</dt><dd>Versatile, meticulous, passionate</dd></div>
 			  </dl>
 			</div>
@@ -573,135 +573,173 @@
 		<!-- =============================================================== -->
 		<!--  STAGE EN THAÏLANDE – TFII, Bangkok                              -->
 		<!-- =============================================================== -->
-		<section id="stage-thailande" data-aos="fade-right">
-		  <div class="stage-wrapper">
+		<section id="stage-thailande" class="th" data-aos="fade-up">
+		  <div class="th-wrap">
+			<h2 class="th-title">Internship in Thailand — TFII, Bangkok</h2>
 
-			<!-- PHOTO + DESCRIPTION --------------------------------------- -->
-			<div class="stage-flex">
-			  <img loading="lazy" src="images/Photo_TFII_certificat_Enzo_CHERIF.webp"
-				   alt="TFII Bangkok Internship Certificate"
-				   class="stage-img">
+			<!-- Bandeau -->
+			<header class="th-hero">
+			  <img src="images/tfii/lab.webp" alt="Power electronics lab of the Thai-French Innovation Institute at KMUTNB" loading="lazy" decoding="async" width="1600" height="1200">
+			  <div class="th-hero-text">
+				<p class="cp-badges"><span class="cp-badge">Research internship</span><span class="cp-badge cp-badge-live th-dates">April – August 2024</span></p>
+				<h3>Programming for modern microcontrollers</h3>
+				<p>Thai-French Innovation Institute (TFII), King Mongkut’s University of Technology North Bangkok</p>
+			  </div>
+			</header>
 
-			  <div class="stage-text">
-				<h2>Internship in Thailand — TFII, Bangkok</h2>
+			<!-- Chiffres -->
+			<ul class="th-stats">
+			  <li><span class="th-num" data-count="17">17</span><span class="th-lab">weeks in Bangkok</span></li>
+			  <li><span class="th-num" data-count="10">10</span><span class="th-lab">lab guides written in French and English</span></li>
+			  <li><span class="th-num"><span data-count="24">24</span>/24</span><span class="th-lab">criteria rated “Excellent” by my supervisor</span></li>
+			  <li><span class="th-num" data-count="1">1</span><span class="th-lab">presentation to a French Ministry delegation</span></li>
+			</ul>
 
-				<p>
-				  During my internship at the <strong>Thai-French Innovation Institute (TFII)</strong>,
-				  I worked on the <strong>energy management of solar electric vehicles</strong>. My goal
-				  was to develop a control system optimizing the use and storage of solar energy while
-				  ensuring vehicle stability.<br><br>
-				  The algorithms were designed and tested on the <strong>Texas Instruments TMS320F28335</strong>
-				  board, which allowed me to deepen my power electronics skills in an exciting
-				  multicultural environment.
-				</p>
+			<!-- Intro + signal PWM interactif -->
+			<div class="th-split">
+			  <div class="th-intro">
+				<p>I worked on the <strong>energy management of a solar electric vehicle</strong>: a control system that makes the best use of variable solar power while keeping the vehicle stable.</p>
+				<p>Everything ran on a <strong>Texas Instruments TMS320F28335</strong> board: generating PWM signals, reading voltage and current sensors through the ADC, and driving buck and boost converters.</p>
+			  </div>
+			  <figure class="pwm" data-pwm>
+				<div class="pwm-head"><span>PWM output</span><span class="pwm-val">duty cycle <b data-duty>50</b>%</span></div>
+				<svg viewBox="0 0 600 150" preserveAspectRatio="none" aria-hidden="true"><path class="pwm-grid" d=""/><path class="pwm-wave" d=""/><path class="pwm-avg" d=""/></svg>
+				<label class="pwm-ctrl"><span>Drag to change the duty cycle</span><input type="range" min="5" max="95" value="50" aria-label="PWM duty cycle in percent"></label>
+				<figcaption>The dashed line is the average voltage the converter sees, which is what the duty cycle controls.</figcaption>
+			  </figure>
+			</div>
+
+			<!-- Trois piliers -->
+			<div class="cp-pillars th-pillars">
+			  <article class="cp-pillar">
+				<h4><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg>Research</h4>
+				<ul>
+				  <li>Studied and optimised the voltage and current transducers (LEM sensors) used to measure high voltages and currents.</li>
+				  <li>Designed test protocols and ran experiments on the lab’s power benches.</li>
+				</ul>
+			  </article>
+			  <article class="cp-pillar">
+				<h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5 12 4l9 4.5-9 4.5z"/><path d="M7 10.5V15c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-4.5"/></svg>Teaching</h4>
+				<ul>
+				  <li>Wrote ten lab guides, first in French then in English, and tested each one myself.</li>
+				  <li>Taught a small group of Thai students, who ended up building a working boost converter.</li>
+				</ul>
+			  </article>
+			  <article class="cp-pillar">
+				<h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>Power electronics</h4>
+				<ul>
+				  <li>PWM generation and duty-cycle regulation on the F28335.</li>
+				  <li>Buck and boost DC-DC converters, from theory to optimisation, with MATLAB for development.</li>
+				</ul>
+			  </article>
+			</div>
+
+			<!-- Temps fort -->
+			<aside class="th-highlight">
+			  <p class="th-hl-date">May 29, 2024</p>
+			  <p>After only a month at TFII, I presented my work on the F28335 board and the sensors to a delegation from the <strong>French Ministry of Foreign Affairs</strong>, led by Mr. Matthieu Peyraud, during their visit to the institute.</p>
+			</aside>
+
+			<!-- Galerie -->
+			<div class="th-gallery">
+			  <figure class="g-wide"><img src="images/tfii/team.webp" alt="Enzo receiving his certificate of completion with the TFII team" loading="lazy" decoding="async" width="1400" height="930"><figcaption>Certificate of completion with the TFII team</figcaption></figure>
+			  <figure><img src="images/tfii/sensor-board.webp" alt="Voltage and current sensor boards with a LEM LV25-P transducer" loading="lazy" decoding="async" width="1200" height="900"><figcaption>LEM voltage and current sensor boards</figcaption></figure>
+			  <figure><img src="images/tfii/opamp.webp" alt="Close-up of a TL082 op-amp on the sensor board" loading="lazy" decoding="async" width="1000" height="750"><figcaption>Signal conditioning (TL082 op-amp)</figcaption></figure>
+			  <figure><img src="images/tfii/power-supply.webp" alt="ITECH 400 W DC power supply on the test bench" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Test bench power supply</figcaption></figure>
+			</div>
+
+			<!-- Parcours des TP -->
+			<div class="th-labs">
+			  <h3>The lab path I designed</h3>
+			  <p class="th-labs-sub">Ten sessions in three phases. Each one opens its PDF.</p>
+			  <div class="lab-track">
+				<div class="lab-phase"><h4>Board &amp; PWM</h4><ol><li><a href="rapports/LAB1_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 1</span><span class="lab-t">Getting started with the TI F28335</span></a></li><li><a href="rapports/LAB2_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 2</span><span class="lab-t">Installation and control setup</span></a></li><li><a href="rapports/LAB3_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 3</span><span class="lab-t">PWM control</span></a></li><li><a href="rapports/LAB4_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 4</span><span class="lab-t">Duty-cycle regulation</span></a></li></ol></div>
+				<div class="lab-phase"><h4>Measurement</h4><ol><li><a href="rapports/LAB5_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 5</span><span class="lab-t">Voltage and current measurement</span></a></li><li><a href="rapports/LAB6_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 6</span><span class="lab-t">Precision of voltage measurements</span></a></li></ol></div>
+				<div class="lab-phase"><h4>DC-DC converters</h4><ol><li><a href="rapports/LAB7_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 7</span><span class="lab-t">Exploring boost and buck converters</span></a></li><li><a href="rapports/LAB9_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 9</span><span class="lab-t">Practical buck converter tests</span></a></li><li><a href="rapports/LAB10_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 10</span><span class="lab-t">Boost converter optimisation</span></a></li><li><a href="rapports/LAB11_English.pdf" target="_blank" rel="noopener"><span class="lab-n">Lab 11</span><span class="lab-t">Buck converter optimisation</span></a></li></ol></div>
 			  </div>
 			</div>
 
-			<!-- ACCORDION (reports and practical work) ------------------- -->
-			<div class="accordion">
-
-			  <!-- Internship Reports -->
-			  <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="panel-reports" id="btn-reports">📑 Internship Reports (Fr / En)</button>
-			  <div class="accordion-panel" id="panel-reports" role="region" aria-labelledby="btn-reports">
-				<ul class="doc-list">
-				  <li>
-					<a href="rapports/Rapport_De_Stage_CHERIF_Enzo.pdf" target="_blank">Report in French</a>
-				  </li>
-				  <li>
-					<a href="rapports/Internship_Report_CHERIF_Enzo.pdf" target="_blank">Internship Report (English)</a>
-				  </li>
-				</ul>
+			<!-- Avis du tuteur + rapports -->
+			<div class="th-bottom">
+			  <figure class="th-quote">
+				<blockquote><p>Mr. Enzo Cherif has shown exceptional dedication and skill throughout the internship, particularly in the areas of problem-solving and adaptability.</p></blockquote>
+				<figcaption>Dr. Burin Yodwong, internship supervisor, in his evaluation. <a href="#references">Read his full reference</a></figcaption>
+			  </figure>
+			  <div class="th-downloads">
+				<a class="th-dl" href="rapports/Internship_Report_CHERIF_Enzo.pdf" target="_blank" rel="noopener"><b>Internship report</b><span>English · PDF, 18 MB</span></a>
+				<a class="th-dl" href="rapports/Rapport_De_Stage_CHERIF_Enzo.pdf" target="_blank" rel="noopener" hreflang="fr"><b>Rapport de stage</b><span>Français · PDF, 18 MB</span></a>
 			  </div>
-
-			  <!-- Practical Exercises -->
-			  <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="panel-labs" id="btn-labs">🔧 Labs (Practical Exercises)</button>
-			  <div class="accordion-panel" id="panel-labs" role="region" aria-labelledby="btn-labs">
-				<ul class="doc-list">
-				  <li><a href="rapports/LAB1_English.pdf" target="_blank">
-					  LAB 1 : Getting started with TI 28335</a></li>
-				  <li><a href="rapports/LAB2_English.pdf" target="_blank">
-					  LAB 2 : Installation &amp; control setup</a></li>
-				  <li><a href="rapports/LAB3_English.pdf" target="_blank">
-					  LAB 3 : PWM control on TI F28335</a></li>
-				  <li><a href="rapports/LAB4_English.pdf" target="_blank">
-					  LAB 4 : Duty-cycle regulation</a></li>
-				  <li><a href="rapports/LAB5_English.pdf" target="_blank">
-					  LAB 5 : Voltage &amp; current measurement</a></li>
-				  <li><a href="rapports/LAB6_English.pdf" target="_blank">
-					  LAB 6 : Precision of voltage measurements</a></li>
-				  <li><a href="rapports/LAB7_English.pdf" target="_blank">
-					  LAB 7 : Exploring boost &amp; buck converters</a></li>
-				  <li><a href="rapports/LAB9_English.pdf" target="_blank">
-					  LAB 9 : Practical buck converter tests</a></li>
-				  <li><a href="rapports/LAB10_English.pdf" target="_blank">
-					  LAB 10 : Boost converter optimisation</a></li>
-				  <li><a href="rapports/LAB11_English.pdf" target="_blank">
-					  LAB 11 : Buck converter optimisation</a></li>
-				</ul>
-			  </div>
-
-			</div><!-- /.accordion -->
-
-		  </div><!-- /.stage-wrapper -->
+			</div>
+		  </div>
 		</section>
 
 		
 		<!-- =============================================================== -->
 		<!--  CERTIFICATIONS  —  glass-card + liens projets                  -->
 		<!-- =============================================================== -->
-		<section id="certifications" data-aos="fade-left">
-		  <div class="certif-wrapper glass-card">
-
-			<h2 id="certifications-title">Certifications</h2>
-
-			<!-- ===== CARTE freeCodeCamp =================================== -->
-			<article class="certif-card">
-			  <h3 class="certif-title">
-				Machine Learning with Python
-				<span class="issuer">— freeCodeCamp</span>
-			  </h3>
-
-			  <a href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7"
-				target="_blank" rel="noopener" class="btn-certif">
-				🎓 View Certification
-			  </a>
-
-
-			  <ul class="certif-links">
-				<li><a href="https://github.com/enzocherif/Book-recommendation" target="_blank" rel="noopener">
-					📚 Book-Recommendation Engine</a></li>
-				<li><a href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" rel="noopener">
-					✊✋✌️ Rock-Paper-Scissors</a></li>
-				<li><a href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" rel="noopener">
-					🔤 SMS Classifier (NN)</a></li>
-				<li><a href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" rel="noopener">
-					💰 Health-Cost Regression notebook</a></li>
-			  </ul>
+		<section id="certifications" class="cc" data-aos="fade-up">
+		  <div class="cc-wrap">
+			<h2 id="certifications-title" class="cc-title">Certifications</h2>
+			<ul class="cc-stats">
+			  <li><span class="cc-num" data-count="4">4</span><span>certifications</span></li>
+			  <li><span class="cc-num" data-count="4">4</span><span>issuers, from IBM to a Thai university</span></li>
+			  <li><span class="cc-num cc-num-text">Data</span><span>latest focus: Polars &amp; Parquet with DataCamp</span></li>
+			</ul>
+			<div class="cc-grid">
+			<article class="ccard is-latest" style="--i:0">
+			  <div class="cc-top">
+				<span class="cc-mark" aria-hidden="true">DC</span>
+				<div class="cc-meta"><span class="cc-domain">Data engineering</span><span class="cc-latest">Latest</span></div>
+			  </div>
+			  <h3>Polars &amp; Parquet</h3>
+			  <p class="cc-issuer">DataCamp<span class="cc-date">During my VIE at Alstom</span></p>
+			  <dl class="cc-story">
+				<div><dt>What it covers</dt><dd>Fast DataFrame processing with Polars and the Parquet columnar format.</dd></div>
+				<div class="cc-applied"><dt>Where I used it</dt><dd>Used at Alstom to replace heavy text exports with Parquet files and speed up the Flask dashboards.</dd></div>
+			  </dl>
+			  <div class="cc-actions"><a class="cc-chip" href="#post-actuel">See it in my current role</a></div>
 			</article>
-
-			<!-- ===== CARTE IBM / Coursera =================================== -->
-			<article class="certif-card">
-			  <h3 class="certif-title">
-				Machine Learning with Python (V2)
-				<span class="issuer">— IBM </span>
-			  </h3>
-
-			  <a href="https://www.credly.com/badges/09326ad1-f5ff-4c16-b41c-3f6d710085d4/linked_in_profile"
-				target="_blank" rel="noopener" class="btn-certif">
-				🎓 View Certification
-			  </a>
-
-			  <ul class="certif-links">
-				<li>📅 Issued: June 23, 2025</li>
-				<li>📚 Covered: Regression, Classification, Clustering, Dimensionality Reduction</li>
-				<li>🧠 Algorithms: KNN, Decision Trees, SVM, DBSCAN, PCA, t-SNE, UMAP</li>
-				<li>🐍 Tools: Python, Scikit-learn, NumPy</li>
-				<li><a href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank" rel="noopener">
-				  🔗 View GitHub Repository</a></li>
-			  </ul>
+			<article class="ccard" style="--i:1">
+			  <div class="cc-top">
+				<span class="cc-mark" aria-hidden="true">IBM</span>
+				<div class="cc-meta"><span class="cc-domain">Machine learning</span></div>
+			  </div>
+			  <h3>Machine Learning with Python</h3>
+			  <p class="cc-issuer">IBM<span class="cc-date">June 23, 2025</span></p>
+			  <dl class="cc-story">
+				<div><dt>What it covers</dt><dd>Regression, classification, clustering and dimensionality reduction: KNN, decision trees, SVM, DBSCAN, PCA, t-SNE, UMAP.</dd></div>
+				<div class="cc-applied"><dt>Where I used it</dt><dd>Seven notebooks with scikit-learn, from customer segmentation to model evaluation.</dd></div>
+			  </dl>
+			  <div class="cc-actions"><a class="cc-verify" href="https://www.credly.com/badges/09326ad1-f5ff-4c16-b41c-3f6d710085d4/linked_in_profile" target="_blank" rel="noopener">Verify credential</a><a class="cc-chip" href="https://github.com/enzocherif/ibm-machine-learning-certification" target="_blank" rel="noopener">Notebooks on GitHub</a></div>
 			</article>
-
-		  </div><!-- /.certif-wrapper -->
+			<article class="ccard" style="--i:2">
+			  <div class="cc-top">
+				<span class="cc-mark" aria-hidden="true">TFII</span>
+				<div class="cc-meta"><span class="cc-domain">Embedded systems</span></div>
+			  </div>
+			  <h3>Programming for Modern Microcontrollers</h3>
+			  <p class="cc-issuer">TFII, KMUTNB, Bangkok<span class="cc-date">April – August 2024</span></p>
+			  <dl class="cc-story">
+				<div><dt>What it covers</dt><dd>Certificate of completion for my research internship on the TI F28335: PWM, sensors, buck and boost converters.</dd></div>
+				<div class="cc-applied"><dt>Where I used it</dt><dd>Ten bilingual lab guides and a working boost converter built with Thai students.</dd></div>
+			  </dl>
+			  <div class="cc-actions"><a class="cc-chip" href="#stage-thailande">See the internship</a></div>
+			</article>
+			<article class="ccard" style="--i:3">
+			  <div class="cc-top">
+				<span class="cc-mark" aria-hidden="true">fCC</span>
+				<div class="cc-meta"><span class="cc-domain">Machine learning</span></div>
+			  </div>
+			  <h3>Machine Learning with Python</h3>
+			  <p class="cc-issuer">freeCodeCamp</p>
+			  <dl class="cc-story">
+				<div><dt>What it covers</dt><dd>Five projects with TensorFlow, Keras and scikit-learn, all passing the freeCodeCamp test suites.</dd></div>
+				<div class="cc-applied"><dt>Where I used it</dt><dd>All five are on my GitHub; four of them are featured in my projects above.</dd></div>
+			  </dl>
+			  <div class="cc-actions"><a class="cc-verify" href="https://www.freecodecamp.org/certification/enzocherif/machine-learning-with-python-v7" target="_blank" rel="noopener">Verify credential</a><a class="cc-chip" href="https://github.com/enzocherif/Neural-Network-SMS-Text-Classifier" target="_blank" rel="noopener">SMS classifier</a><a class="cc-chip" href="https://github.com/enzocherif/Book-recommendation" target="_blank" rel="noopener">Book recommender</a><a class="cc-chip" href="https://github.com/enzocherif/rock-paper-scissors" target="_blank" rel="noopener">RPS bot</a><a class="cc-chip" href="https://github.com/enzocherif/Data_Analysis_Python/blob/main/fcc_cat_dog.ipynb" target="_blank" rel="noopener">Cat vs dog</a><a class="cc-chip" href="https://github.com/enzocherif/predict_health_costs_with_regression" target="_blank" rel="noopener">Health costs</a></div>
+			</article>
+			</div>
+		  </div>
 		</section>
 
         <!-- =============================================================== -->
@@ -1048,7 +1086,7 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	<!-- Ton code ensuite (AOS / Swiper / particles initialisés dans script.js) -->
-	<script defer src="script.js?v=13"></script>
+	<script defer src="script.js?v=15"></script>
 	<!-- Portrait animé EN PAUSE : retirer ce commentaire pour le réactiver
 	<script defer src="avatar-data.js?v=2"></script>
 	<script defer src="avatar.js?v=2"></script>
