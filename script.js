@@ -505,6 +505,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ══════════════════════════════════════════════════════════════════
+     TOOLS — filtres, cascade rejouée, halo au curseur
+  ══════════════════════════════════════════════════════════════════ */
+  const tb = document.querySelector('.tb');
+  if (tb) {
+    // logo introuvable (hors ligne…) : on affiche l'initiale à la place
+    tb.querySelectorAll('.tl-icon img[data-fb]').forEach(img => {
+      const swap = () => { const m = document.createElement('span'); m.className = 'tl-mono'; m.setAttribute('aria-hidden', 'true'); m.textContent = img.dataset.fb; img.replaceWith(m); };
+      if (img.complete && img.naturalWidth === 0) swap(); else img.addEventListener('error', swap, { once: true });
+    });
+    const groups = [...tb.querySelectorAll('.tb-group')];
+    const tfs = tb.querySelectorAll('[data-tf]');
+    let io = null;
+    const replay = g => { if (!io) return; g.querySelectorAll('.tl').forEach(t => { t.classList.remove('in'); io.unobserve(t); io.observe(t); }); };
+    tfs.forEach(btn => btn.addEventListener('click', () => {
+      const f = btn.dataset.tf;
+      tfs.forEach(b => { const on = b === btn; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+      groups.forEach(g => { g.hidden = !(f === 'all' || g.dataset.g === f); if (!g.hidden) replay(g); });
+    }));
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      tb.classList.add('armed');
+      groups.forEach(g => g.querySelectorAll('.tl').forEach((t, i) => t.style.setProperty('--d', (i % 3) * 0.08 + Math.floor(i / 3) * 0.06 + 's')));
+      io = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle('in', en.isIntersecting)), { threshold: 0.1 });
+      tb.querySelectorAll('.tl').forEach(t => io.observe(t));
+    }
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      tb.querySelectorAll('.tl').forEach(c => c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      }));
+    }
+  }
+
   /* Current Position : barre du contrat VIE (mise à jour selon la date du jour) */
   const contract = document.querySelector('.cp-contract');
   if (contract) {

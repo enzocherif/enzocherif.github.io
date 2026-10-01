@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="https://enzocherif.github.io/images/og-preview.webp">
 
   <!-- 🔗 Styles and Icons -->
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=18">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#080808">
   <link rel="canonical" href="https://enzocherif.github.io/">
@@ -776,80 +776,76 @@
 		  </div><!-- /.terminal-wrapper -->
 		</section>
 
-		<section id="tools">
-		  <h2 id="tools-title">Tools</h2>
-		  <div class="cards-container">
-			<!-- MATLAB Simulink -->
-			<div class="card" data-aos="fade-right" data-aos-delay="0">
-			  <img loading="lazy" src="images/Simulink_Logo.webp" alt="MATLAB Simulink Logo" class="tool-logo">
-			  <h3 id="tool-matlab-simulink-title">MATLAB Simulink</h3>
-			  <p id="tool-matlab-simulink-description">Advanced modeling and simulation</p>
+		<section id="tools" class="tb">
+		  <div class="tb-wrap">
+			<h2 id="tools-title" class="tb-title">Tools</h2>
+			<p class="tb-intro">32 tools I have actually used, grouped by field, with where I used each one.</p>
+			<div class="tb-bar">
+			  <div class="pfilters tb-filters" role="group" aria-label="Filter tools">
+				<button type="button" class="pfilter active" data-tf="all" aria-pressed="true">All</button>
+				<button type="button" class="pfilter" data-tf="data" aria-pressed="false">Data</button>
+				<button type="button" class="pfilter" data-tf="software" aria-pressed="false">Software development</button>
+				<button type="button" class="pfilter" data-tf="sim" aria-pressed="false">Simulation</button>
+				<button type="button" class="pfilter" data-tf="embedded" aria-pressed="false">Robotics</button>
+				<button type="button" class="pfilter" data-tf="cad" aria-pressed="false">CAD</button>
+			  </div>
 			</div>
-			<!-- MATLAB App Designer -->
-			<div class="card" data-aos="fade-left" data-aos-delay="150">
-			  <img loading="lazy" src="images/Matlab_Logo.webp" alt="MATLAB Logo" class="tool-logo">
-			  <h3 id="tool-matlab-app-title">MATLAB App Designer</h3>
-			  <p id="tool-matlab-app-description">Creating interactive applications for modeling</p>
+			<div class="tb-group" data-g="data">
+			  <h3>Data &amp; AI<span class="tb-count">9</span></h3>
+			  <ul class="tb-list">
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.simpleicons.org/polars/0075FF" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Po"></span><span class="tl-body"><span class="tl-name">Polars</span><span class="tl-note">Fast DataFrames for train log data</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li><li>Certified</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.simpleicons.org/apacheparquet/50ABF1" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Pa"></span><span class="tl-body"><span class="tl-name">Parquet</span><span class="tl-note">Compact columnar storage for exports</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li><li>Certified</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="pa"></span><span class="tl-body"><span class="tl-name">pandas</span><span class="tl-note">Data cleaning and analysis</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li><li>Renault</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Nu"></span><span class="tl-body"><span class="tl-name">NumPy</span><span class="tl-note">Numerical computing</span><ul class="tl-where" aria-label="Used at"><li>Renault</li><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="sc"></span><span class="tl-body"><span class="tl-name">scikit-learn</span><span class="tl-note">Classical machine learning</span><ul class="tl-where" aria-label="Used at"><li>IBM</li><li>Projects</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="TK"></span><span class="tl-body"><span class="tl-name">TensorFlow / Keras</span><span class="tl-note">Neural networks: LSTM, CNN</span><ul class="tl-where" aria-label="Used at"><li>freeCodeCamp</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Ju"></span><span class="tl-body"><span class="tl-name">Jupyter</span><span class="tl-note">Notebooks for experiments</span><ul class="tl-where" aria-label="Used at"><li>Projects</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Op"></span><span class="tl-body"><span class="tl-name">OpenCV</span><span class="tl-note">Image segmentation and counting</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.simpleicons.org/qgis/589632" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="QG"></span><span class="tl-body"><span class="tl-name">QGIS</span><span class="tl-note">Satellite and bathymetry mapping</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+			  </ul>
 			</div>
-			<!-- LabVIEW -->
-			<div class="card" data-aos="fade-up" data-aos-delay="300">
-			  <img loading="lazy" src="images/labview_logo.webp" alt="LabVIEW Logo" class="tool-logo">
-			  <h3 id="tool-labview-title">LabVIEW</h3>
-			  <p id="tool-labview-description">Design of measurement and automation applications</p>
+			<div class="tb-group" data-g="software">
+			  <h3>Software development<span class="tb-count">10</span></h3>
+			  <ul class="tb-list">
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb=".NET"></span><span class="tl-body"><span class="tl-name">.NET 9</span><span class="tl-note">C# 13 parsers and desktop tools</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="VS"></span><span class="tl-body"><span class="tl-name">Visual Studio</span><span class="tl-note">C# / C++ development</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="VC"></span><span class="tl-body"><span class="tl-name">VS Code</span><span class="tl-note">Python, web and scripts</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Fl"></span><span class="tl-body"><span class="tl-name">Flask</span><span class="tl-note">Dashboards for engineers</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Py"></span><span class="tl-body"><span class="tl-name">PyQt</span><span class="tl-note">Configuration Tool GUI</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Tk"></span><span class="tl-body"><span class="tl-name">Tkinter</span><span class="tl-note">GUIs for automation tools</span><ul class="tl-where" aria-label="Used at"><li>Renault</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Gi"></span><span class="tl-body"><span class="tl-name">Git</span><span class="tl-note">Version control</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li><li>Projects</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Gi"></span><span class="tl-body"><span class="tl-name">GitLab</span><span class="tl-note">Repositories and merge requests</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="Do"></span><span class="tl-body"><span class="tl-name">Docker</span><span class="tl-note">Containers, basic use</span><ul class="tl-where" aria-label="Used at"><li>Alstom</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="images/linux_logo.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">Linux</span><span class="tl-note">Shell, ROS, development</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+			  </ul>
 			</div>
-			<!-- ROS -->
-			<div class="card" data-aos="fade-right" data-aos-delay="450">
-			  <img loading="lazy" src="images/Ros_logo.webp" alt="ROS Logo" class="tool-logo">
-			  <h3 id="tool-ros-title">ROS (Robot Operating System)</h3>
-			  <p id="tool-ros-description">Robot control and coordination</p>
+			<div class="tb-group" data-g="sim">
+			  <h3>Simulation &amp; control<span class="tb-count">4</span></h3>
+			  <ul class="tb-list">
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="MA"></span><span class="tl-body"><span class="tl-name">MATLAB</span><span class="tl-note">Analysis, control, F28335 development</span><ul class="tl-where" aria-label="Used at"><li>TFII</li><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="images/Simulink_Logo.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">Simulink</span><span class="tl-note">ABS and EBD braking model</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="images/Matlab_Logo.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">App Designer</span><span class="tl-note">Vehicle stability simulator</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/labview/labview-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="La"></span><span class="tl-body"><span class="tl-name">LabVIEW</span><span class="tl-note">Measurement and automation</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+			  </ul>
 			</div>
-			<!-- Linux -->
-			<div class="card" data-aos="fade-left" data-aos-delay="600">
-			  <img loading="lazy" src="images/linux_logo.webp" alt="Linux Logo" class="tool-logo">
-			  <h3 id="tool-linux-title">Linux</h3>
-			  <p id="tool-linux-description">Administration and development on Unix systems</p>
+			<div class="tb-group" data-g="embedded">
+			  <h3>Robotics, embedded &amp; automotive<span class="tb-count">5</span></h3>
+			  <ul class="tb-list">
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="RO"></span><span class="tl-body"><span class="tl-name">ROS</span><span class="tl-note">TurtleBot navigation</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><span class="tl-mono" aria-hidden="true">GR</span></span><span class="tl-body"><span class="tl-name">Gazebo / RViz</span><span class="tl-note">Robot simulation and visualisation</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><span class="tl-mono" aria-hidden="true">TF</span></span><span class="tl-body"><span class="tl-name">TI F28335</span><span class="tl-note">PWM, ADC, DC-DC converters</span><ul class="tl-where" aria-label="Used at"><li>TFII</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><span class="tl-mono" aria-hidden="true">CA</span></span><span class="tl-body"><span class="tl-name">CANoe</span><span class="tl-note">Vehicle network testing</span><ul class="tl-where" aria-label="Used at"><li>Renault</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.simpleicons.org/renault/000000" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="DD"></span><span class="tl-body"><span class="tl-name">DDT2000</span><span class="tl-note">XML diagnostic screens</span><ul class="tl-where" aria-label="Used at"><li>Renault</li></ul></span></li>
+			  </ul>
 			</div>
-			<!-- Git -->
-			<div class="card" data-aos="fade-up" data-aos-delay="750">
-			  <img loading="lazy" src="images/git.webp" alt="Git Logo" class="tool-logo">
-			  <h3 id="tool-git-title">Git</h3>
-			  <p id="tool-git-description">Version control for collaborative projects</p>
-			</div>
-			<!-- LaTeX -->
-			<div class="card" data-aos="fade-right" data-aos-delay="950">
-			  <img loading="lazy" src="images/Latex_Logo.webp" alt="LaTeX Logo" class="tool-logo">
-			  <h3 id="tool-latex-title">LaTeX</h3>
-			  <p id="tool-latex-description">Scientific documents and technical reports</p>
-			</div>
-			<!-- SolidWorks -->
-			<div class="card" data-aos="fade-left" data-aos-delay="1100">
-			  <img loading="lazy" src="images/solidworks.webp" alt="SolidWorks Logo" class="tool-logo">
-			  <h3 id="tool-solidworks-title">SolidWorks</h3>
-			  <p id="tool-solidworks-description">3D modeling and simulation for product design</p>
-			</div>
-			<!-- Catia -->
-			<div class="card" data-aos="fade-up" data-aos-delay="1250">
-			  <img loading="lazy" src="images/catia-logo.webp" alt="CATIA Logo" class="tool-logo">
-			  <h3 id="tool-catia-title">CATIA</h3>
-			  <p id="tool-catia-description">Design and modeling of mechanical systems</p>
-			</div>
-			<!-- Windows -->
-			<div class="card" data-aos="fade-right" data-aos-delay="1500">
-			  <img loading="lazy" src="images/Window_logo.webp" alt="Windows Logo" class="tool-logo">
-			  <h3 id="tool-windows-title">Windows</h3>
-			  <p id="tool-windows-description">Operating systems for everyday use</p>
-			</div>
-			<!-- Excel -->
-			<div class="card" data-aos="fade-left" data-aos-delay="1650">
-			  <img loading="lazy" src="images/excel_logo.webp" alt="Excel Logo" class="tool-logo">
-			  <h3 id="tool-excel-title">Excel</h3>
-			  <p id="tool-excel-description">Data analysis and spreadsheet automation</p>
-			</div>
-			<!-- Microsoft Office Suite -->
-			<div class="card" data-aos="fade-up" data-aos-delay="1800">
-			  <img loading="lazy" src="images/microsoft_suite_logo.webp" alt="Microsoft Office Suite Logo" class="tool-logo">
-			  <h3 id="tool-office-suite-title">Microsoft Office Suite</h3>
-			  <p id="tool-office-suite-description">Document management and professional presentations</p>
+			<div class="tb-group" data-g="cad">
+			  <h3>CAD &amp; documents<span class="tb-count">4</span></h3>
+			  <ul class="tb-list">
+				  <li class="tl"><span class="tl-icon"><img src="images/solidworks.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">SolidWorks</span><span class="tl-note">3D design and simulation</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="images/catia-logo.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">CATIA</span><span class="tl-note">Mechanical design</span><ul class="tl-where" aria-label="Used at"><li>School</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="images/excel_logo.webp" alt="" loading="lazy" decoding="async"></span><span class="tl-body"><span class="tl-name">Excel &amp; VBA</span><span class="tl-note">Workflow automation</span><ul class="tl-where" aria-label="Used at"><li>Renault</li></ul></span></li>
+				  <li class="tl"><span class="tl-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="La"></span><span class="tl-body"><span class="tl-name">LaTeX</span><span class="tl-note">Reports and lab guides</span><ul class="tl-where" aria-label="Used at"><li>School</li><li>TFII</li></ul></span></li>
+			  </ul>
 			</div>
 		  </div>
 		</section>
@@ -1086,7 +1082,7 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	<!-- Ton code ensuite (AOS / Swiper / particles initialisés dans script.js) -->
-	<script defer src="script.js?v=15"></script>
+	<script defer src="script.js?v=17"></script>
 	<!-- Portrait animé EN PAUSE : retirer ce commentaire pour le réactiver
 	<script defer src="avatar-data.js?v=2"></script>
 	<script defer src="avatar.js?v=2"></script>
