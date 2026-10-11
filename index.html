@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="https://enzocherif.github.io/images/og-preview.webp">
 
   <!-- 🔗 Styles and Icons -->
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=25">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#080808">
   <link rel="canonical" href="https://enzocherif.github.io/">
@@ -43,7 +43,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
   <link rel="stylesheet"
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		  referrerpolicy="no-referrer">
@@ -62,8 +61,8 @@
 		<li><a href="#certifications">Certifications</a></li>
 		<li><a href="#competences">Skills</a></li>
 		<li><a href="#tools">Tools</a></li>
-		<li><a href="#domains">Domains</a></li>
 		<li><a href="#references">References</a></li>
+		<li><a href="#timeline">Journey</a></li>
 		<li><a href="#contact">Contact</a></li>
 	  </ul>
 	</nav>
@@ -85,8 +84,8 @@
 	  <a href="#certifications">Certifications</a>
 	  <a href="#competences">Skills</a>
 	  <a href="#tools">Tools</a>
-	  <a href="#domains">Domains</a>
 	  <a href="#references">References</a>
+	  <a href="#timeline">Journey</a>
 	  <a href="#contact">Contact</a>
 	</nav>
 
@@ -115,7 +114,6 @@
 		<li><a href="#certifications">Certifications</a></li>
 		<li><a href="#competences">Skills</a></li>
 		<li><a href="#tools">Tools</a></li>
-		<li><a href="#domains">Domains</a></li>
 		<li><a href="#references">References</a></li>
 		<li><a href="#contact">Contact</a></li>
 	  </ul>
@@ -298,100 +296,178 @@
 			<!-- =============================================================== -->
 			<!--  SECTION : STAGE RENAULT AMPERE                                 -->
 			<!-- =============================================================== -->
-			<section id="stage-renault" data-aos="fade-up">
-			  <div class="renault-wrapper">
+			<section id="stage-renault" class="rn">
+			  <div class="rn-wrap">
 
-				<!-- ── EN-TÊTE ──────────────────────────────────────────── -->
-				<div class="renault-header">
-				  <div class="renault-header-left">
-					<span class="renault-label">Final Year Internship</span>
-					<h2 class="renault-title">Automation Tools Developer</h2>
-					<p class="renault-company">
-					  <span class="renault-dot"></span>
-					  Renault Group &mdash; Ampere Software Technology
-					  <span class="post-flag">&#x1F1EB;&#x1F1F7;</span>
-					</p>
+				<header class="rn-head">
+				  <div>
+					<p class="rn-eyebrow"><span class="rn-label">Final-year internship</span><span class="rn-dates">Mar – Aug 2025 · 6 months</span></p>
+					<h2 class="renault-title rn-title">Automation Tools Developer</h2>
+					<p class="rn-company"><span class="rn-dot" aria-hidden="true"></span>Renault Group · Ampere Software Technology · Team S53, Power Activation &amp; Distribution</p>
+					<ul class="rn-badges">
+					  <li><span class="rn-live" aria-hidden="true"></span>Used in production on FlexEVan</li>
+					  <li><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Invention disclosure (ASCS)</li>
+					  <li>Rated “Excellent” on every criterion</li>
+					</ul>
 				  </div>
-				  <a href="rapports/Rapport_De_Stage_CHERIF_Enzo_Ampere.pdf"
-					 target="_blank"
-					 class="renault-report-btn">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-					  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-					  <polyline points="14 2 14 8 20 8"/>
-					  <line x1="12" y1="18" x2="12" y2="12"/>
-					  <line x1="9" y1="15" x2="15" y2="15"/>
-					</svg>
-					Internship Report
-				  </a>
+				  <a href="rapports/Rapport_De_Stage_CHERIF_Enzo_Ampere.pdf" target="_blank" rel="noopener" class="renault-report-btn rn-report"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15h6"/></svg><span>Internship report<small>French, PDF</small></span></a>
+				</header>
+
+				<p class="rn-intro">At Ampere, Renault’s software company, I joined the team that designs how power is distributed and switched in the <button type="button" class="gl" aria-describedby="gl-flex">FlexEVan<span class="gl-tip" role="tooltip" id="gl-flex">An all-electric van program developed by Flexis, a joint venture between Renault Group, Volvo Group and CMA CGM.</span></button> <button type="button" class="gl" aria-describedby="gl-sdv">software-defined vehicle<span class="gl-tip" role="tooltip" id="gl-sdv">A vehicle whose functions are mostly defined and updated through software rather than fixed hardware.</span></button>. Engineers spent days copying data between the <button type="button" class="gl" aria-describedby="gl-sde">SDE<span class="gl-tip" role="tooltip" id="gl-sde">Schéma de Distribution Électrique: the electrical distribution scheme listing every power line, its protection and its current.</span></button>, <button type="button" class="gl" aria-describedby="gl-autosar">AUTOSAR<span class="gl-tip" role="tooltip" id="gl-autosar">The standard software architecture for automotive ECUs; calibrations are exchanged as CDFX files.</span></button> calibrations and <button type="button" class="gl" aria-describedby="gl-ddt">DDT2000<span class="gl-tip" role="tooltip" id="gl-ddt">Renault’s diagnostic tool; each diagnostic screen is described in an XML file.</span></button> screens. <strong>I built eight Python tools that do it for them.</strong></p>
+
+				<ul class="rn-kpis">
+				  <li><b><span data-count="8">8</span></b><span>tools shipped and adopted by the team</span></li>
+				  <li><b>≈ <span data-count="60">60</span></b><span>person-days saved on ~30 DDT screens</span></li>
+				  <li><b>−<span data-count="97">97</span> %</b><span>time on AUTOSAR checks: 27.5 h → 48 min</span></li>
+				  <li><b>1–2 wks → <span data-count="30">30</span> s</b><span>for Excel workflows, ~1 % error rate</span></li>
+				</ul>
+
+				<div class="rn-mid">
+				  <figure class="rn-photo">
+					<img src="images/fin_de_stage.webp" alt="Enzo with the Ampere Software Technology team at Renault Group headquarters" loading="lazy" decoding="async">
+					<figcaption>With the Ampere team at Renault HQ, Boulogne-Billancourt</figcaption>
+				  </figure>
+				  <div class="rn-flow">
+					<p class="rn-h3">How every tool works</p>
+					<ol class="rn-fsteps">
+				  <li class="rn-fstep" style="--k:0"><span class="rn-fk">01</span><b>Inputs</b><span class="rn-fitems">Excel SDE · APSW · CDFX / XML · Supplier data</span></li>
+				  <li class="rn-fstep" style="--k:1"><span class="rn-fk">02</span><b>Python engine</b><span class="rn-fitems">pandas · openpyxl · lxml</span></li>
+				  <li class="rn-fstep" style="--k:2"><span class="rn-fk">03</span><b>Checks</b><span class="rn-fitems">Business rules · ±10 % bands · ASIL levels</span></li>
+				  <li class="rn-fstep" style="--k:3"><span class="rn-fk">04</span><b>Deliverables</b><span class="rn-fitems">Excel reports · DDT XML · PNG / CSV</span></li>
+					</ol>
+					<p class="rn-fnote">Packaged as .exe files, versioned on GitLab and shared on SharePoint.</p>
+				  </div>
 				</div>
 
-				<!-- ── STAT CLÉ ─────────────────────────────────────────── -->
-				<div class="renault-kpi">
-				  <div class="renault-kpi-number">1–2 wks <span class="renault-arrow">→</span> 30 sec</div>
-				  <div class="renault-kpi-label">Processing time reduced with ~1% error rate — Python automation replacing manual Excel workflows</div>
+				<div class="rn-box">
+				  <div class="rn-boxhead">
+					<h3 class="rn-h3">The toolbox</h3>
+					<p>Select a tool to see what it replaced.</p>
+				  </div>
+				  <ul class="rn-tools">
+				  <li class="rn-tool rn-c-gen" style="--k:0">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td0">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M4 7h10M4 12h7M4 17h10"/><path d="m16 9 4 3-4 3"/></svg></span>
+					  <span class="rn-tcat">Generate</span>
+					  <span class="rn-tname">ScreenBuilder</span>
+					  <span class="rn-tgain">≈ 60 person-days saved</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td0">
+					  <p class="rn-tdesc">Generates DDT2000 diagnostic screens in XML straight from the electrical data, for the Distribution, Shutdown and OEM cases.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>5 to 7 days per screen, built by hand</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>About 1 second per screen, plus a quick review</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>Python</li><li>lxml</li><li>XML</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-gen" style="--k:1">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td1">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M4 7h10M4 12h7M4 17h10"/><path d="m16 9 4 3-4 3"/></svg></span>
+					  <span class="rn-tcat">Generate</span>
+					  <span class="rn-tname">Recorder generator</span>
+					  <span class="rn-tgain">−99.9 % time</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td1">
+					  <p class="rn-tdesc">Builds the full set of 499 Recorder screens automatically, with a uniform layout.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>≈ 16.6 hours of manual setup</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>Under 10 seconds, whatever the quantity</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>Python</li><li>XML</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-hub" style="--k:2">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td2">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg></span>
+					  <span class="rn-tcat">Hub</span>
+					  <span class="rn-tname">ENSOFT</span>
+					  <span class="rn-tgain">Adopted by the team</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td2">
+					  <p class="rn-tdesc">One desktop app that brings the tools together so engineers who do not code can use them, with guides and clear error messages.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>Scattered scripts, Python required</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>One entry point, shipped as an .exe</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>CustomTkinter</li><li>PyInstaller</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-check" style="--k:3">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td3">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M9 11.5 11.5 14 16 9"/><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"/></svg></span>
+					  <span class="rn-tcat">Check</span>
+					  <span class="rn-tname">Wire Protection Calib</span>
+					  <span class="rn-tgain">−82 % time</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td3">
+					  <p class="rn-tdesc">Cross-checks wire protection calibrations between the electrical distribution scheme and the APSW data, and logs every change.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>Several hours per file, copy and paste</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>Under 1 minute, then a short review</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>pandas</li><li>openpyxl</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-extract" style="--k:4">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td4">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M4 4h16v6H4z"/><path d="M12 13v7"/><path d="m8.5 16.5 3.5 3.5 3.5-3.5"/></svg></span>
+					  <span class="rn-tcat">Extract</span>
+					  <span class="rn-tname">PowerSW</span>
+					  <span class="rn-tgain">−98.6 % time</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td4">
+					  <p class="rn-tdesc">Extracts and structures the supplier calibration parameters of the SmartMOS power switches for the other tools.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>≈ 7 minutes per triplet</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>10 triplets in about 1 minute</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>pandas</li><li>openpyxl</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-check" style="--k:5">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td5">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M9 11.5 11.5 14 16 9"/><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"/></svg></span>
+					  <span class="rn-tcat">Check</span>
+					  <span class="rn-tname">SDE Check</span>
+					  <span class="rn-tgain">4× faster</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td5">
+					  <p class="rn-tdesc">Validates the electrical distribution scheme with six rule sets: currents, ASIL levels, MBSE energy flow and more, in one consolidated report.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>≈ 16 hours, two working days</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>≈ 4 hours, review included</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>pandas</li><li>openpyxl</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-check" style="--k:6">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td6">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M9 11.5 11.5 14 16 9"/><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"/></svg></span>
+					  <span class="rn-tcat">Check</span>
+					  <span class="rn-tname">CCVC</span>
+					  <span class="rn-tgain">−97 % time</span>
+					  
+					</button>
+					<div class="rn-tdetail" id="rn-td6">
+					  <p class="rn-tdesc">Cross-checks about 540 AUTOSAR calibrations per PIU and per function, and ranks the discrepancies to fix first.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>≈ 27.5 hours per campaign</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>≈ 48 minutes, review included</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>Python</li><li>lxml</li><li>CDFX</li></ul>
+					</div>
+				  </li>
+				  <li class="rn-tool rn-c-size" style="--k:7">
+					<button type="button" class="rn-tbtn" aria-expanded="false" aria-controls="rn-td7">
+					  <span class="rn-tic"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="M3 20h18"/><path d="M5 20V12M10 20V6M15 20v-9M20 20V9"/></svg></span>
+					  <span class="rn-tcat">Size</span>
+					  <span class="rn-tname">ASCS</span>
+					  <span class="rn-tgain">−94 % time</span>
+					  <span class="rn-badge"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Invention disclosure</span>
+					</button>
+					<div class="rn-tdetail" id="rn-td7">
+					  <p class="rn-tdesc">Web app to choose the right SmartMOS: current profile, ±10 % tolerance band and software curves on one interactive chart.</p>
+					  <div class="rn-ba"><p class="rn-before"><span>Before</span>≈ 55 minutes per profile, 3 to 4 separate charts</p><span class="rn-baarrow" aria-hidden="true">→</span><p class="rn-after"><span>After</span>≈ 3.5 minutes, one overlay with PNG and CSV export</p></div>
+					  <ul class="rn-stack" aria-label="Built with"><li>Flask</li><li>Plotly</li></ul>
+					</div>
+				  </li>
+				  </ul>
+				  <div class="rn-tpanel" aria-live="polite"></div>
 				</div>
 
-				<!-- ── PHOTO ÉQUIPE ─────────────────────────────────────── -->
-				<figure class="renault-photo-block">
-				  <img src="images/fin_de_stage.webp"
-					   alt="Team Ampere Software Technology – Renault Group"
-					   class="renault-team-img" loading="lazy">
-				  <figcaption class="renault-photo-caption">With the Ampere team at Renault HQ &mdash; Boulogne-Billancourt</figcaption>
+				<figure class="rn-quote">
+				  <blockquote><p>“Through his rigor, his knowledge, his ability to communicate and his critical thinking, Enzo showed every day that he has everything it takes for a great engineering career. All the tools he developed are used in the team’s internal process.”</p></blockquote>
+				  <figcaption><b>Baptiste Romieu</b>, internship tutor, PFS Power Distribution · <span>translated from his evaluation</span></figcaption>
 				</figure>
 
-				<!-- ── DEUX PROJETS ─────────────────────────────────────── -->
-				<div class="renault-grid">
-
-				  <!-- Projet 1 -->
-				  <div class="renault-card">
-					<div class="renault-card-top">
-					  <div class="renault-card-icon">&#x26A1;</div>
-					  <div>
-						<h3 class="renault-card-title">Excel &amp; Workflow Automation</h3>
-						<span class="renault-tech-row">
-						  <span class="renault-tag">Python</span>
-						  <span class="renault-tag">Pandas</span>
-						  <span class="renault-tag">NumPy</span>
-						  <span class="renault-tag">VBA</span>
-						  <span class="renault-tag">Tkinter</span>
-						</span>
-					  </div>
-					</div>
-					<ul class="renault-list">
-					  <li>Automated complex Excel files — slashing processing time from weeks to seconds</li>
-					  <li>Built engineer-facing Tkinter GUIs with auto-generation of Word &amp; PowerPoint deliverables</li>
-					  <li>Integrated email dispatch directly into the tool pipeline</li>
-					</ul>
-				  </div>
-
-				  <!-- Projet 2 -->
-				  <div class="renault-card">
-					<div class="renault-card-top">
-					  <div class="renault-card-icon">&#x1F697;</div>
-					  <div>
-						<h3 class="renault-card-title">SDV — Power Distribution &amp; Activation</h3>
-						<span class="renault-tech-row">
-						  <span class="renault-tag">CANoe</span>
-						  <span class="renault-tag">DDT2000</span>
-						  <span class="renault-tag">XML</span>
-						</span>
-					  </div>
-					</div>
-					<ul class="renault-list">
-					  <li>Developed XML diagnostic screens for fault analysis via DDT2000</li>
-					  <li>Performed functional tests on test benches and the Integration &amp; Test Platform (PIE)</li>
-					</ul>
-				  </div>
-
-				</div><!-- /.renault-grid -->
-
-				<!-- ── PIED ─────────────────────────────────────────────── -->
-				<p class="renault-confidential">
-				  &#x1F512; Deliverables are confidential and cannot be publicly displayed.
-				</p>
-
-			  </div><!-- /.renault-wrapper -->
+				<p class="rn-conf"><svg viewBox="0 0 24 24" aria-hidden="true" class="rn-svg"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>The tools and their outputs are confidential, so no screenshots here. Figures come from my internship report.</p>
+			  </div>
 			</section>
 
         <!-- =============================================================== -->
@@ -851,136 +927,63 @@
 		</section>
 
 		<!-- =============================================================== -->
-		<!--  DOMAINES  –  cartes néon                                       -->
-		<!-- =============================================================== -->
-		<section id="domains" data-aos="fade-left">
-		  <h2 id="domains-title">Domains</h2>
-
-		  <div class="cards-container">
-
-			<!-- Robotics -------------------------------------------------- -->
-			<div class="card" data-aos="fade-right" data-aos-delay="0">
-			  <i class="fa-solid fa-robot"></i>
-			  <h3>Robotics</h3>
-			  <p>Autonomous systems & control</p>
-			</div>
-
-			<!-- Mechatronics ---------------------------------------------- -->
-			<div class="card" data-aos="fade-left" data-aos-delay="150">
-			  <i class="fas fa-cogs"></i>
-			  <h3>Mechatronics</h3>
-			  <p>Mechanical & electronic integration</p>
-			</div>
-
-			<!-- Embedded Systems ----------------------------------------- -->
-			<div class="card" data-aos="fade-up" data-aos-delay="300">
-			  <i class="fas fa-microchip"></i>
-			  <h3>Embedded Systems</h3>
-			  <p>Hardware & software design</p>
-			</div>
-
-			<!-- AI & ML ---------------------------------------------------- -->
-			<div class="card" data-aos="fade-right" data-aos-delay="450">
-			  <i class="fas fa-brain"></i>
-			  <h3>Artificial Intelligence<br>&amp; Machine Learning</h3>
-			  <p>Predictive models & optimization</p>
-			</div>
-
-			<!-- Computer Vision ------------------------------------------- -->
-			<div class="card" data-aos="fade-left" data-aos-delay="600">
-			  <i class="fas fa-eye"></i>
-			  <h3>Computer Vision</h3>
-			  <p>Image processing & analysis</p>
-			</div>
-
-			<!-- IoT -------------------------------------------------------- -->
-			<div class="card" data-aos="fade-up" data-aos-delay="750">
-			  <i class="fas fa-network-wired"></i>
-			  <h3>Internet of Things&nbsp;(IoT)</h3>
-			  <p>Connected devices & MQTT protocol</p>
-			</div>
-
-			<!-- Data / Excel + Python ------------------------------------- -->
-			<div class="card" data-aos="fade-right" data-aos-delay="950">
-			  <i class="fas fa-file-excel"></i>
-			  <h3>Data: Excel &amp; Python</h3>
-			  <p>Cleaning, analysis & automation</p>
-			</div>
-
-			<!-- Micro-/Nano-Electronics ----------------------------------- -->
-			<div class="card" data-aos="fade-left" data-aos-delay="1100">
-			  <i class="fas fa-bolt"></i>
-			  <h3>Micro-/Nano-Electronics</h3>
-			  <p>Components & manufacturing processes</p>
-			</div>
-
-			<!-- Drones & Autonomous Vehicles ------------------------------ -->
-			<div class="card" data-aos="fade-up" data-aos-delay="1250">
-			  <i class="fas fa-car"></i>
-			  <h3>Drones &amp; Autonomous Vehicles</h3>
-			  <p>Navigation, control & safety</p>
-			</div>
-
-		  </div><!-- /.cards-container -->
-		</section>
-		
-		<!-- =============================================================== -->
 		<!--  RÉFÉRENCES  –  carrousel néon                                   -->
 		<!-- =============================================================== -->
-		<section id="references" data-aos="fade-right">
-		  <h2 id="references-title">References</h2>
+		<section id="references" class="rf">
+		  <div class="rf-wrap">
+			<h2 id="references-title" class="rf-title">References</h2>
+			<p class="rf-intro">What my internship supervisor and two of my teachers wrote about me.</p>
 
-		  <div class="ref-wrapper">
-			<div class="swiper swiper-container">
-			<div class="swiper-wrapper">
+			<ul class="rf-traits" aria-label="Qualities they mention">
+			  <li>Dedication</li><li>Adaptability</li><li>Rigor</li><li>Creativity</li><li>Teamwork</li><li>Maturity</li>
+			</ul>
 
-			  <div class="swiper-slide reference-card">
+			<div class="rf-carousel" role="region" aria-roledescription="carousel" aria-label="References">
+			<div class="rf-track" aria-live="polite">
+			  <figure class="rf-card" aria-roledescription="slide">
+				<span class="rf-qmark" aria-hidden="true">“</span>
 				<blockquote>
-				  «Enzo has been my student for two years, and I can confidently
-				  vouch for his dedication and strong work ethic. He enjoys challenges
-				  and consistently strives to achieve his goals through determination 
-				  and perseverance. His work is of high quality, usually submitted on 
-				  time, and often includes a surprising or creative touch. Enzo follows 
-				  through on his ideas, and I am certain he will succeed 
-				  in all his future endeavors.»
+				  <p>Enzo’s internship at TFII went extremely well. He successfully completed all the research tasks assigned during the internship period. His commitment and technical skills even led him to <mark class="rf-hl">take on a teaching role for a small group of Thai students</mark>. Beyond his professional achievements, Enzo built genuine bonds with our team. He <mark class="rf-hl">integrated into a different culture with deep respect and humility</mark>, becoming a truly appreciated member of our institute.</p>
 				</blockquote>
-				<cite>— Anne-Marie Dissard, Head of the Language Department, SeaTech, School of Engineering, University of Toulon</cite>
-			  </div>
+				<figcaption class="rf-who">
+				  <span class="rf-avatar rf-mono" aria-hidden="true">TFII</span>
+				  <span class="rf-id"><b>Dr. Burin Yodwong</b><span>Internship supervisor, Thai-French Innovation Institute, Bangkok</span></span>
+				  <span class="rf-tags"><span class="rf-tag rf-tag-pro">Professional</span><a class="rf-tag rf-link" href="#stage-thailande">2024 internship</a></span>
+				</figcaption>
+			  </figure>
 
-			  <div class="swiper-slide reference-card">
+			  <figure class="rf-card" aria-roledescription="slide">
+				<span class="rf-qmark" aria-hidden="true">“</span>
 				<blockquote>
-				 «Enzo’s internship at TFII went extremely well. He successfully completed
-				 all the research tasks assigned during the internship period. His commitment 
-				 and technical skills even led him to take on a teaching role for a small group 
-				 of Thai students. Beyond his professional achievements, Enzo built genuine bonds 
-				 with our team. He integrated into a different culture with deep respect and humility,
-				 becoming a truly appreciated member of our institute.»
+				  <p>I had the pleasure of teaching Enzo as part of management courses at SeaTech. He quickly stood out for his seriousness, <mark class="rf-hl">his ability to bridge technical and organizational aspects</mark>, and his consistently professional attitude. Curious, rigorous, and deeply engaged, Enzo also demonstrates <mark class="rf-hl">a rare level of human maturity</mark>, making him a trustworthy student and a very promising future engineer.</p>
 				</blockquote>
-				  <cite>— Mr. Burin Yodwong, Internship Supervisor, Thai-French Innovation Institute, Bangkok-Thailand</cite>
+				<figcaption class="rf-who">
+				  <span class="rf-avatar"><img src="images/seatech.webp" alt="" loading="lazy" decoding="async"></span>
+				  <span class="rf-id"><b>Ghizlane Kinani</b><span>Management professor, SeaTech, Université de Toulon</span></span>
+				  <span class="rf-tags"><span class="rf-tag">Teacher</span></span>
+				</figcaption>
+			  </figure>
+
+			  <figure class="rf-card" aria-roledescription="slide">
+				<span class="rf-qmark" aria-hidden="true">“</span>
+				<blockquote>
+				  <p>Enzo has been my student for two years, and I can confidently vouch for <mark class="rf-hl">his dedication and strong work ethic</mark>. He enjoys challenges and consistently strives to achieve his goals through determination and perseverance. His work is of high quality, usually submitted on time, and often includes <mark class="rf-hl">a surprising or creative touch</mark>. Enzo follows through on his ideas, and I am certain he will succeed in all his future endeavors.</p>
+				</blockquote>
+				<figcaption class="rf-who">
+				  <span class="rf-avatar"><img src="images/seatech.webp" alt="" loading="lazy" decoding="async"></span>
+				  <span class="rf-id"><b>Anne-Marie Dissard</b><span>Head of the language department, SeaTech, Université de Toulon</span></span>
+				  <span class="rf-tags"><span class="rf-tag">Teacher, 2 years</span></span>
+				</figcaption>
+			  </figure>
 			</div>
-
-
-			  <div class="swiper-slide reference-card">
-				  <blockquote>
-					«I had the pleasure of teaching Enzo as part of management courses at SeaTech. 
-					He quickly stood out for his seriousness, his ability to bridge technical and 
-					organizational aspects, and his consistently professional attitude. Curious, rigorous,
-					and deeply engaged, Enzo also demonstrates a rare level of human maturity, making him a 
-					trustworthy student and a very promising future engineer.»
-				  </blockquote>
-				  <cite>— Ghizlane Kinani, Management Professor, SeaTech School of Engineering, University of Toulon</cite>
-				</div>
-
-
-			</div><!-- /.swiper-wrapper -->
-			</div><!-- /.swiper -->
-
-			<!-- flèches de navigation -->
-			<div class="swiper-button-prev" role="button" aria-label="Previous reference"></div>
-			<div class="swiper-button-next" role="button" aria-label="Next reference"></div>
-			<!-- pagination (points) -->
-			<div class="swiper-pagination"></div>
-		  </div><!-- /.ref-wrapper -->
+			<div class="rf-ctrl">
+			  <button type="button" class="rf-arrow rf-prev" aria-label="Previous reference"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+			  <div class="rf-dots" role="tablist" aria-label="Choose a reference"></div>
+			  <button type="button" class="rf-arrow rf-next" aria-label="Next reference"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+			</div>
+			<div class="rf-progress" aria-hidden="true"><span></span></div>
+			</div>
+		  </div>
 		</section>
 
 
@@ -988,48 +991,130 @@
 		<!-- =============================================================== -->
 		<!--  MON PARCOURS – Timeline néon                                   -->
 		<!-- =============================================================== -->
-		<section id="timeline" data-aos="fade-up">
-		  <h2 id="timeline-title">My journey</h2>
-
-		  <div class="timeline">
-
-			<div class="tl-item" data-aos="fade-right">
-			  <div class="tl-content">
-				<img src="images/lyce_parc_des_loges_logo-Photoroom.webp" alt="Lycée Parc des Loges logo" width="72" height="72" loading="lazy">
-				<h3>Bac S – Option SI</h3>
-				<p>Lycée Parc des Loges</p>
-				<span class="tl-date">2019</span>
-			  </div>
+		<section id="timeline" class="jr">
+		  <div class="jr-wrap">
+			<h2 id="timeline-title" class="jr-title">My journey</h2>
+			<p class="jr-intro">From the baccalaureate to Alstom, one line and seven stations. Scroll to ride the line, or select a station.</p>
+			<ul class="jr-legend" aria-label="Legend"><li class="jr-s"><i></i>Studies</li><li class="jr-i"><i></i>Internship</li><li class="jr-n"><i></i>Now</li></ul>
+			<div class="jr-board">
+			  <div class="jr-rail" aria-hidden="true"><span class="jr-fill"></span><span class="jr-train"><svg viewBox="0 0 40 20"><path d="M3 15V7a5 5 0 0 1 5-5h20a9 9 0 0 1 9 9v4z"/><rect x="9" y="5" width="6" height="5" rx="1"/><rect x="18" y="5" width="6" height="5" rx="1"/><circle cx="11" cy="17" r="2"/><circle cx="28" cy="17" r="2"/></svg></span></div>
+			  <ol class="jr-line">
+			  <li class="jr-stop jr-s" style="--k:0">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d0">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">2019</span>
+				  <span class="jr-name">Bac S</span>
+				</button>
+				<div class="jr-detail" id="jr-d0">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><img src="images/lyce_parc_des_loges_logo-Photoroom.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-mono="BS"></span><span><span class="jr-kind">Studies · 2019</span><b>Baccalauréat S</b><span class="jr-sub">Engineering sciences option</span></span></div>
+					<p class="jr-place">Lycée Parc des Loges</p>
+					<p class="jr-text">Scientific baccalaureate with the engineering sciences option.</p>
+					
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">Graduated 2019</span><ul class="jr-tags" aria-label="Key topics"><li>Maths</li><li>Physics</li><li>Engineering sciences</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-s" style="--k:1">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d1">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">2019 – 2022</span>
+				  <span class="jr-name">Prépa PTSI / PT</span>
+				</button>
+				<div class="jr-detail" id="jr-d1">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><img src="images/logo-parc-de-vilgenis-fond-transparent.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-mono="PP"></span><span><span class="jr-kind">Studies · 2019 – 2022</span><b>Classes prépa PTSI / PT</b><span class="jr-sub">Top 3 of my class</span></span></div>
+					<p class="jr-place">Lycée Parc de Vilgénis</p>
+					<p class="jr-text">Three years of intensive maths, physics and engineering sciences to prepare the competitive exams for French engineering schools. I finished in the top 3 of my class.</p>
+					
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">3 years</span><ul class="jr-tags" aria-label="Key topics"><li>Maths</li><li>Physics</li><li>Engineering sciences</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-s" style="--k:2">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d2">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">2022 – 2025</span>
+				  <span class="jr-name">SeaTech</span>
+				</button>
+				<div class="jr-detail" id="jr-d2">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><img src="images/seatech.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-mono="S"></span><span><span class="jr-kind">Studies · 2022 – 2025</span><b>Engineering degree</b><span class="jr-sub">Mechatronic systems &amp; robotics</span></span></div>
+					<p class="jr-place">SeaTech, INP Toulon</p>
+					<p class="jr-text">French engineering degree in mechatronic systems and robotics: control, embedded systems, vehicle dynamics and mobile robotics.</p>
+					<a class="jr-more" href="#projects">See details <span aria-hidden="true">→</span></a>
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">3 years</span><ul class="jr-tags" aria-label="Key topics"><li>Control</li><li>Embedded systems</li><li>Robotics</li><li>ROS</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-i" style="--k:3">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d3">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">Apr – Aug 2024</span>
+				  <span class="jr-name">TFII Bangkok</span>
+				</button>
+				<div class="jr-detail" id="jr-d3">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><span class="jr-mono">TFII</span></span><span><span class="jr-kind">Internship · Apr – Aug 2024</span><b>Research internship</b><span class="jr-sub">Programming for modern microcontrollers</span></span></div>
+					<p class="jr-place">TFII, KMUTNB, Bangkok</p>
+					<p class="jr-text">Energy management for a solar electric vehicle on a TI F28335 board, ten bilingual lab guides, and a presentation to a French Ministry delegation.</p>
+					<a class="jr-more" href="#stage-thailande">See details <span aria-hidden="true">→</span></a>
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">4 months</span><ul class="jr-tags" aria-label="Key topics"><li>TI F28335</li><li>MATLAB</li><li>Power electronics</li><li>Teaching</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-s" style="--k:4">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d4">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">2024 – 2025</span>
+				  <span class="jr-name">Master AI</span>
+				</button>
+				<div class="jr-detail" id="jr-d4">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><img src="images/logo-utln.webp" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-mono="MA"></span><span><span class="jr-kind">Studies · 2024 – 2025</span><b>Master’s degree</b><span class="jr-sub">Artificial intelligence</span></span></div>
+					<p class="jr-place">Université de Toulon</p>
+					<p class="jr-text">Master’s in artificial intelligence, taken in parallel with the engineering degree: the second half of my dual degree.</p>
+					
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">1 year</span><ul class="jr-tags" aria-label="Key topics"><li>Machine learning</li><li>Neural networks</li><li>Python</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-i" style="--k:5">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d5">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">Mar – Aug 2025</span>
+				  <span class="jr-name">Renault</span>
+				</button>
+				<div class="jr-detail" id="jr-d5">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><img src="https://cdn.simpleicons.org/renault/000000" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-mono="R"></span><span><span class="jr-kind">Internship · Mar – Aug 2025</span><b>Final-year internship</b><span class="jr-sub">Automation tools developer</span></span></div>
+					<p class="jr-place">Renault Group, Ampere</p>
+					<p class="jr-text">Python tools that turned one to two weeks of manual Excel work into about 30 seconds, plus diagnostic screens and bench tests for software-defined vehicles.</p>
+					<a class="jr-more" href="#stage-renault">See details <span aria-hidden="true">→</span></a>
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">6 months</span><ul class="jr-tags" aria-label="Key topics"><li>Python</li><li>Tkinter</li><li>CANoe</li><li>DDT2000</li></ul></div>
+				</div>
+			  </li>
+			  <li class="jr-stop jr-n" style="--k:6">
+				<button type="button" class="jr-node" aria-expanded="false" aria-controls="jr-d6">
+				  <span class="jr-dot" aria-hidden="true"></span>
+				  <span class="jr-date">Nov 2025 – Apr 2027</span>
+				  <span class="jr-name">Alstom</span>
+				</button>
+				<div class="jr-detail" id="jr-d6">
+				  <div class="jr-main">
+					<div class="jr-head"><span class="jr-logo"><span class="jr-mono">ALS</span></span><span><span class="jr-kind">Now · Nov 2025 – Apr 2027</span><b>ATC software engineer</b><span class="jr-sub">VIE, data, AI &amp; full-stack</span></span></div>
+					<p class="jr-place">Alstom, Pittsburgh</p>
+					<p class="jr-text">Parsers, Parquet pipelines and Flask dashboards that turn CBTC train logs into data for signaling engineers.</p>
+					<a class="jr-more" href="#post-actuel">See details <span aria-hidden="true">→</span></a>
+				  </div>
+				  <div class="jr-aside"><span class="jr-dur">18 months</span><ul class="jr-tags" aria-label="Key topics"><li>C# / .NET 9</li><li>Python</li><li>Polars</li><li>Flask</li></ul></div>
+				</div>
+			  </li>
+			  </ol>
+			  <div class="jr-panel" aria-live="polite"></div>
 			</div>
-
-			<div class="tl-item" data-aos="fade-left">
-			  <div class="tl-content">
-				<img src="images/logo-parc-de-vilgenis-fond-transparent.webp" alt="Lycée Parc de Vilgénis logo" width="72" height="72" loading="lazy">
-				<h3>Classe Préparatoire PTSI / PT</h3>
-				<p>Lycée Parc de Vilgénis</p>
-				<span class="tl-date">2019 – 2022</span>
-			  </div>
-			</div>
-
-			<div class="tl-item" data-aos="fade-right">
-			  <div class="tl-content">
-				<img src="images/seatech.webp" alt="SeaTech logo" width="72" height="72" loading="lazy">
-				<h3>French Engineering Degree in Mechatronic Systems &amp; Robotics</h3>
-				<p>SeaTech – INP Toulon</p>
-				<span class="tl-date">2022 – 2025</span>
-			  </div>
-			</div>
-
-			<div class="tl-item" data-aos="fade-left">
-			  <div class="tl-content">
-				<img src="images/logo-utln.webp" alt="Université de Toulon logo" width="72" height="72" loading="lazy">
-				<h3>Master’s Degree in Artificial Intelligence</h3>
-				<p>Université de Toulon</p>
-				<span class="tl-date">2024 – 2025</span>
-			  </div>
-			</div>
-
-		  </div><!-- /.timeline -->
+		  </div>
 		</section>
 
 
@@ -1038,51 +1123,80 @@
         <!-- =============================================================== -->
 		<!--  CONTACT  –  carte glass + bouton néon                           -->
 		<!-- =============================================================== -->
-		<section id="contact" data-aos="fade-left">
-		  <div class="contact-wrapper glass-card tilt">
+		<section id="contact" class="ct">
+		  <div class="ct-wrap">
+			<header class="ct-top">
+			  <h2 id="contact-title" class="ct-title">Contact</h2>
+			  <p class="ct-hook">Let’s talk<span>.</span></p>
+			  <p class="ct-intro">A role, a project, or a question about trains and data: I read every message and reply in French or English.</p>
+			</header>
 
-			<h2 class="contact-title">Contact</h2>
+			<div class="ct-panel">
+			  <div class="ct-main">
+				<p class="ct-label">Email me directly</p>
+				<div class="ct-email">
+				  <a href="mailto:enzocherife@gmail.com" class="ct-address">enzocherife<wbr>@gmail.com</a>
+				  <button type="button" class="ct-copy" data-copy="enzocherife@gmail.com" aria-label="Copy email address"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Copy</span></button>
+				</div>
 
-			<ul class="contact-info">
-			  <li>
-				<i class="fa-solid fa-envelope"></i>
-				<span><strong>Email&nbsp;:</strong>
-				  <a href="mailto:enzocherife@gmail.com">enzocherife@gmail.com</a>
-				</span>
-			  </li>
-			  <li>
-				<i class="fa-brands fa-linkedin"></i>
-				<span><strong>LinkedIn&nbsp;:</strong>
-				  <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/"
-					 target="_blank" rel="noopener">linkedin.com/in/enzo-cherif</a>
-				</span>
-			  </li>
-			  <li>
-				<i class="fa-solid fa-file-arrow-down"></i>
-				<a href="rapports/RESUME%20ENZO%20CHERIF.pdf" target="_blank" download>
-				  Download my&nbsp;resume
-				</a>
-			  </li>
-			</ul>
+				<form class="ct-compose" novalidate>
+				  <p class="ct-label" id="ct-topic-label">Or start a message</p>
+				  <div class="ct-topics" role="radiogroup" aria-labelledby="ct-topic-label">
+					<button type="button" role="radio" aria-checked="true" class="ct-topic is-on" data-subject="Job opportunity" data-intro="I’m reaching out about a role that could fit your profile.">Job opportunity</button>
+					<button type="button" role="radio" aria-checked="false" class="ct-topic" data-subject="Project idea" data-intro="I have a project I’d like to discuss with you.">Project</button>
+					<button type="button" role="radio" aria-checked="false" class="ct-topic" data-subject="Hello from your portfolio" data-intro="I came across your portfolio and wanted to say hi.">Just saying hi</button>
+				  </div>
+				  <label class="sr-only" for="ct-msg">Your message</label>
+				  <textarea id="ct-msg" class="ct-msg" rows="4" maxlength="1200" placeholder="Write a few words (optional)…"></textarea>
+				  <div class="ct-sendrow">
+					<button type="submit" class="ct-send"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M21 3 10.5 13.5"/><path d="M21 3 14.5 21l-4-7.5L3 9.5z"/></svg>Open in my email app</button>
+					<p class="ct-note">Nothing is stored on this site.</p>
+				  </div>
+				</form>
+			  </div>
 
-			<a href="mailto:enzocherife@gmail.com?subject=Message%20from%20your%20portfolio&body=Hello%20Enzo,%0A%0A"
-			   class="mailto-btn neon-btn">Send an email</a>
-
-		  </div><!-- /.contact-wrapper -->
+			  <aside class="ct-side" aria-label="Availability and links">
+				<p class="ct-avail"><span class="ct-pulse" aria-hidden="true"></span>Open to conversations</p>
+				<p class="ct-availsub">With Alstom until April 2027</p>
+				<div class="ct-clock">
+				  <span class="ct-time">—</span>
+				  <span class="ct-where">in Pittsburgh, US Eastern time</span>
+				</div>
+				<p class="ct-langs"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg>French · English</p>
+				<ul class="ct-links">
+				  <li><a class="ct-row ct-li" href="https://www.linkedin.com/in/enzo-cherif-0465b5165/" target="_blank" rel="noopener"><span class="ct-ic"><span class="ct-in" aria-hidden="true">in</span></span><span class="ct-body"><span class="ct-k">LinkedIn</span><span class="ct-v">enzo-cherif</span></span><span class="ct-go"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></a></li>
+				  <li><a class="ct-row" href="https://github.com/enzocherif" target="_blank" rel="noopener"><span class="ct-ic"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg ct-fill"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></span><span class="ct-body"><span class="ct-k">GitHub</span><span class="ct-v">enzocherif</span></span><span class="ct-go"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></a></li>
+				  <li><a class="ct-row" href="rapports/RESUME%20ENZO%20CHERIF.pdf" target="_blank" rel="noopener" download="Enzo-Cherif-Resume.pdf"><span class="ct-ic"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></span><span class="ct-body"><span class="ct-k">Resume</span><span class="ct-v">PDF, 108 KB</span></span><span class="ct-go"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></span></a></li>
+				  <li><a class="ct-row" href="enzo-cherif.vcf" download="Enzo-Cherif.vcf"><span class="ct-ic"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.2c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4"/><path d="M14.5 10h4M14.5 13.5h3"/></svg></span><span class="ct-body"><span class="ct-k">Business card</span><span class="ct-v">Add to contacts</span></span><span class="ct-go"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><path d="M12 5v14M5 12h14"/></svg></span></a></li>
+				</ul>
+			  </aside>
+			</div>
+		  </div>
+		  <p class="ct-toast" role="status" aria-live="polite"></p>
 		</section>
 
 		
     </main>
+	<footer class="site-foot">
+	  <div class="sf-wrap">
+		<p class="sf-name">Enzo Cherif<span>ATC software engineer · Data, AI &amp; robotics</span></p>
+		<nav class="sf-links" aria-label="Footer">
+		  <a href="mailto:enzocherife@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></a>
+		  <a href="https://www.linkedin.com/in/enzo-cherif-0465b5165/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="ct-in" aria-hidden="true">in</span></a>
+		  <a href="https://github.com/enzocherif" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" class="ct-svg ct-fill"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+		</nav>
+		<p class="sf-copy">© <span class="sf-year">2026</span> Enzo Cherif. Designed and built by hand.</p>
+	  </div>
+	</footer>
 	<a href="#top" id="back-to-top" aria-label="Back to top">
 	  ↑
 	</a>
 
 	<!-- Librairies (defer : n'bloquent pas le rendu, exécutées dans l'ordre) -->
 	<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	<!-- Ton code ensuite (AOS / Swiper / particles initialisés dans script.js) -->
-	<script defer src="script.js?v=17"></script>
+	<script defer src="script.js?v=25"></script>
 	<!-- Portrait animé EN PAUSE : retirer ce commentaire pour le réactiver
 	<script defer src="avatar-data.js?v=2"></script>
 	<script defer src="avatar.js?v=2"></script>

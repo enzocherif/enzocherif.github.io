@@ -539,6 +539,400 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ══════════════════════════════════════════════════════════════════
+     REFERENCES — apparition rejouée, phrases clés soulignées, halo
+  ══════════════════════════════════════════════════════════════════ */
+  const rf = document.querySelector('.rf');
+  if (rf) {
+    // pastilles de qualités : apparition au scroll
+    const traits = rf.querySelectorAll('.rf-traits li');
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      rf.classList.add('armed');
+      traits.forEach((li, i) => li.style.transitionDelay = (i * 0.07) + 's');
+      const tio = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle('in', en.isIntersecting)), { threshold: 0.2 });
+      traits.forEach(t => tio.observe(t));
+    } else traits.forEach(t => t.classList.add('in'));
+
+    // carrousel coverflow
+    const track = rf.querySelector('.rf-track');
+    const cards = [...track.querySelectorAll('.rf-card')];
+    const dotsBox = rf.querySelector('.rf-dots');
+    const bar = rf.querySelector('.rf-progress');
+    const N = cards.length, DUR = 7000;
+    let cur = 0, timer = 0, paused = false, visible = true;
+    cards.forEach(c => c.classList.add('in'));
+    const dots = cards.map((c, i) => {
+      const name = c.querySelector('.rf-id b')?.textContent || `Reference ${i + 1}`;
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'rf-dot'; d.setAttribute('role', 'tab'); d.setAttribute('aria-label', name);
+      d.addEventListener('click', () => { go(i); restart(); });
+      dotsBox.appendChild(d); return d;
+    });
+    const fit = () => { track.style.setProperty('--rf-h', Math.max(...cards.map(c => c.offsetHeight)) + 'px'); };
+    function go(i) {
+      cur = (i + N) % N;
+      cards.forEach((c, k) => {
+        const rel = (k - cur + N) % N;
+        c.classList.toggle('is-active', rel === 0);
+        c.classList.toggle('is-next', rel === 1);
+        c.classList.toggle('is-prev', rel === N - 1 && N > 2);
+        c.setAttribute('aria-hidden', String(rel !== 0));
+        c.querySelectorAll('a,button').forEach(el => el.tabIndex = rel === 0 ? 0 : -1);
+      });
+      dots.forEach((d, k) => d.setAttribute('aria-selected', String(k === cur)));
+    }
+    function restart() {
+      clearTimeout(timer);
+      if (bar) { bar.classList.remove('run'); void bar.offsetWidth; }
+      if (reduceMotion || paused || !visible) return;
+      if (bar) { bar.style.setProperty('--rf-dur', DUR + 'ms'); bar.classList.add('run'); }
+      timer = setTimeout(() => { go(cur + 1); restart(); }, DUR);
+    }
+    rf.querySelector('.rf-prev').addEventListener('click', () => { go(cur - 1); restart(); });
+    rf.querySelector('.rf-next').addEventListener('click', () => { go(cur + 1); restart(); });
+    cards.forEach((c, k) => c.addEventListener('click', e => {
+      if (c.classList.contains('is-active')) return;
+      e.preventDefault(); go(k); restart();
+    }));
+    const car = rf.querySelector('.rf-carousel');
+    car.addEventListener('mouseenter', () => { paused = true; restart(); });
+    car.addEventListener('mouseleave', () => { paused = false; restart(); });
+    car.addEventListener('focusin', () => { paused = true; restart(); });
+    car.addEventListener('focusout', () => { paused = false; restart(); });
+    car.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { go(cur - 1); restart(); }
+      if (e.key === 'ArrowRight') { go(cur + 1); restart(); }
+    });
+    // swipe
+    let x0 = null;
+    track.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
+    });
+    // pause hors écran
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; restart(); }, { threshold: 0.3 }).observe(car);
+    document.addEventListener('visibilitychange', () => { visible = !document.hidden; restart(); });
+    // halo
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      cards.forEach(c => c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      }));
+    }
+    go(0); fit(); restart();
+    window.addEventListener('resize', fit, { passive: true });
+    if (document.fonts) document.fonts.ready.then(fit);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     MY JOURNEY — la ligne s'allume et le train avance avec le scroll
+  ══════════════════════════════════════════════════════════════════ */
+  const jr = document.querySelector('.jr');
+  if (jr) {
+    const board = jr.querySelector('.jr-board');
+    const stops = [...jr.querySelectorAll('.jr-stop')];
+    const nodes = stops.map(s => s.querySelector('.jr-node'));
+    const panel = jr.querySelector('.jr-panel');
+    const N = stops.length;
+    let chosen = -1, shown = -1;
+    stops.forEach(s => s.querySelector('.jr-detail').classList.add('jr-card-m'));
+    // logo introuvable (CDN bloqué, hors ligne…) : on affiche des initiales à la place
+    jr.addEventListener('error', e => {
+      const img = e.target;
+      if (img.tagName !== 'IMG' || !img.closest('.jr-logo')) return;
+      const m = document.createElement('span');
+      m.className = 'jr-mono'; m.textContent = img.dataset.mono || '';
+      img.replaceWith(m);
+    }, true);
+    jr.querySelectorAll('.jr-logo img').forEach(img => {
+      if (img.complete && img.naturalWidth === 0 && img.currentSrc) img.dispatchEvent(new Event('error'));
+    });
+
+    // Ordinateur : toutes les fiches sont empilées dans la même case de grille,
+    // donc le panneau garde toujours la hauteur de la plus grande (pas de saut de page).
+    const deck = document.createElement('div');
+    deck.className = 'jr-deck';
+    const cards = stops.map(src => {
+      const card = document.createElement('div');
+      card.className = 'jr-card ' + [...src.classList].find(c => /^jr-[sin]$/.test(c));
+      card.innerHTML = src.querySelector('.jr-detail').innerHTML;
+      card.setAttribute('aria-hidden', 'true');
+      card.inert = true;
+      deck.appendChild(card);
+      return card;
+    });
+    const nav = document.createElement('div');
+    nav.className = 'jr-nav';
+    nav.innerHTML = '<button type="button" class="jr-step" data-d="-1" aria-label="Previous station">‹</button>'
+      + '<span class="jr-count" aria-hidden="true"><b>1</b> / ' + N + '</span>'
+      + '<button type="button" class="jr-step" data-d="1" aria-label="Next station">›</button>';
+    panel.replaceChildren(deck, nav);
+    const countEl = nav.querySelector('b');
+    const [prevBtn, nextBtn] = nav.querySelectorAll('.jr-step');
+
+    const show = i => {
+      if (i === shown) return;
+      const dir = shown < 0 ? 1 : Math.sign(i - shown);
+      shown = i;
+      stops.forEach((s, k) => {
+        s.classList.toggle('is-sel', k === i);
+        nodes[k].setAttribute('aria-expanded', String(k === i));
+      });
+      cards.forEach((c, k) => {
+        const on = k === i;
+        c.classList.toggle('is-on', on);
+        c.style.setProperty('--dir', dir);
+        c.setAttribute('aria-hidden', String(!on));
+        c.inert = !on;
+      });
+      countEl.textContent = i + 1;
+      prevBtn.disabled = i === 0;
+      nextBtn.disabled = i === N - 1;
+    };
+    const isMobile = () => window.matchMedia('(max-width: 760px)').matches;
+    const rail = board.querySelector('.jr-rail');
+    let cur = 0, tween = 0;   // position affichée du train (0 → 1)
+
+    // dessine la ligne et le train à la position p (ordinateur)
+    const render = p => {
+      cur = p;
+      board.style.setProperty('--p', p.toFixed(4));
+      let last = 0;
+      stops.forEach((s, k) => { const on = p >= k / (N - 1) - 0.001; s.classList.toggle('lit', on); if (on) last = k; });
+      stops.forEach((s, k) => s.classList.toggle('is-here', k === last && p > 0));
+      return last;
+    };
+    // le train roule jusqu'à la station choisie (avant ou arrière)
+    const driveTo = target => {
+      cancelAnimationFrame(tween);
+      const from = cur, dist = Math.abs(target - from);
+      if (reduceMotion || dist < 0.001) { render(target); return; }
+      const dur = 350 + dist * 900, t0 = performance.now();
+      const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      const step = now => {
+        const t = Math.min(1, (now - t0) / dur);
+        render(from + (target - from) * ease(t));
+        if (t < 1) tween = requestAnimationFrame(step); else tween = 0;
+      };
+      tween = requestAnimationFrame(step);
+    };
+
+    const pick = i => {
+      chosen = Math.max(0, Math.min(N - 1, i));
+      show(chosen);
+      if (!isMobile()) driveTo(chosen / (N - 1));
+    };
+
+    nodes.forEach((n, i) => {
+      n.addEventListener('click', () => pick(i));
+      // flèches du clavier : passer d'une station à l'autre
+      n.addEventListener('keydown', e => {
+        const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (e.key === 'Home' || e.key === 'End' || d) {
+          e.preventDefault();
+          const j = e.key === 'Home' ? 0 : e.key === 'End' ? N - 1 : Math.max(0, Math.min(N - 1, i + d));
+          nodes[j].focus(); pick(j);
+        }
+      });
+    });
+    nav.addEventListener('click', e => {
+      const b = e.target.closest('.jr-step');
+      if (b) pick(shown + Number(b.dataset.d));
+    });
+
+    let ticking = false, wasVisible = false;
+    const update = () => {
+      ticking = false;
+      const r = board.getBoundingClientRect(), vh = window.innerHeight;
+      const visible = r.bottom > 0 && r.top < vh;
+      if (!visible && wasVisible) chosen = -1;   // on repart à zéro en quittant la section
+      wasVisible = visible;
+
+      if (isMobile()) {
+        cancelAnimationFrame(tween); tween = 0;
+        // ligne verticale : elle s'arrête au point de la dernière station
+        const lastTop = stops[N - 1].offsetTop + 14;
+        rail.style.bottom = (board.offsetHeight - lastTop) + 'px';
+        // la progression suit les 60 % de l'écran le long de la ligne
+        let p = reduceMotion ? 1 : (vh * 0.6 - r.top - 14) / Math.max(1, lastTop - 14);
+        p = Math.min(1, Math.max(0, p));
+        board.style.setProperty('--p', p.toFixed(4));
+        stops.forEach(s => s.classList.toggle('lit', reduceMotion || p >= 1 || s.getBoundingClientRect().top < vh * 0.6));
+        return;
+      }
+
+      rail.style.bottom = '';
+      if (chosen >= 0) return;   // une station choisie : le train y reste tant que la section est visible
+      // 0 quand le haut de la ligne entre aux 85 % de l'écran, 1 quand il atteint 35 %
+      let p = reduceMotion ? 1 : (vh * 0.85 - r.top) / (vh * 0.5);
+      p = Math.min(1, Math.max(0, p));
+      if (tween) { cancelAnimationFrame(tween); tween = 0; }
+      show(render(p));
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CONTACT — heure locale, message pré-rempli, copie de l'email
+  ══════════════════════════════════════════════════════════════════ */
+  const ct = document.querySelector('.ct');
+  if (ct) {
+    const toast = ct.querySelector('.ct-toast');
+    let toastTimer = 0;
+    const say = msg => {
+      toast.textContent = msg; toast.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    };
+
+    // heure à Pittsburgh (US Eastern)
+    const timeEl = ct.querySelector('.ct-time');
+    if (timeEl && window.Intl) {
+      const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit', hour12: true });
+      const tick = () => {
+        const parts = fmt.formatToParts(new Date());
+        const get = t => (parts.find(x => x.type === t) || {}).value || '';
+        timeEl.innerHTML = get('hour') + '<span class="ct-colon">:</span>' + get('minute') + '<small>' + get('dayPeriod') + '</small>';
+      };
+      tick(); setInterval(tick, 20000);
+    }
+
+    // sujet du message
+    const topics = [...ct.querySelectorAll('.ct-topic')];
+    const choose = t => topics.forEach(b => { const on = b === t; b.classList.toggle('is-on', on); b.setAttribute('aria-checked', String(on)); b.tabIndex = on ? 0 : -1; });
+    topics.forEach((b, i) => {
+      b.tabIndex = b.classList.contains('is-on') ? 0 : -1;
+      b.addEventListener('click', () => choose(b));
+      b.addEventListener('keydown', e => {
+        const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (!d) return;
+        e.preventDefault();
+        const k = (i + d + topics.length) % topics.length;
+        topics[k].focus(); choose(topics[k]);
+      });
+    });
+    const form = ct.querySelector('.ct-compose');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const t = topics.find(b => b.classList.contains('is-on')) || topics[0];
+      const msg = form.querySelector('.ct-msg').value.trim();
+      const body = 'Hello Enzo,\n\n' + t.dataset.intro + '\n\n' + (msg ? msg + '\n\n' : '') + 'Best regards,\n';
+      window.location.href = 'mailto:enzocherife@gmail.com?subject=' + encodeURIComponent(t.dataset.subject) + '&body=' + encodeURIComponent(body);
+    });
+
+    // copier l'adresse email
+    ct.querySelectorAll('.ct-copy').forEach(btn => btn.addEventListener('click', async () => {
+      const txt = btn.dataset.copy;
+      let ok = false;
+      try { await navigator.clipboard.writeText(txt); ok = true; } catch (_) {
+        const ta = document.createElement('textarea');
+        ta.value = txt; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { ok = document.execCommand('copy'); } catch (__) { ok = false; }
+        ta.remove();
+      }
+      const label = btn.querySelector('span');
+      if (ok) {
+        btn.classList.add('is-done'); label.textContent = 'Copied';
+        say('Email copied');
+        setTimeout(() => { btn.classList.remove('is-done'); label.textContent = 'Copy'; }, 2000);
+      } else {
+        say('Copy failed: ' + txt);
+      }
+    }));
+
+    // apparition, rejouée à chaque retour sur la section
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      [...ct.querySelectorAll('.ct-top > *'), ct.querySelector('.ct-panel')].forEach((el, i) => el.style.setProperty('--i', i));
+      ct.querySelectorAll('.ct-row').forEach((el, i) => el.style.setProperty('--i', i));
+      ct.classList.add('armed');
+      new IntersectionObserver(es => es.forEach(en => {
+        if (en.isIntersecting) ct.classList.add('in');
+        else if (en.boundingClientRect.top > 0) ct.classList.remove('in');
+      }), { threshold: 0.12 }).observe(ct);
+    }
+  }
+
+  const sfYear = document.querySelector('.sf-year');
+  if (sfYear) sfYear.textContent = new Date().getFullYear();
+
+  /* ══════════════════════════════════════════════════════════════════
+     RENAULT — chiffres, flux, boîte à outils
+  ══════════════════════════════════════════════════════════════════ */
+  const rn = document.querySelector('.rn');
+  if (rn) {
+    // boîte à outils : une fiche détaillée sous la grille
+    const tools = [...rn.querySelectorAll('.rn-tool')];
+    const tbtns = tools.map(t => t.querySelector('.rn-tbtn'));
+    const tpanel = rn.querySelector('.rn-tpanel');
+    const colors = { gen: 'var(--main-color)', check: '#8ff7a7', size: '#f0c020', hub: '#c7a6ff', extract: '#7cc4ff' };
+    const tcards = tools.map(t => {
+      const cat = ([...t.classList].find(c => c.startsWith('rn-c-')) || 'rn-c-gen').slice(5);
+      const c = document.createElement('div');
+      c.className = 'rn-tcard';
+      c.style.setProperty('--c', colors[cat] || colors.gen);
+      c.innerHTML = '<h4>' + t.querySelector('.rn-tname').textContent + '<span>' + t.querySelector('.rn-tcat').textContent + '</span></h4>'
+        + t.querySelector('.rn-tdetail').innerHTML;
+      c.setAttribute('aria-hidden', 'true'); c.inert = true;
+      tpanel.appendChild(c);
+      return c;
+    });
+    let cur = -1;
+    const pickTool = i => {
+      if (i === cur) return;
+      cur = i;
+      tools.forEach((t, k) => { t.classList.toggle('is-sel', k === i); tbtns[k].setAttribute('aria-expanded', String(k === i)); });
+      tcards.forEach((c, k) => { const on = k === i; c.classList.toggle('is-on', on); c.setAttribute('aria-hidden', String(!on)); c.inert = !on; });
+    };
+    tbtns.forEach((b, i) => {
+      b.addEventListener('click', () => {
+        pickTool(i);
+        // sur mobile, on fait défiler jusqu'à la fiche si elle est hors de l'écran
+        const r = tpanel.getBoundingClientRect();
+        if (r.top > window.innerHeight - 120) tpanel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+      });
+      b.addEventListener('keydown', e => {
+        const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (!d) return;
+        e.preventDefault();
+        const j = (i + d + tools.length) % tools.length;
+        tbtns[j].focus(); pickTool(j);
+      });
+    });
+    pickTool(0);
+
+    // chiffres, flux et apparitions : rejoués à chaque retour
+    const nums = [...rn.querySelectorAll('.rn-kpis [data-count]')];
+    const flow = rn.querySelector('.rn-flow');
+    const parts = [rn.querySelector('.rn-head'), rn.querySelector('.rn-intro'), ...rn.querySelectorAll('.rn-kpis li'), rn.querySelector('.rn-mid'), rn.querySelector('.rn-box'), rn.querySelector('.rn-quote')].filter(Boolean);
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      rn.classList.add('armed');
+      parts.forEach(el => el.classList.add('rn-reveal'));
+      rn.querySelectorAll('.rn-kpis li').forEach((el, i) => el.style.setProperty('--d', i));
+      nums.forEach(n => { n.textContent = '0'; });
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        const el = en.target;
+        if (en.isIntersecting) {
+          el.classList.add('in');
+          if (el.matches('.rn-kpis li')) { const n = el.querySelector('[data-count]'); if (n) countUp(n); }
+          if (el === rn.querySelector('.rn-mid')) flow.classList.add('on');
+        } else if (en.boundingClientRect.top > 0) {
+          el.classList.remove('in');
+          if (el.matches('.rn-kpis li')) { const n = el.querySelector('[data-count]'); if (n) n.textContent = '0'; }
+          if (el === rn.querySelector('.rn-mid')) flow.classList.remove('on');
+        }
+      }), { threshold: 0.2 });
+      parts.forEach(el => io.observe(el));
+    } else {
+      flow.classList.add('on');
+    }
+  }
+
   /* Current Position : barre du contrat VIE (mise à jour selon la date du jour) */
   const contract = document.querySelector('.cp-contract');
   if (contract) {
@@ -911,7 +1305,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — Swiper
   ══════════════════════════════════════════════════════════════════ */
-  if (typeof window.Swiper === 'function') new Swiper('.ref-wrapper .swiper', {
+  if (typeof window.Swiper === 'function' && document.querySelector('.ref-wrapper .swiper')) new Swiper('.ref-wrapper .swiper', {
     loop: true,
     autoplay: reduceMotion ? false : { delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true },
     a11y: { enabled: true },
