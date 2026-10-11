@@ -4164,12 +4164,8 @@ body.nav-open { overflow: hidden; }
   .about-stats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
-  /* carte : on garde une taille lisible et on laisse glisser horizontalement */
-  .about-map { padding: 1.8rem 1.4rem 1.6rem; }
-  .map-scroll { overflow-x: auto; margin: 0 -1.4rem; padding: 0 1.4rem 1rem; scrollbar-width: thin; scrollbar-color: rgba(0,255,238,.35) transparent; }
-  .map-canvas { width: 640px; }
   .map-legend { gap: 1.2rem; }
-  .map-hint { display: block; }
+}
 }
 @media (max-width: 560px) {
   .about-container { padding: 2.6rem 1.8rem; }
@@ -5169,3 +5165,50 @@ body.nav-open { overflow: hidden; }
 #stage-renault.rn .rn-quote blockquote::before, #stage-renault.rn .rn-quote blockquote::after { content: none; display: none; }
 .rn-company { align-items: flex-start; }
 .rn-dot { margin-top: .75rem; }
+
+
+/* =====================================================================
+   ABOUT — carte, version mobile : carte entière recadrée + étapes numérotées
+   ===================================================================== */
+.map-num, .map-stops { display: none; }
+@media (max-width: 700px) {
+  .about-map { padding: 1.8rem 1.6rem 1.8rem; }
+  .map-head { margin-bottom: 1rem; }
+  .map-title { font-size: 1.5rem; }
+  .map-legend { font-size: 1.15rem; }
+  /* la carte tient dans la largeur : on la recadre sur la zone utile (Pittsburgh → Bangkok) */
+  .map-scroll { overflow: hidden; margin: 0 -1.6rem; padding: 0; position: relative; aspect-ratio: 1000 / 310; }
+  .map-canvas { position: absolute; width: 120%; left: -10%; top: -3%; aspect-ratio: 1000 / 292; }
+  .map-route { stroke-width: 2.4; }
+  .map-node { stroke-width: 3; }
+  /* les étiquettes deviennent des pastilles numérotées */
+  .map-pin { padding: 0; border: 0; background: none; width: 0; height: 0; overflow: visible; transform: none !important; }
+  .map-pin b, .map-pin small { display: none; }
+  .map-num { position: absolute; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; font-style: normal; font-size: 1.1rem; font-weight: 700; color: #001a18; background: var(--main-color); box-shadow: 0 0 8px rgba(0,255,238,.7); transform: translate(-50%, -50%); }
+  .map-pin.s1 .map-num { left: 1.4rem; top: 1.3rem; background: #cfe9e7; box-shadow: 0 0 6px rgba(207,233,231,.6); }
+  .map-pin.s2 .map-num { left: -1.7rem; top: .2rem; }
+  .map-pin.s3 .map-num { left: -1.3rem; top: -1.3rem; }
+  .map-pin.s4 .map-num { left: 0; top: -1.6rem; background: #ffc53d; box-shadow: 0 0 8px rgba(255,197,61,.7); }
+  /* la liste des étapes sous la carte */
+  .map-stops { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; list-style: none; margin: 1.4rem 0 0; padding: 1.4rem 0 0; border-top: 1px solid rgba(255,255,255,.07); }
+  .map-stops li { display: flex; align-items: flex-start; gap: .8rem; padding: .9rem 1rem; border-radius: .9rem; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); min-width: 0; }
+  .map-stops li.now { border-color: rgba(255,197,61,.4); background: rgba(255,197,61,.06); }
+  .map-stops i { flex: none; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; font-style: normal; font-size: 1.1rem; font-weight: 700; color: #001a18; background: var(--main-color); box-shadow: 0 0 6px rgba(0,255,238,.6); margin-top: .1rem; }
+  .map-stops .school i { background: #cfe9e7; box-shadow: none; }
+  .map-stops .now i { background: #ffc53d; box-shadow: 0 0 6px rgba(255,197,61,.6); }
+  .map-stops span { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+  .map-stops b { font-size: 1.35rem; color: #fff; }
+  .map-stops small { font-size: 1.15rem; line-height: 1.35; color: #aab5b5; }
+  .map-stops em { font-style: normal; font-size: 1.05rem; font-weight: 600; color: #6f8a8a; margin-top: .1rem; }
+  .map-stops .now em { color: #d9a93a; }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+  .about-map.armed .map-stops li { opacity: 0; transform: translateY(8px); }
+  .about-map.go .map-stops li { opacity: 1; transform: none; transition: opacity .45s ease, transform .45s ease; }
+  .about-map.go .map-stops .s2 { transition-delay: 1s; }
+  .about-map.go .map-stops .s3 { transition-delay: 2.1s; }
+  .about-map.go .map-stops .s4 { transition-delay: 3.2s; }
+}
+@media (max-width: 340px) {
+  .map-stops { grid-template-columns: 1fr; }
+}
