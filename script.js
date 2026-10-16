@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Préférence système « réduire les animations »
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Si AOS n'a pas pu être chargé (CDN bloqué / hors-ligne), on retire les
-  // attributs data-aos pour que le contenu ne reste jamais invisible.
-  if (typeof window.AOS === 'undefined' || reduceMotion) {
-    document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
-  }
+
+  // Tous les effets liés au scroll passent par ici : au plus un calcul par image affichée
+  const scrollJobs = [];
+  let scrollQueued = false;
+  const runScrollJobs = () => { scrollQueued = false; scrollJobs.forEach(f => f()); };
+  const onScrollFrame = fn => { scrollJobs.push(fn); };
+  window.addEventListener('scroll', () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(runScrollJobs); } }, { passive: true });
 
   const mainColor =
     getComputedStyle(document.documentElement)
@@ -24,21 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.createElement('div');
   progressBar.id = 'scroll-progress';
   progressBar.style.cssText = [
-    'position:fixed', 'top:0', 'left:0', 'height:3px', 'width:0%',
+    'position:fixed', 'top:0', 'left:0', 'height:3px', 'width:100%', 'transform:scaleX(0)', 'transform-origin:0 50%',
     'background:linear-gradient(90deg,#00ffee,#00bfff)',
     'box-shadow:0 0 10px #00ffee,0 0 20px #00ffee',
-    'z-index:9999', 'transition:width 0.08s linear', 'pointer-events:none'
+    'z-index:9999', 'transition:transform 0.08s linear', 'pointer-events:none'
   ].join(';');
   document.body.appendChild(progressBar);
 
   const scrollArrow = document.querySelector('.scroll-down');
 
-  window.addEventListener('scroll', () => {
-    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    progressBar.style.width = Math.min(pct, 100) + '%';
+  onScrollFrame(() => {
+    const k = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    progressBar.style.transform = `scaleX(${Math.min(Math.max(k, 0), 1)})`;
     // Masquer la flèche dès qu'on scroll
     if (scrollArrow) scrollArrow.classList.toggle('hidden', window.scrollY > 80);
-  }, { passive: true });
+  });
 
 
   /* ══════════════════════════════════════════════════════════════════
@@ -192,15 +194,20 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.overflow = 'hidden';
     });
 
-    window.addEventListener('scroll', () => {
-      parallax.forEach(({ el, f }) => {
-        const rect   = el.getBoundingClientRect();
-        const offset = (window.innerHeight / 2 - (rect.top + rect.height / 2)) * f;
+    onScrollFrame(() => {
+      const vh = window.innerHeight;
+      const offsets = parallax.map(({ el, f }) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > vh + 200) return null;   // hors écran : rien à faire
+        return (vh / 2 - (rect.top + rect.height / 2)) * f;
+      });
+      parallax.forEach(({ el }, i) => {
+        const offset = offsets[i];
+        if (offset === null) return;
         el.style.backgroundPositionY = `calc(50% + ${offset}px)`;
-        // aussi un léger translate sur le pseudo-élément via var
         el.style.setProperty('--px-offset', offset + 'px');
       });
-    }, { passive: true });
+    });
   }
 
 
@@ -250,9 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════
      EXISTANT — particles.js
   ══════════════════════════════════════════════════════════════════ */
+  const smallScreen = window.matchMedia('(max-width: 768px)').matches;
   if (typeof window.particlesJS === 'function' && !reduceMotion) particlesJS('particles-js', {
     particles: {
-      number:  { value: 60, density: { enable: true, value_area: 800 } },
+      number:  { value: smallScreen ? 28 : 60, density: { enable: true, value_area: 800 } },
       color:   { value: mainColor },
       shape:   { type: 'circle' },
       opacity: { value: 0.5, random: true },
@@ -272,8 +280,26 @@ document.addEventListener('DOMContentLoaded', () => {
         push:   { particles_nb: 4 }
       }
     },
-    retina_detect: true
+    retina_detect: !smallScreen
   });
+
+  // particles.js tourne en continu : on coupe sa boucle dès que le haut de page sort de l'écran
+  const pHost = document.getElementById('particles-js');
+  const pjs = window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS;
+  if (pHost && pjs && 'IntersectionObserver' in window) {
+    let pOn = true;
+    const pSet = on => {
+      if (on === pOn) return;
+      pOn = on;
+      if (on) pjs.fn.vendors.draw();                       // relance la boucle
+      else cancelAnimationFrame(pjs.fn.drawAnimFrame);    // stoppe la boucle
+    };
+    new IntersectionObserver(es => pSet(es[0].isIntersecting && !document.hidden)).observe(pHost);
+    document.addEventListener('visibilitychange', () => {
+      const r = pHost.getBoundingClientRect();
+      pSet(!document.hidden && r.bottom > 0 && r.top < window.innerHeight);
+    });
+  }
 
 
   /* ══════════════════════════════════════════════════════════════════
@@ -286,9 +312,18 @@ document.addEventListener('DOMContentLoaded', () => {
       'Embedded Software', 'Robotics Enthusiast', 'Mechatronics Engineer'
     ];
     if (reduceMotion) { words.length = 1; }
-    let idx = 0, char = 0, erase = false;
+    let idx = 0, char = 0, erase = false, heroVisible = true, waiting = false;
     const speed = () => erase ? 50 : 100;
+    // la machine à écrire s'arrête quand le haut de page n'est plus visible
+    const heroEl = document.getElementById('fullscreen-header');
+    if (heroEl && 'IntersectionObserver' in window) {
+      new IntersectionObserver(es => {
+        heroVisible = es[0].isIntersecting;
+        if (heroVisible && waiting) { waiting = false; tick(); }
+      }).observe(heroEl);
+    }
     const tick  = () => {
+      if (!heroVisible || document.hidden) { waiting = true; return; }
       if (!erase && char === words[idx].length) {
         if (words.length === 1) return;          // mouvement réduit : mot fixe
         erase = true; setTimeout(tick, 1600); return;
@@ -297,7 +332,19 @@ document.addEventListener('DOMContentLoaded', () => {
       typedText.textContent = words[idx].substring(0, erase ? --char : ++char);
       setTimeout(tick, speed());
     };
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && waiting && heroVisible) { waiting = false; tick(); } });
     tick();
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     PERFORMANCE — les animations CSS en boucle des sections hors écran
+     sont mises en pause (elles reprennent dès que la section revient)
+  ══════════════════════════════════════════════════════════════════ */
+  if ('IntersectionObserver' in window) {
+    const pauseObs = new IntersectionObserver(es => es.forEach(en => {
+      en.target.classList.toggle('is-offscreen', !en.isIntersecting);
+    }), { rootMargin: '150px 0px' });
+    document.querySelectorAll('#fullscreen-header, main > section, .site-foot').forEach(el => pauseObs.observe(el));
   }
 
 
@@ -1010,13 +1057,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const header    = document.getElementById('fullscreen-header');
   const stickyNav = document.querySelector('.sticky-nav');
   let lastST      = 0;
-  window.addEventListener('scroll', () => {
+  onScrollFrame(() => {
     const st = window.scrollY;
     if (st > lastST)  header.classList.add('hide');
     else if (st === 0) header.classList.remove('hide');
     lastST = st <= 0 ? 0 : st;
     stickyNav.classList.toggle('show', st > 100);
-  }, { passive: true });
+  });
 
 
   /* ══════════════════════════════════════════════════════════════════
@@ -1045,14 +1092,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && mobileNav.classList.contains('open')) setMenu(false);
   });
-
-
-  /* ══════════════════════════════════════════════════════════════════
-     EXISTANT — AOS
-  ══════════════════════════════════════════════════════════════════ */
-  if (typeof window.AOS !== 'undefined' && !reduceMotion) {
-    AOS.init({ duration: 800, once: true, offset: 120 });
-  }
 
 
   /* ══════════════════════════════════════════════════════════════════
@@ -1334,9 +1373,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 300);
-  }, { passive: true });
+  onScrollFrame(() => backToTop.classList.toggle('visible', window.scrollY > 300));
 
 
 
@@ -1355,14 +1392,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
     let tx = cx, ty = cy;
-    window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-
+    let cursorRaf = 0;
     const animateCursor = () => {
       cx += (tx - cx) * 0.25;
       cy += (ty - cy) * 0.25;
       neonCursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%)`;
-      requestAnimationFrame(animateCursor);
+      // on ne tourne que tant que le curseur rattrape la souris
+      cursorRaf = (Math.abs(tx - cx) + Math.abs(ty - cy) > 0.3) ? requestAnimationFrame(animateCursor) : 0;
     };
+    window.addEventListener('mousemove', e => {
+      tx = e.clientX; ty = e.clientY;
+      if (!cursorRaf) cursorRaf = requestAnimationFrame(animateCursor);
+    }, { passive: true });
     animateCursor();
 
     const hoverSelector = 'a, button, .card, .project-item img, .flip-scene, .btn-glow, .btn-glow-outline, .btn-download, .btn-view-all, .actor, .train, input, textarea';

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# anciennes versions et fichiers de travail : inutile de les indexer
+Disallow: /Claude%20outputs/
+Disallow: /Claude outputs/
+
+Sitemap: https://enzocherif.github.io/sitemap.xml

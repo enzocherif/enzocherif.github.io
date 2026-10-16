@@ -201,7 +201,6 @@
 .header-nav::-webkit-scrollbar { display: none; }
 
 
-
 	/* on very small screens, pull it closer to edges if needed            */
 	@media(max-width: 600px){
 	  .header-nav{
@@ -352,8 +351,7 @@
 	  #projects-title,
 	  #post-title,
 	  #tools-title,
-	  #domains-title,
-	  #references-title{ font-size:2rem; }
+	  #references-title { font-size:2rem; }
 	}
 
 	/* marges verticales réduites pour les sections */
@@ -644,25 +642,11 @@
 	}
 
 	/* -------- wrapper split-screen ----------------------------------- */
-	.post-wrapper{
-	  width:min(90vw,1100px);
-	  margin:auto;
-	  display:flex; gap:4rem;
-	  align-items:center;
-	}
-
+	
 	/* -------- photo -------------------------------------------------- */
-	.stage-photo{ flex:0 0 42%; }
-	.stage-image{
-	  width:100%; border-radius:.8rem;
-	  box-shadow:0 0 18px rgba(0,0,0,.6);
-	  transition:transform .4s;
-	}
-	.stage-image:hover{ transform:scale(1.03); }
-
+			
 	/* -------- texte -------------------------------------------------- */
-	.stage-text{ flex:1 1 58%; display:flex; flex-direction:column; gap:2.2rem; }
-	#post-title{
+		#post-title{
 	  font-size:clamp(2.6rem,3vw + 1rem,3.8rem);
 	  color:var(--main-color);
 	  text-shadow:0 0 10px var(--main-color);
@@ -673,25 +657,11 @@
 	  margin:1.2rem 0 0; background:var(--main-color);
 	  filter:drop-shadow(0 0 8px var(--main-color));
 	}
-	#post-role{ font-size:1.6rem; line-height:1.5; font-weight:500; }
-	#post-tasks{
-	  max-width:650px; font-size:1.6rem; line-height:1.6;
-	}
-	#post-tasks li{ margin-bottom:1rem; }
-	#post-tasks strong,
-	#post-tasks li::marker{ color:var(--main-color); }
-
+				
 	/* -------- responsive : pile sur mobile --------------------------- */
 	@media(max-width:700px){
-	  .post-wrapper{
-		flex-direction:column; text-align:center; gap:3rem;
-	  }
-	  .stage-photo{ flex:0 0 auto; width:80%; }
-	  .stage-text{ align-items:center; }
-	  #post-title { font-size:2.4rem; }
-	  #post-role  { font-size:1.3rem; }
-	  #post-tasks { font-size:1.4rem; text-align:left; }
-	}
+	  	  	  	  #post-title { font-size:2.4rem; }
+	  	  	}
 
 	
 /* ===================================================================== */
@@ -699,61 +669,12 @@
 /* ===================================================================== */
 
 /* --- Badge VIE + titre + company ------------------------------------ */
-.post-role-block {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  flex-wrap: wrap;
-}
 
-.post-badge {
-  display: inline-block;
-  padding: .35rem 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: #000;
-  background: var(--main-color);
-  border-radius: .4rem;
-  box-shadow: 0 0 10px var(--main-color);
-  flex-shrink: 0;
-}
-
-.post-job-title {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--text-color);
-  line-height: 1.2;
-  margin: 0;
-}
-
-.post-company {
-  font-size: 1.45rem;
-  color: #aaa;
-  margin: .3rem 0 0;
-}
-
-.post-flag { font-size: 1.6rem; vertical-align: middle; }
 
 /* --- Tagline -------------------------------------------------------- */
-.post-tagline {
-  font-size: 1.45rem;
-  line-height: 1.65;
-  color: #ccc;
-}
-.post-tagline strong { color: var(--main-color); }
 
 /* --- Deux cartes projets ------------------------------------------- */
-.post-projects {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.8rem;
-}
 
-@media(max-width: 860px) {
-  .post-projects { grid-template-columns: 1fr; }
-}
 
 .post-proj-card {
   background: rgba(255,255,255,.05);
@@ -769,33 +690,6 @@
   box-shadow: 0 0 16px rgba(0,255,238,.2);
 }
 
-.post-proj-header {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  margin-bottom: 1.1rem;
-  flex-wrap: wrap;
-}
-
-.post-proj-icon { font-size: 1.7rem; }
-
-.post-proj-header h3 {
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: var(--main-color);
-  margin: 0;
-  flex: 1;
-}
-
-.post-proj-tech {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: .25rem .85rem;
-  border: 1px solid var(--main-color);
-  border-radius: 2rem;
-  color: var(--main-color);
-  white-space: nowrap;
-}
 
 .post-proj-card ul {
   padding-left: 1.6rem;
@@ -812,26 +706,9 @@
 }
 
 /* --- Ligne "extras" badges ----------------------------------------- */
-.post-extras {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
 
-.post-extras span {
-  font-size: 1.25rem;
-  padding: .4rem 1.1rem;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 2rem;
-  color: #ccc;
-}
 
 /* --- Note confidentialité ------------------------------------------ */
-.post-confidential {
-  font-size: 1.25rem;
-  color: #888;
-}
 
 
 /* ===================================================================== */
@@ -839,28 +716,8 @@
 /* ===================================================================== */
 
 /* Badge couleur Renault (jaune/ambre) au lieu du néon */
-.post-badge--renault {
-  background: #f0c020;
-  box-shadow: 0 0 10px rgba(240,192,32,.6);
-  color: #000;
-}
 
 /* Titre identique à #post-title mais via classe (multi-usage) */
-.post-title-alt {
-  font-size: clamp(2.6rem,3vw + 1rem,3.8rem);
-  color: var(--main-color);
-  text-shadow: 0 0 10px var(--main-color);
-  margin: 0;
-}
-.post-title-alt::after {
-  content: "";
-  display: block;
-  width: 6rem;
-  height: 3px;
-  margin: 1.2rem 0 0;
-  background: var(--main-color);
-  filter: drop-shadow(0 0 8px var(--main-color));
-}
 
 /* Section alternée — léger fond radial inversé pour varier */
 #stage-renault {
@@ -898,36 +755,9 @@
   z-index: -1;
 }
 
-.renault-wrapper {
-  width: min(90vw, 1100px);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2.8rem;
-}
 
 /* ── En-tête ── */
-.renault-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
 
-.renault-label {
-  display: inline-block;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #000;
-  background: #f0c020;
-  padding: .3rem 1rem;
-  border-radius: .35rem;
-  box-shadow: 0 0 10px rgba(240,192,32,.5);
-  margin-bottom: 1.1rem;
-}
 
 .renault-title {
   font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
@@ -938,23 +768,6 @@
   margin-bottom: .8rem;
 }
 
-.renault-company {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
-  font-size: 1.5rem;
-  color: #aaa;
-  flex-wrap: wrap;
-}
-
-.renault-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #f0c020;
-  box-shadow: 0 0 6px rgba(240,192,32,.7);
-  flex-shrink: 0;
-}
 
 /* ── Bouton rapport (seul élément jaune avec le badge) ── */
 .renault-report-btn {
@@ -984,17 +797,6 @@
 }
 
 /* ── KPI — néon comme le reste du site ── */
-.renault-kpi {
-  display: flex;
-  align-items: center;
-  gap: 2.4rem;
-  background: rgba(0,255,238,.05);
-  border: 1px solid rgba(0,255,238,.18);
-  border-left: 4px solid var(--main-color);
-  border-radius: 0 .8rem .8rem 0;
-  padding: 1.6rem 2.2rem;
-  flex-wrap: wrap;
-}
 
 .renault-kpi-number {
   font-size: 2.4rem;
@@ -1007,22 +809,9 @@
 
 .renault-arrow { margin: 0 .4rem; }
 
-.renault-kpi-label {
-  font-size: 1.35rem;
-  line-height: 1.6;
-  color: #ccc;
-}
 
 /* ── Grille 2 cartes ── */
-.renault-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
 
-@media(max-width: 780px) {
-  .renault-grid { grid-template-columns: 1fr; }
-}
 
 .renault-card {
   background: rgba(255,255,255,.04);
@@ -1039,98 +828,13 @@
   box-shadow: 0 0 20px rgba(0,255,238,.08);
 }
 
-.renault-card-top {
-  display: flex;
-  gap: 1.2rem;
-  align-items: flex-start;
-}
-
-.renault-card-icon {
-  font-size: 2.2rem;
-  flex-shrink: 0;
-  line-height: 1;
-  margin-top: .1rem;
-}
-
-.renault-card-title {
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: var(--main-color);
-  margin-bottom: .7rem;
-  line-height: 1.3;
-}
-
-.renault-tech-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-.renault-tag {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: .2rem .8rem;
-  border-radius: 2rem;
-  background: rgba(0,255,238,.07);
-  border: 1px solid rgba(0,255,238,.25);
-  color: var(--main-color);
-}
-
-.renault-list {
-  padding-left: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: .7rem;
-  margin: 0;
-}
-.renault-list li {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  color: #d5d5d5;
-}
-.renault-list li::marker { color: var(--main-color); }
-
 
 /* ── Photo équipe Renault ── */
-.renault-photo-block {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 
-.renault-team-img {
-  width: 100%;
-  max-height: 420px;
-  object-fit: cover;
-  object-position: center 45%;
-  border-radius: 1rem;
-  border: 1px solid rgba(0,255,238,.15);
-  box-shadow: 0 0 30px rgba(0,0,0,.5);
-  transition: box-shadow .3s;
-}
-
-.renault-team-img:hover {
-  box-shadow: 0 0 40px rgba(0,255,238,.12);
-}
-
-.renault-photo-caption {
-  font-size: 1.15rem;
-  color: #777;
-  font-style: italic;
-}
-
-.renault-confidential {
-  font-size: 1.2rem;
-  color: #666;
-}
 
 @media(max-width: 640px) {
-  .renault-header { flex-direction: column; }
-  .renault-report-btn { width: 100%; justify-content: center; }
-  .renault-kpi { flex-direction: column; gap: 1rem; padding: 1.4rem 1.6rem; }
-  .renault-kpi-number { font-size: 2rem; }
+    .renault-report-btn { width: 100%; justify-content: center; }
+    .renault-kpi-number { font-size: 2rem; }
 }
 
 /* ================== SECTION PROJETS ================================= */
@@ -1182,24 +886,9 @@
 	.project-item img:hover{ transform: scale(1.04); }
 
 	/* ------------ TEXTE ------------------------------------------------- */
-	.proj-text{
-	  min-width: 260px;
-	  flex: 1 1 400px;
-	  text-align: left;
-	}
-
-	.proj-text h3{
-	  font-size: 1.9rem;
-	  margin-bottom: 1rem;
-	  color: var(--main-color);
-	}
-
-	.proj-text p{
-	  font-size: 1.55rem;
-	  line-height: 1.6;
-	  margin-bottom: 1.6rem;
-	}
-
+	
+	
+	
 	/* ------------ BOUTON DOWNLOAD -------------------------------------- */
 	.btn-download{
 	  display: inline-block;
@@ -1223,8 +912,7 @@
 		flex-direction: column !important; /* image au-dessus pour tous */
 		text-align: center;
 	  }
-	  .proj-text{ text-align: center; }
-	}
+	  	}
 /* =================================================================== */
 /*  PROJETS – bouton "Voir tous mes projets" + Neon Buddies            */
 /* =================================================================== */
@@ -1263,90 +951,18 @@
 /* =================================================================== */
 
 /* ------ wrapper aligné à droite comme About & Poste ---------------- */
-.stage-wrapper{
-  width: min(90vw,1100px);
-  margin-left: auto;          /* décale de 6 % vers la droite (hérité) */
-  margin-right: 6%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-
-  /* carte translucide */
-  position: relative;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 1.2rem;
-  padding: 3rem 3.5rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 24px rgba(0,0,0,.45);
-  overflow: hidden;
-}
 
 /* halo bleu-rouge subtil (clin d’œil drapeau TH) */
-@media(min-width:900px){
-  .stage-wrapper::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(650px circle at 25% 30%,
-        rgba(0,102,255,.10) 0%, transparent 60%),
-      radial-gradient(650px circle at 80% 70%,
-        rgba(255,0,0,.08) 0%, transparent 60%);
-    pointer-events:none; z-index:-1;
-  }
-}
 
 /* ------ bloc photo + texte ---------------------------------------- */
-.stage-flex{
-  display:flex;
-  gap:3rem;
-  align-items:center;
-  flex-wrap:wrap;             /* pile si très étroit */
-}
 
-.stage-img{
-  width:320px; max-width:100%;
-  border-radius:.9rem;
-  display:block;
-  box-shadow:0 0 18px rgba(0,0,0,.6);
-  position:relative;
-  z-index:1;
-}
 
 /* bordure animée autour de la photo */
-.stage-img::after{
-  content:"";
-  position:absolute; inset:0;
-  border-radius:.9rem;
-  padding:2px;
-  background:var(--main-color);
-  -webkit-mask:
-     linear-gradient(#000 0 0) content-box,
-     linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-          mask-composite:exclude;
-  animation:flow 4s linear infinite;
-}
 @keyframes flow{
   0%,100%{filter:hue-rotate(0deg);opacity:.8;}
   50%    {filter:hue-rotate(60deg);opacity:1;}
 }
 
-.stage-text h2{
-  font-size:clamp(2.2rem,2vw + 1rem,3rem);
-  color:var(--main-color);
-  margin:0 0 1.2rem;
-}
-.stage-text p{
-  font-size:1.55rem; line-height:1.6;
-}
-
-@media(max-width:700px){
-  .stage-flex{flex-direction:column;text-align:center;}
-  .stage-img{margin-bottom:2rem;}
-  .stage-text h2{font-size:2rem;}
-  .stage-text p {font-size:1.4rem;}
-}
 
 /* ------ ACCORDION -------------------------------------------------- */
 .accordion-btn{
@@ -1374,38 +990,12 @@
   transform:translateY(-50%) rotate(180deg);
 }
 
-.accordion-panel{
-  max-height:0;
-  opacity:0;
-  overflow:hidden;
-  transition:max-height .5s ease, opacity .5s ease;
-}
-.accordion-panel.open{opacity:1;}
 
-.doc-list{padding:1rem 2rem 1.4rem;list-style:none;}
-.doc-list li{margin-bottom:.8rem;}
-.doc-list a{
-  color:var(--main-color);text-decoration:none;font-size:1.45rem;
-}
-.doc-list a:hover{text-decoration:underline;}
 /* =================================================================== */
 
 /* =================================================================== */
 /*  CERTIFICATIONS – aligné à droite, style glass + neon               */
 /* =================================================================== */
-.certif-wrapper{
-  width:min(90vw,1100px);
-  margin-left:auto; margin-right:6%;   /* même décalage que les autres   */
-  padding:3.5rem 3rem;
-  display:flex; flex-direction:column; gap:3rem;
-
-  /* carte translucide réutilisable (déjà définie plus haut) */
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:1.2rem;
-  backdrop-filter:blur(6px);
-  box-shadow:0 0 24px rgba(0,0,0,.45);
-}
 
 #certifications-title{
   font-size:clamp(2.2rem,2vw + 1rem,3rem);
@@ -1423,47 +1013,11 @@
   display:flex; flex-direction:column; gap:1.8rem;
 }
 
-.certif-title{
-  font-size:1.9rem;
-  color:var(--text-light);
-  margin:0;
-}
-.certif-title .issuer{
-  font-size:1.4rem;
-  color:var(--main-color);
-}
-
-.btn-certif{
-  align-self:flex-start;
-  padding:.8rem 2.2rem;
-  border:2px solid var(--main-color);
-  border-radius:4rem;
-  color:var(--main-color);
-  font-size:1.45rem;
-  text-decoration:none;
-  transition:.3s;
-}
-.btn-certif:hover{
-  background:var(--main-color);
-  color:#000; box-shadow:0 0 18px var(--main-color);
-}
-
-.certif-links{
-  list-style:none; padding:0;
-  display:grid; gap:.8rem;
-}
-.certif-links a{
-  color:var(--main-color);
-  text-decoration:none;
-  font-size:1.45rem;
-}
-.certif-links a:hover{ text-decoration:underline; }
 
 /* responsive : titre centré sur mobile                                */
 @media(max-width:700px){
   #certifications-title{text-align:center;}
-  .btn-certif{align-self:center;}
-  .certif-card{text-align:center;}
+    .certif-card{text-align:center;}
 }
 
 /* =================================================================== */
@@ -1514,13 +1068,6 @@
 }
 
 /* -------- grille responsive ---------------------------------------- */
-.cards-container{
-  width:min(90vw,1100px);
-  margin-left:auto; margin-right:6%;
-  display:grid;
-  gap:2.4rem;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
 
 /* -------- carte individuelle --------------------------------------- */
 .card{
@@ -1572,11 +1119,6 @@
   box-shadow:0 0 30px var(--main-color);
 }
 
-.tool-logo{
-  width:64px; height:64px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 6px var(--main-color));
-}
 
 .card h3{
   font-size:1.6rem;
@@ -1591,8 +1133,7 @@
 
 /* -------- responsive : réduit l’icône sur mobile ------------------- */
 @media(max-width:600px){
-  .tool-logo{ width:56px; height:56px; }
-  .card h3  { font-size:1.45rem; }
+    .card h3  { font-size:1.45rem; }
   .card p   { font-size:1.35rem; }
 }
 
@@ -1603,37 +1144,12 @@
   padding: 6rem 0;
 }
 
-#domains-title{
-  width: min(90vw,1100px);
-  margin: 0 6% 3rem auto;       /* même décalage que les autres titres */
-  font-size: clamp(2.2rem,2vw + 1rem,3rem);
-  color: var(--main-color);
-  text-shadow: 0 0 8px var(--main-color);
-}
 
 /* -------- grille Domains : 3 colonnes desktop --------------------- */
-#domains .cards-container{
-  width: min(90vw, 1100px);
-  margin-left: auto;
-  margin-right: 6%;
-  display: grid;
-  gap: 2.4rem;
-  grid-template-columns: repeat(3, 1fr);   /* ← 3 cartes par ligne */
-}
 
 /* 2 colonnes quand l’espace passe sous 820 px ---------------------- */
-@media(max-width: 820px){
-  #domains .cards-container{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* 1 colonne (empilement) sous 540 px -------------------------------- */
-@media(max-width: 540px){
-  #domains .cards-container{
-    grid-template-columns: 1fr;
-  }
-}
 
 /* carte réutilise le style de Tools ---------------------------------- */
 #domains .card{
@@ -1753,40 +1269,14 @@
 }
 
 /* carte */
-.reference-card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:1.2rem;
-  padding:3rem 3.2rem;
-  backdrop-filter:blur(5px);
-  box-shadow:0 0 22px rgba(0,0,0,.45);
-  color:var(--text-light);
-  display:flex;
-  flex-direction:column;
-  gap:2rem;
-  transition:.4s;
-  overflow:hidden;
-}
 
 /* halo pulsé */
-.reference-card::before{
-  content:"";
-  position:absolute; inset:0;
-  background: radial-gradient(circle at 45% 30%,
-             rgba(0,255,238,.10) 0%, transparent 60%);
-  animation:pulse 5s ease-in-out infinite;
-  z-index:-1;
-}
 @keyframes pulse{
   0%,100%{opacity:.15;}
   50%    {opacity:.28;}
 }
 
 /* hover : surélévation + glow */
-.swiper-slide-active .reference-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 0 34px var(--main-color);
-}
 
 blockquote{
   font-size:1.6rem;
@@ -1808,12 +1298,6 @@ cite{
 .swiper-button-prev, .swiper-button-next{
   color:var(--main-color);
   text-shadow:0 0 10px var(--main-color);
-}
-.swiper-pagination-bullet{
-  background:rgba(0,255,238,.4);
-}
-.swiper-pagination-bullet-active{
-  background:var(--main-color);
 }
 
 /* couleur néon pour les flèches du carrousel Références */
@@ -1964,11 +1448,6 @@ cite{
   line-height:1.45;
   color:var(--text-light);
 }
-.tl-date{
-  align-self:flex-end;
-  font-size:1.35rem;
-  color:rgba(0,255,238,.8);
-}
 
 /* responsive : colonne unique */
 @media(max-width:750px){
@@ -2012,101 +1491,20 @@ cite{
 /* ------------------------------------------------------------------- */
 /*  CONTACT – wrapper centré                                           */
 /* ------------------------------------------------------------------- */
-.contact-wrapper{
-  width: min(90vw, 700px);
-  margin: 0 auto;                  /* ← centrage horizontal             */
-  padding: 3.5rem 3rem;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 1.2rem;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 24px rgba(0,0,0,.45);
-  display: flex;
-  flex-direction: column;
-  align-items: center;             /* centre aussi le contenu           */
-  gap: 2.8rem;
-  position: relative;
-  overflow: hidden;
-}
 
 /* halo pulsé (inchangé)                                               */
-.contact-wrapper::before{
-  content:"";
-  position:absolute; inset:0;
-  background: radial-gradient(circle at 30% 30%,
-             rgba(0,255,238,.10) 0%, transparent 60%);
-  animation:pulse 6s ease-in-out infinite;
-  z-index:-1;
-}
 
 /* ------------------------------------------------------------------- */
 /*  infos alignées au centre                                           */
 /* ------------------------------------------------------------------- */
-.contact-info{
-  list-style:none; padding:0; margin:0;
-  display:flex;
-  flex-direction:column;
-  align-items: center;             /* centre chaque ligne               */
-  gap:1.6rem;
-  text-align:center;
-}
-.contact-info li{
-  display:flex; gap:1.2rem; align-items:center;
-  font-size:1.5rem; line-height:1.5;
-  color:var(--text-light);
-  justify-content:center;          /* icône + texte au centre           */
-}
 
-.contact-info i{
-  font-size:2rem;
-  color:var(--main-color);
-  text-shadow:0 0 6px var(--main-color);
-}
 
 /* bouton néon ------------------------------------------------------- */
-.neon-btn{
-  align-self:flex-start;
-  padding:1rem 2.8rem;
-  font-size:1.6rem; font-weight:600;
-  color:#000;
-  background: var(--main-color);
-  border-radius:4rem;
-  position:relative;
-  overflow:hidden;
-  transition:.4s;
-  box-shadow:0 0 22px var(--main-color);
-}
-.neon-btn::before{
-  content:"";
-  position:absolute; inset:-100% 0 0 0;
-  background:linear-gradient(90deg,
-            transparent 0 10%,
-            #fff 40%, #fff 60%,
-            transparent 90% 100%);
-  animation:shine 2.8s linear infinite;
-  opacity:.35;
-}
 @keyframes shine{ to{ transform:translateX(100%); } }
-.neon-btn:hover{
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 0 34px var(--main-color);
-}
 
 /* responsive -------------------------------------------------------- */
-@media(max-width:500px){
-  .contact-wrapper{ margin-right:4%; }
-  .neon-btn{ align-self:center; }
-}
 
 /* lien néon dans la carte Contact ---------------------------------- */
-.contact-info a{
-  color: var(--main-color);
-  text-shadow: 0 0 6px var(--main-color);
-  transition: .2s;
-}
-.contact-info a:hover{
-  text-shadow: 0 0 10px var(--main-color);
-}
 
 /* =================================================================== */
 /* 1.  Verrouille la largeur : plus AUCUN scroll horizontal global      */
@@ -2259,13 +1657,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
   }
 
   /* zone texte centrée                                                 */
-  .proj-text{
-    flex:1 1 auto;
-    text-align:center;
-  }
-  .proj-text h3{ font-size:1.7rem; margin:1rem 0 .6rem; }
-  .proj-text p { font-size:1.35rem; line-height:1.55; }
-
+      
   /* bouton : large et centré                                           */
   .btn-download{
     display:block;     /* pleine ligne */
@@ -2314,13 +1706,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
   }
 
   /* grille : une seule colonne, gap réduit */
-  #tools .cards-container {
-    grid-template-columns: 1fr !important;
-    gap: 1.6rem !important;
-    width: 90vw !important;
-    margin: 0 auto !important;
-  }
-
+  
   /* carte “glass” pleine largeur, padding adapté */
   #tools .card {
     width: 100% !important;
@@ -2331,11 +1717,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
   }
 
   /* logo plus petit pour tenir */
-  .tool-logo {
-    width: 48px !important;
-    height: 48px !important;
-  }
-
+  
   /* titres et descriptions plus compacts */
   #tools .card h3 {
     font-size: 1.5rem !important;
@@ -2348,12 +1730,8 @@ html,body{ max-width:100%; overflow-x:hidden; }
 }
 
 /* ===== Recentre Stage Thaïlande, Certifications & Compétences ===== */
-.stage-wrapper,
-.certif-wrapper,
-#tools .cards-container,
-#domains .cards-container,
+
 #references .ref-wrapper,
-#contact .contact-wrapper,
 .terminal-wrapper {
   /* Remplace le « margin-left:auto; margin-right:6%; » */
   margin: 0 auto !important;
@@ -2520,7 +1898,6 @@ html,body{ max-width:100%; overflow-x:hidden; }
 }
 
 
-
 /* =====================================================================
    MOBILE — refonte complète ≤ 768px
    Un seul bloc consolidé, propre, sans conflits
@@ -2615,72 +1992,39 @@ html,body{ max-width:100%; overflow-x:hidden; }
     padding: 5rem 5% !important;
   }
 
-  .post-wrapper {
-    flex-direction: column;
-    gap: 2.4rem;
-    width: 100%;
-  }
+  
+   /* cache la photo Renault placeholder */
 
-  .stage-photo { display: none; } /* cache la photo Renault placeholder */
-
-  .stage-text {
-    align-items: flex-start;
-    gap: 1.8rem;
-  }
-
+  
   #post-title {
     font-size: clamp(2.4rem, 6vw, 3.2rem);
   }
 
-  .post-role-block {
-    gap: 1rem;
-  }
-
-  .post-job-title { font-size: 1.7rem; }
-  .post-company   { font-size: 1.3rem; }
-
-  .post-tagline { font-size: 1.3rem; }
-
-  .post-projects {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-  }
-
+  
+    
+  
+  
   .post-proj-card {
     padding: 1.4rem 1.5rem;
   }
 
-  .post-proj-header h3 { font-size: 1.4rem; }
-  .post-proj-card ul li { font-size: 1.25rem; }
+    .post-proj-card ul li { font-size: 1.25rem; }
 
-  .post-extras {
-    gap: .7rem;
-  }
-
-  .post-extras span { font-size: 1.15rem; }
-
+  
+  
   /* ── Section Renault ── */
   #stage-renault {
     min-height: auto;
     padding: 5rem 5% !important;
   }
 
-  .renault-wrapper {
-    width: 100%;
-    gap: 2.2rem;
-  }
-
-  .renault-header {
-    flex-direction: column;
-    gap: 1.6rem;
-  }
-
+  
+  
   .renault-title {
     font-size: clamp(2.4rem, 6vw, 3.2rem);
   }
 
-  .renault-company { font-size: 1.3rem; }
-
+  
   .renault-report-btn {
     width: 100%;
     justify-content: center;
@@ -2688,30 +2032,13 @@ html,body{ max-width:100%; overflow-x:hidden; }
     padding: .9rem 1.6rem;
   }
 
-  .renault-kpi {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.4rem 1.6rem;
-  }
-
+  
   .renault-kpi-number { font-size: 2rem; }
-  .renault-kpi-label  { font-size: 1.25rem; }
-
-  .renault-team-img {
-    max-height: 280px;
-    object-position: center 60%;
-  }
-
-  .renault-grid {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-  }
-
+  
+  
+  
   .renault-card { padding: 1.6rem 1.6rem; }
-  .renault-card-title { font-size: 1.4rem; }
-  .renault-list li    { font-size: 1.25rem; }
-  .renault-tag        { font-size: 1rem; }
-
+      
   /* ── Projets ── */
   #projects { padding: 5rem 5% !important; }
 
@@ -2732,10 +2059,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
     border-radius: .9rem;
   }
 
-  .proj-text { text-align: center; }
-  .proj-text h3 { font-size: 1.7rem; }
-  .proj-text p  { font-size: 1.3rem; line-height: 1.55; }
-
+      
   .btn-download {
     display: block;
     width: fit-content;
@@ -2745,17 +2069,8 @@ html,body{ max-width:100%; overflow-x:hidden; }
   }
 
   /* ── Stage Thaïlande ── */
-  .stage-wrapper {
-    flex-direction: column !important;
-    gap: 2.4rem;
-    width: 92vw;
-    padding: 2rem 1.6rem !important;
-  }
-
-  .stage-wrapper .stage-photo { display: block; flex: 0 0 auto; width: 100%; }
-  .stage-wrapper .stage-image { width: 100%; max-height: 260px; object-fit: cover; }
-  .stage-wrapper .stage-text  { align-items: flex-start; text-align: left; }
-
+  
+      
   /* ── Compétences / Terminal ── */
   #competences { padding: 5rem 5% !important; }
 
@@ -2769,20 +2084,13 @@ html,body{ max-width:100%; overflow-x:hidden; }
   /* ── Outils ── */
   #tools { padding: 5rem 5% !important; }
 
-  #tools .cards-container {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 1.4rem !important;
-    width: 92vw !important;
-    margin: 0 auto !important;
-  }
-
+  
   #tools .card {
     padding: 1.4rem 1rem !important;
     border-radius: .9rem !important;
   }
 
-  .tool-logo { width: 42px !important; height: 42px !important; }
-
+  
   #tools .card h3 { font-size: 1.4rem !important; }
   #tools .card p  { font-size: 1.2rem !important; }
 
@@ -2801,21 +2109,9 @@ html,body{ max-width:100%; overflow-x:hidden; }
   .tl-item { padding-left: 2.4rem !important; }
 
   /* ── Certifications ── */
-  .certif-wrapper {
-    grid-template-columns: 1fr !important;
-    width: 92vw;
-    margin: 0 auto;
-    gap: 1.4rem !important;
-  }
-
+  
   /* ── Domaines ── */
-  #domains .cards-container {
-    grid-template-columns: 1fr 1fr !important;
-    width: 92vw !important;
-    margin: 0 auto !important;
-    gap: 1.2rem !important;
-  }
-
+  
   /* ── Références / Swiper ── */
   #references .ref-wrapper {
     width: 92vw;
@@ -2825,12 +2121,7 @@ html,body{ max-width:100%; overflow-x:hidden; }
   .ref-wrapper .swiper { width: 100% !important; }
 
   /* ── Contact ── */
-  #contact .contact-wrapper {
-    width: 92vw;
-    margin: 0 auto;
-    padding: 2rem 1.6rem !important;
-  }
-
+  
   #contact input,
   #contact textarea {
     font-size: 1.35rem !important;
@@ -2870,18 +2161,11 @@ html,body{ max-width:100%; overflow-x:hidden; }
   .big-intro { font-size: 3.4rem; }
   .typing-subline { font-size: 1.8rem; }
 
-  #tools .cards-container {
-    grid-template-columns: 1fr !important;
-  }
-
-  #domains .cards-container {
-    grid-template-columns: 1fr !important;
-  }
-
+  
+  
   .renault-kpi-number { font-size: 1.8rem; }
 
-  .post-proj-header h3 { font-size: 1.3rem; }
-}
+  }
 
 
 /* =====================================================================
@@ -3138,8 +2422,7 @@ html {
 }
 /* on réaffirme translateZ sur les enfants pour gagner sur les anciennes
    règles #domains .card:hover i { transform: scale(...) } */
-#domains .card:hover i,
-#tools .card:hover .tool-logo {
+#domains .card:hover i {
   transform: translateZ(28px) !important;
 }
 
@@ -3202,7 +2485,6 @@ html {
   opacity: 1;
 }
 #domains .card i,
-#tools .tool-logo,
 #domains .card h3, #domains .card p,
 #tools .card h3, #tools .card p {
   transform: translateZ(28px);
@@ -3227,8 +2509,7 @@ html {
   transform-style: preserve-3d;
   transition: transform .8s cubic-bezier(.22,1,.36,1);
 }
-.project-item .flip-scene:hover .flip-card,
-.project-item .flip-scene.flipped .flip-card {
+.project-item .flip-scene:hover .flip-card {
   transform: rotateY(180deg);
 }
 .project-item .flip-face {
@@ -3398,7 +2679,6 @@ html {
 @keyframes sc-wave { from { transform: rotate(-150deg); } to { transform: rotate(-115deg); } }
 
 /* saut au clic */
-.actor.is-hop .body { animation: sc-hop .55s cubic-bezier(.3,1.6,.5,1); }
 @keyframes sc-hop { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-22px); } }
 
 /* ---------- locomotive ---------- */
@@ -3529,7 +2809,6 @@ section[id] { scroll-margin-top: 70px; }
 /* ── Carrousel Références : Swiper 9 utilise la classe .swiper ── */
 .ref-wrapper { position: relative; }
 .ref-wrapper .swiper { overflow: hidden; border-radius: 1.2rem; }
-.ref-wrapper .swiper-slide { height: auto; }
 .ref-wrapper .swiper-pagination {
   position: static;
   margin-top: 1.6rem;
@@ -3564,13 +2843,11 @@ body.nav-open { overflow: hidden; }
 }
 
 /* Contact : bouton centré, sans soulignement */
-.neon-btn { align-self: center; text-decoration: none; }
 
 /* Titre « My journey » centré comme les autres sections */
 #timeline-title { text-align: center; }
 
 /* Certifications : les lignes de texte simple héritaient d'une taille ~9px */
-.certif-links li { font-size: 1.45rem; line-height: 1.5; color: #ddd; }
 
 /* Poste actuel : listes lisibles (alignées à gauche) une fois empilées */
 @media (max-width: 700px) {
@@ -4079,11 +3356,6 @@ body.nav-open { overflow: hidden; }
 .about-facts dt { font-size: 1.25rem; color: #7f8f8f; }
 .about-facts dd { margin: 0; font-size: 1.45rem; color: #eef3f3; }
 
-.todo {
-  color: #ffc53d; font-family: "Fira Code", monospace; font-size: .85em;
-  border: 1px dashed rgba(255,197,61,.6); border-radius: 4px; padding: .05em .45em;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
-}
 
 /* ---------- repères ---------- */
 .about-extra { width: min(90vw, 1100px); margin: 2.4rem auto 0; display: grid; gap: 2.4rem; }
@@ -4114,7 +3386,6 @@ body.nav-open { overflow: hidden; }
 .k-now { background: #ffc53d; box-shadow: 0 0 6px #ffc53d; }
 
 .map-scroll { overflow: visible; }
-.map-hint { display: none; margin-top: .6rem; font-size: 1.2rem; color: #7f8f8f; text-align: center; }
 .map-canvas { position: relative; aspect-ratio: 1000 / 292; }
 .map-dots, .map-routes { position: absolute; inset: 0; width: 100%; height: 100%; }
 .map-routes { overflow: visible; }
@@ -4136,7 +3407,6 @@ body.nav-open { overflow: hidden; }
 .map-pin small { font-size: 1.15rem; color: #8fa0a0; }
 .map-pin.now { border-color: rgba(255,197,61,.55); }
 .pin-below       { transform: translate(-50%, 1.6rem); }
-.pin-below-right { transform: translate(.9rem, 1.2rem); }
 .pin-below-left  { transform: translate(calc(-100% - .6rem), 1.2rem); }
 .pin-left-above  { transform: translate(calc(-100% - 1.1rem), -78%); }
 .pin-left-below  { transform: translate(calc(-100% - 1.1rem), -8%); }
@@ -4165,7 +3435,6 @@ body.nav-open { overflow: hidden; }
 }
 @media (max-width: 700px) {
   .map-legend { gap: 1.2rem; }
-}
 }
 @media (max-width: 560px) {
   .about-container { padding: 2.6rem 1.8rem; }
@@ -4604,14 +3873,9 @@ body.nav-open { overflow: hidden; }
 .tb-intro { font-size: 1.55rem; color: #aab5b5; max-width: 70ch; }
 .tb-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem 2rem; }
 .tb-filters { margin: 0; justify-content: flex-start; }
-.tb-legend { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.6rem; font-size: 1.2rem; color: #8fa0a0; }
-.tb-legend li { display: flex; align-items: center; gap: .6rem; }
 
 /* indicateur de fréquence : 3 crans */
-.tl-lv i, .tb-legend i { position: relative; display: inline-block; width: 22px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.1); overflow: hidden; }
-.tl-lv i::after, .tb-legend i::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--main-color); box-shadow: 0 0 6px var(--main-color); }
-.tl-d i::after { width: 100%; } .tl-r i::after { width: 66%; } .tl-p i::after { width: 33%; opacity: .75; }
-
+  
 .tb-group[hidden] { display: none; }
 .tb-group h3 { display: flex; align-items: center; gap: .8rem; font-size: 1.8rem; color: #fff; margin-bottom: 1.2rem; }
 .tb-count { font-size: 1.15rem; font-weight: 600; color: var(--main-color); padding: .15rem .7rem; border-radius: 99px; border: 1px solid rgba(0,255,238,.4); }
@@ -4628,7 +3892,6 @@ body.nav-open { overflow: hidden; }
 .tl::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(160px circle at var(--mx) var(--my), rgba(0,255,238,.14), transparent 70%); opacity: 0; transition: opacity .3s; }
 .tl:hover { border-color: rgba(0,255,238,.5); box-shadow: 0 0 18px rgba(0,255,238,.14); transform: translateY(-2px); }
 .tl:hover::after { opacity: 1; }
-.tl-d { border-color: rgba(0,255,238,.22); }
 
 .tl-icon { grid-row: 1 / 3; width: 4.4rem; height: 4.4rem; border-radius: 1rem; display: grid; place-items: center; background: #0b1111; border: 1px solid rgba(0,255,238,.25); overflow: hidden; }
 .tl-icon img { width: 70%; height: 70%; object-fit: contain; filter: grayscale(1) brightness(1.6) drop-shadow(0 0 3px rgba(0,255,238,.5)); opacity: .85; transition: filter .3s, opacity .3s; }
@@ -4639,7 +3902,6 @@ body.nav-open { overflow: hidden; }
 .tl-note { font-size: 1.22rem; line-height: 1.4; color: #9fb0b0; }
 .tl-where { list-style: none; margin: .6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
 .tl-where li { font-size: 1.05rem; font-weight: 600; padding: .15rem .65rem; border-radius: 99px; color: #cfe9e7; background: rgba(0,255,238,.07); border: 1px solid rgba(0,255,238,.22); }
-.tl-lv { grid-column: 2; display: flex; align-items: center; gap: .6rem; font-size: 1.1rem; color: #7f8f8f; }
 
 @media (prefers-reduced-motion: no-preference) {
   .tb.armed .tl { opacity: 0; transform: translateY(18px); transition: opacity .55s ease var(--d, 0s), transform .6s cubic-bezier(.2,.8,.2,1) var(--d, 0s), border-color .25s, box-shadow .25s; }
@@ -4647,7 +3909,7 @@ body.nav-open { overflow: hidden; }
   .tb.armed .tl.in:hover { transform: translateY(-2px); transition-delay: 0s; }
 }
 @media (max-width: 980px) { .tb-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .tb-list { grid-template-columns: 1fr; } .tb-legend { flex-wrap: wrap; gap: 1rem; } }
+@media (max-width: 600px) { .tb-list { grid-template-columns: 1fr; }  }
 
 /* Tools v2.1 : logos en couleur sur pastille claire, sans niveaux */
 .tl { grid-template-rows: auto; align-items: start; }
@@ -4669,7 +3931,6 @@ body.nav-open { overflow: hidden; }
 .rf-traits { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .8rem; }
 .rf-traits li { font-size: 1.3rem; font-weight: 600; padding: .55rem 1.3rem; border-radius: 99px; color: #dff9f7; border: 1px solid rgba(0,255,238,.4); background: rgba(0,255,238,.06); box-shadow: 0 0 10px rgba(0,255,238,.12); }
 
-.rf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .rf-card {
   --mx: 50%; --my: 50%;
   position: relative; isolation: isolate; overflow: hidden; margin: 0;
@@ -4681,13 +3942,11 @@ body.nav-open { overflow: hidden; }
 .rf-card::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(260px circle at var(--mx) var(--my), rgba(0,255,238,.12), transparent 65%); opacity: 0; transition: opacity .3s; }
 .rf-card:hover { border-color: rgba(0,255,238,.4); box-shadow: 0 18px 40px rgba(0,0,0,.55), 0 0 22px rgba(0,255,238,.14); }
 .rf-card:hover::after { opacity: 1; }
-.rf-main { grid-column: 1 / -1; border-color: rgba(0,255,238,.35); padding: 3.2rem 3.4rem 2.6rem; }
 .rf-qmark { position: absolute; right: 2.2rem; top: -1.2rem; font-size: 14rem; line-height: 1; font-family: Georgia, serif; color: var(--main-color); opacity: .12; pointer-events: none; }
 
 .rf-card blockquote { margin: 0; padding: 0; font-style: normal; border: 0; }
 .rf-card blockquote::before { content: none; display: none; }
 .rf-card blockquote p { font-size: 1.5rem; line-height: 1.75; color: #c9d2d2; }
-.rf-main blockquote p { font-size: clamp(1.7rem, .6vw + 1.4rem, 2.05rem); line-height: 1.6; color: #e9f1f1; }
 
 /* phrases clés : le surligneur néon se trace à l'apparition */
 .rf-hl { color: #fff; background: linear-gradient(90deg, rgba(0,255,238,.28), rgba(0,255,238,.12)) no-repeat 0 88% / 100% .42em; padding: 0 .1em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size .9s cubic-bezier(.2,.8,.2,1) .35s; }
@@ -4712,8 +3971,7 @@ body.nav-open { overflow: hidden; }
   .rf.armed .rf-card.in .rf-hl { background-size: 100% .42em; }
 }
 @media (max-width: 760px) {
-  .rf-grid { grid-template-columns: 1fr; }
-  .rf-card, .rf-main { padding: 2rem 1.8rem 1.8rem; }
+    .rf-card { padding: 2rem 1.8rem 1.8rem; }
   .rf-qmark { font-size: 10rem; }
 }
 
@@ -5212,3 +4470,9 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 340px) {
   .map-stops { grid-template-columns: 1fr; }
 }
+
+/* icônes du hero en SVG (plus de police d'icônes à télécharger) */
+.social-icons .si-ic { width: 1em; height: 1em; fill: currentColor; display: block; }
+
+/* performance : animations en pause quand leur section est hors écran (classe posée par script.js) */
+.is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
